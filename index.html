@@ -47,11 +47,11 @@
 
         <h1 class="hero-title">
           Autonomous AI agents.<br>
-          <span>Engineered like FinTwin.</span>
+          <span>Built for all business operations.</span>
         </h1>
 
         <p class="hero-subtitle">
-          FinTwin is our flagship financial digital twin — combining deterministic ML models, live market telemetry, and orchestrator reasoning. This is how we build custom autonomous solutions for enterprise operations.
+          We engineer domain-specialized autonomous agents that eliminate manual toil across Finance, Legal, Defense, and Enterprise Operations — combining deterministic ML models, live operational telemetry, and grounded orchestrator reasoning.
         </p>
 
         <!-- Slice-Style Capsule Quick Access Input -->
@@ -63,43 +63,43 @@
           </button>
         </form>
 
-        <!-- FinTwin Flagship Interactive Showcase (Slice-Inspired Glassmorphic Depth) -->
+        <!-- Multi-Domain Autonomous Agent Showcase (Slice-Inspired Glassmorphic Depth) -->
         <div class="fintwin-showcase-container">
           <div class="fintwin-card">
-            <!-- Topbar: Ticker Switcher & Status -->
+            <!-- Topbar: Domain Switcher (Finance, Legal, Defense, Enterprise) -->
             <div class="fintwin-topbar">
               <div class="fintwin-badge-wrap">
-                <span class="fintwin-pill-tag">FLAGSHIP // FINTWIN-V2</span>
+                <span class="fintwin-pill-tag" id="domain-pill-tag">FINANCE // FINTWIN ENGINE</span>
                 <span class="fintwin-active-status">
                   <span class="status-pulse-dot"></span>
-                  <span>DIGITAL TWIN ACTIVE</span>
+                  <span id="domain-active-status">AGENT SWARM ACTIVE</span>
                 </span>
               </div>
-              <div class="fintwin-ticker-bar" id="ticker-selector-bar">
-                <button type="button" class="ticker-pill active" onclick="switchTicker('RELIANCE.NS')">RELIANCE.NS</button>
-                <button type="button" class="ticker-pill" onclick="switchTicker('TCS.NS')">TCS.NS</button>
-                <button type="button" class="ticker-pill" onclick="switchTicker('HDFCBANK.NS')">HDFCBANK.NS</button>
-                <button type="button" class="ticker-pill" onclick="switchTicker('INFY.NS')">INFY.NS</button>
+              <div class="fintwin-ticker-bar" id="domain-selector-bar">
+                <button type="button" class="ticker-pill active" onclick="switchDomain('finance')">Finance (FinTwin)</button>
+                <button type="button" class="ticker-pill" onclick="switchDomain('legal')">Legal (Contracts)</button>
+                <button type="button" class="ticker-pill" onclick="switchDomain('defense')">Defense & AML</button>
+                <button type="button" class="ticker-pill" onclick="switchDomain('enterprise')">Enterprise Swarms</button>
               </div>
             </div>
 
-            <!-- Ticker Telemetry Header -->
+            <!-- Domain Operational Meta -->
             <div class="fintwin-header-meta">
               <div>
-                <div class="fintwin-company-name" id="twin-company-name">Reliance Industries Ltd</div>
+                <div class="fintwin-company-name" id="domain-target-name">Reliance Industries Ltd &bull; Corporate Digital Twin</div>
                 <div class="fintwin-price-row">
-                  <span class="fintwin-price" id="twin-price">₹2,984.50</span>
-                  <span class="fintwin-change badge-up" id="twin-change">+1.84% (Today)</span>
-                  <span class="fintwin-regime-tag" id="twin-regime">Low Crash Risk</span>
+                  <span class="fintwin-price" id="domain-primary-metric">₹2,984.50</span>
+                  <span class="fintwin-change badge-up" id="domain-badge-metric">+1.84% (Today)</span>
+                  <span class="fintwin-regime-tag" id="domain-regime-tag">Low Crash Risk &bull; Stable Expansion</span>
                 </div>
               </div>
-              <div class="fintwin-news-pill" id="twin-news">
-                <span class="news-dot"></span>
-                <span id="twin-news-text">News Ingestion: Q3 refining margins surge 14% on strong export volume</span>
+              <div class="fintwin-news-pill" id="domain-telemetry-pill">
+                <span class="news-dot" id="domain-news-dot"></span>
+                <span id="domain-telemetry-text">Live Ingestion: Q3 refining margins surge 14% on strong export volume</span>
               </div>
             </div>
 
-            <!-- Sparkline Dynamic Visualization -->
+            <!-- Dynamic Graph Visualization -->
             <div class="fintwin-chart-area">
               <svg viewBox="0 0 700 120" class="twin-svg-chart" id="twin-chart-svg">
                 <defs>
@@ -112,79 +112,79 @@
                 <path id="twin-chart-line" d="M 0,90 Q 70,80 140,85 T 280,60 T 420,70 T 560,40 T 700,25" fill="none" stroke="#D8B4FE" stroke-width="3" stroke-linecap="round" />
               </svg>
               <div class="chart-timeline-labels">
-                <span>Historical 1Y Ingestion</span>
-                <span>Real-Time Feed</span>
-                <span class="predict-label">&rarr; Predictive Twin Projection</span>
+                <span id="chart-lbl-left">Continuous Ingestion</span>
+                <span id="chart-lbl-mid">Deterministic Verification</span>
+                <span class="predict-label" id="chart-lbl-right">&rarr; Autonomous Operational Trajectory</span>
               </div>
             </div>
 
-            <!-- FinTwin Multi-Model Ensemble Diagnostic Grid -->
-            <div class="fintwin-models-grid" id="fintwin-models-grid">
+            <!-- Multi-Model Diagnostic Grid (Adapts to Active Domain) -->
+            <div class="fintwin-models-grid" id="domain-models-grid">
               <div class="model-box">
                 <div class="model-box-top">
-                  <span class="model-key">CRASH_ISO</span>
-                  <span class="model-name">Isolation Forest</span>
+                  <span class="model-key" id="key-model-1">CRASH_ISO</span>
+                  <span class="model-name" id="name-model-1">Isolation Forest</span>
                 </div>
-                <div class="model-stat" id="stat-crash-iso">Score: 0.08</div>
-                <div class="model-status status-ok" id="status-crash-iso">Status: Normal / Resilient</div>
+                <div class="model-stat" id="stat-model-1">Score: 0.08</div>
+                <div class="model-status status-ok" id="status-model-1">Status: Normal / Resilient</div>
               </div>
 
               <div class="model-box">
                 <div class="model-box-top">
-                  <span class="model-key">CRASH_RF</span>
-                  <span class="model-name">RF Crisis Classifier</span>
+                  <span class="model-key" id="key-model-2">CRASH_RF</span>
+                  <span class="model-name" id="name-model-2">RF Crisis Classifier</span>
                 </div>
-                <div class="model-stat" id="stat-crash-rf">P(Crisis): 1.8%</div>
-                <div class="model-status status-ok" id="status-crash-rf">Regime: Expansion</div>
+                <div class="model-stat" id="stat-model-2">P(Crisis): 1.8%</div>
+                <div class="model-status status-ok" id="status-model-2">Regime: Expansion</div>
               </div>
 
               <div class="model-box">
                 <div class="model-box-top">
-                  <span class="model-key">SAVINGS_XGB</span>
-                  <span class="model-name">XGBoost Runway</span>
+                  <span class="model-key" id="key-model-3">SAVINGS_XGB</span>
+                  <span class="model-name" id="name-model-3">XGBoost Runway</span>
                 </div>
-                <div class="model-stat" id="stat-savings-xgb">Runway: +18.4 mo</div>
-                <div class="model-status status-ok" id="status-savings-xgb">Net Trajectory: +14.2% YoY</div>
+                <div class="model-stat" id="stat-model-3">Runway: +18.4 mo</div>
+                <div class="model-status status-ok" id="status-model-3">Net Trajectory: +14.2% YoY</div>
               </div>
 
               <div class="model-box">
                 <div class="model-box-top">
-                  <span class="model-key">LOAN_LGBM</span>
-                  <span class="model-name">LightGBM Solvency</span>
+                  <span class="model-key" id="key-model-4">LOAN_LGBM</span>
+                  <span class="model-name" id="name-model-4">LightGBM Solvency</span>
                 </div>
-                <div class="model-stat" id="stat-loan-lgbm">Default Risk: 0.38%</div>
-                <div class="model-status status-ok" id="status-loan-lgbm">Rating: AAA Prime</div>
+                <div class="model-stat" id="stat-model-4">Default Risk: 0.38%</div>
+                <div class="model-status status-ok" id="status-model-4">Rating: AAA Prime</div>
               </div>
             </div>
 
-            <!-- Gemini Orchestrator Synthesis Box -->
+            <!-- Grounded Orchestrator Synthesis Box -->
             <div class="fintwin-orchestrator-box">
               <div class="orch-header">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D8B4FE" stroke-width="2.5">
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                 </svg>
-                <span>FinTwin Orchestrator Synthesis (Gemini Engine)</span>
+                <span id="domain-orch-title">FinTwin Orchestrator Synthesis (Gemini Engine)</span>
               </div>
-              <p class="orch-text" id="twin-orch-text">
+              <p class="orch-text" id="domain-orch-text">
                 "Model ensemble confirms 98.6% solvency stability across live order books. Real-time news sentiment corroborates +14% refining export margin expansion. Dynamic runway model verifies capacity for ₹1,200 Cr capex deployment without debt ceiling breach."
               </p>
             </div>
 
-            <!-- Twin Interactive Controls -->
+            <!-- Interactive Domain Controls -->
             <div class="fintwin-actions-bar">
               <div class="actions-group">
-                <button type="button" class="twin-action-btn primary" id="btn-stress-sim" onclick="runStressSimulation()">
+                <button type="button" class="twin-action-btn primary" id="btn-domain-stress" onclick="runDomainStressSimulation()">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                  <span>Simulate Market Shock</span>
+                  <span id="btn-stress-text">Simulate Market Shock</span>
                 </button>
-                <button type="button" class="twin-action-btn secondary" id="btn-composite" onclick="runCompositeInference()">
+                <button type="button" class="twin-action-btn secondary" id="btn-domain-action" onclick="runDomainCompositeInference()">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-                  <span>Run Composite Inference</span>
+                  <span id="btn-action-text">Run Composite Inference</span>
                 </button>
               </div>
               <div class="twin-meta-metrics">
                 <span>Deterministic SLA: <strong>99.4%</strong></span>
-                <span>Latency: <strong>38ms P99</strong></span>
+                <span>Execution Latency: <strong>38ms P99</strong></span>
               </div>
             </div>
           </div>
@@ -293,10 +293,10 @@
     <section class="section" id="how-it-works" style="padding-top: 40px;">
       <div class="container">
         <div class="section-head">
-          <div class="section-tag">THE FINTWIN PARADIGM</div>
+          <div class="section-tag">THE OVERBREWED AGENT BLUEPRINT</div>
           <h2 class="section-title">How we provide solutions.</h2>
           <p class="section-desc">
-            Like FinTwin, every autonomous agent we build follows a 4-layer deterministic architecture — combining real-time telemetry, machine learning ensembles, and orchestrator reasoning.
+            Every autonomous agent we engineer follows a battle-tested 4-layer architecture — combining real-time operational telemetry, domain-specific machine learning ensembles, and grounded orchestrator reasoning.
           </p>
         </div>
 

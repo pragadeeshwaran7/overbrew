@@ -1,117 +1,205 @@
 /**
  * Overbrewed — Autonomous AI Agent Studio
- * Flagship Agent: FinTwin (Autonomous Financial Digital Twin)
- * Interactive Controller
+ * Multi-Domain Autonomous Agent Operations Controller
+ * (Finance // FinTwin, Legal // Legal-Clarity, Defense // AML, Enterprise // Swarms)
  */
 
-// FinTwin Real-Time Ticker & Model Ensemble Knowledge State
-const FINTWIN_DATA = {
-  'RELIANCE.NS': {
-    company: 'Reliance Industries Ltd',
-    price: '₹2,984.50',
-    change: '+1.84% (Today)',
+const DOMAIN_DATA = {
+  finance: {
+    tag: 'FINANCE // FINTWIN ENGINE',
+    status: 'AGENT SWARM ACTIVE',
+    target: 'Reliance Industries Ltd • Corporate Digital Twin',
+    metric: '₹2,984.50',
+    badge: '+1.84% (Today)',
     isUp: true,
-    regime: 'Low Crash Risk',
-    news: 'News Ingestion: Q3 refining margins surge 14% on strong export volume',
-    models: {
-      crashIso: { stat: 'Score: 0.08', status: 'Status: Normal / Resilient', cls: 'status-ok' },
-      crashRf: { stat: 'P(Crisis): 1.8%', status: 'Regime: Expansion', cls: 'status-ok' },
-      savingsXgb: { stat: 'Runway: +18.4 mo', status: 'Net Trajectory: +14.2% YoY', cls: 'status-ok' },
-      loanLgbm: { stat: 'Default Risk: 0.38%', status: 'Rating: AAA Prime', cls: 'status-ok' }
-    },
-    orch: '"Model ensemble confirms 98.6% solvency stability across live order books. Real-time news sentiment corroborates +14% refining export margin expansion. Dynamic runway model verifies capacity for ₹1,200 Cr capex deployment without debt ceiling breach."',
+    regime: 'Low Crash Risk • Stable Expansion',
+    telemetry: 'Live Ingestion: Q3 refining margins surge 14% on strong export volume',
     chartArea: 'M 0,90 Q 70,80 140,85 T 280,60 T 420,70 T 560,40 T 700,25 L 700,120 L 0,120 Z',
-    chartLine: 'M 0,90 Q 70,80 140,85 T 280,60 T 420,70 T 560,40 T 700,25'
+    chartLine: 'M 0,90 Q 70,80 140,85 T 280,60 T 420,70 T 560,40 T 700,25',
+    lblLeft: 'Continuous Ingestion',
+    lblMid: 'Deterministic Verification',
+    lblRight: '→ Autonomous Operational Trajectory',
+    models: [
+      { key: 'CRASH_ISO', name: 'Isolation Forest', stat: 'Score: 0.08', status: 'Status: Normal / Resilient', cls: 'status-ok' },
+      { key: 'CRASH_RF', name: 'RF Crisis Classifier', stat: 'P(Crisis): 1.8%', status: 'Regime: Expansion', cls: 'status-ok' },
+      { key: 'SAVINGS_XGB', name: 'XGBoost Runway', stat: 'Runway: +18.4 mo', status: 'Net Trajectory: +14.2% YoY', cls: 'status-ok' },
+      { key: 'LOAN_LGBM', name: 'LightGBM Solvency', stat: 'Default Risk: 0.38%', status: 'Rating: AAA Prime', cls: 'status-ok' }
+    ],
+    orchTitle: 'FinTwin Orchestrator Synthesis (Gemini Engine)',
+    orchText: '"Model ensemble confirms 98.6% solvency stability across live order books. Real-time news sentiment corroborates +14% refining export margin expansion. Dynamic runway model verifies capacity for ₹1,200 Cr capex deployment without debt ceiling breach."',
+    btnStress: 'Simulate Market Shock',
+    btnAction: 'Run Composite Inference',
+    stressOutput: {
+      metric: '₹2,763.60 (-7.4%)',
+      badge: '-7.40% (Shock Simulation)',
+      isUp: false,
+      models: [
+        { stat: 'Score: 0.46 (Spike)', status: 'Status: Anomaly Detected', cls: 'status-stress' },
+        { stat: 'P(Crisis): 16.8%', status: 'Regime: High Volatility', cls: 'status-warn' },
+        { stat: 'Runway: 11.2 mo', status: 'Trajectory: Defensive Buffer', cls: 'status-warn' },
+        { stat: 'Default Risk: 1.84%', status: 'Rating: AA+ Resilient', cls: 'status-ok' }
+      ],
+      orchText: '"STRESS SHOCK SIMULATION: -7.4% sector contraction injected. FinTwin autonomous safety layer dynamically locks non-essential vendor outlays, hedges currency exposure, and re-allocates reserves to preserve an 11.2-month runway without solvency impairment."'
+    }
   },
-  'TCS.NS': {
-    company: 'Tata Consultancy Services Ltd',
-    price: '₹4,192.10',
-    change: '+0.92% (Today)',
-    isUp: true,
-    regime: 'Cashflow Fortress',
-    news: 'News Ingestion: €1.2B multi-year enterprise digital twin deal secured in Europe',
-    models: {
-      crashIso: { stat: 'Score: 0.04', status: 'Status: Zero Anomaly Drift', cls: 'status-ok' },
-      crashRf: { stat: 'P(Crisis): 0.9%', status: 'Regime: Secular Growth', cls: 'status-ok' },
-      savingsXgb: { stat: 'Runway: +36.0 mo', status: 'Net Trajectory: +18.9% Margin', cls: 'status-ok' },
-      loanLgbm: { stat: 'Default Risk: 0.12%', status: 'Rating: AAA Sovereign', cls: 'status-ok' }
-    },
-    orch: '"FinTwin Orchestrator: Zero counterparty or debt default risk. Operating margins at 26.2% provide extreme downside buffer. Unsupervised Isolation Forest indicates lowest anomaly dispersion in Nifty 50."',
-    chartArea: 'M 0,95 Q 70,90 140,80 T 280,70 T 420,50 T 560,35 T 700,18 L 700,120 L 0,120 Z',
-    chartLine: 'M 0,95 Q 70,90 140,80 T 280,70 T 420,50 T 560,35 T 700,18'
-  },
-  'HDFCBANK.NS': {
-    company: 'HDFC Bank Ltd',
-    price: '₹1,748.30',
-    change: '+1.22% (Today)',
-    isUp: true,
-    regime: 'Credit Stable',
-    news: 'News Ingestion: Gross NPA improves 12 bps to 1.24%; deposit growth outpaces sector',
-    models: {
-      crashIso: { stat: 'Score: 0.11', status: 'Status: Normal Liquidity', cls: 'status-ok' },
-      crashRf: { stat: 'P(Crisis): 2.6%', status: 'Regime: Credit Neutral', cls: 'status-ok' },
-      savingsXgb: { stat: 'Runway: +24.0 mo', status: 'Net Trajectory: +11.8% RoE', cls: 'status-ok' },
-      loanLgbm: { stat: 'Default Risk: 0.65%', status: 'Rating: AAA Prime Tier-1', cls: 'status-ok' }
-    },
-    orch: '"FinTwin Orchestrator: CASA ratio expansion verifies systemic deposit stickiness. LightGBM loan classifier detects no aggregate credit stress across retail loan books. Twin stress model comfortably withstands a 75 bps interest rate shock."',
-    chartArea: 'M 0,85 Q 70,88 140,75 T 280,78 T 420,60 T 560,45 T 700,32 L 700,120 L 0,120 Z',
-    chartLine: 'M 0,85 Q 70,88 140,75 T 280,78 T 420,60 T 560,45 T 700,32'
-  },
-  'INFY.NS': {
-    company: 'Infosys Ltd',
-    price: '₹1,885.60',
-    change: '-0.45% (Today)',
+
+  legal: {
+    tag: 'LEGAL // LEGAL-CLARITY-AI',
+    status: 'CLAUSE AUDIT ENGINE ACTIVE',
+    target: '52-Page Master Services Agreement (MSA) • Global Cloud Vendor',
+    metric: '4 Traps Flagged',
+    badge: 'High Risk (Indemnity)',
     isUp: false,
-    regime: 'Transient Volatility',
-    news: 'News Ingestion: Q2 revenue guidance updated; cloud modernization pipelines active',
-    models: {
-      crashIso: { stat: 'Score: 0.16', status: 'Status: Mild Divergence', cls: 'status-warn' },
-      crashRf: { stat: 'P(Crisis): 3.4%', status: 'Regime: Consolidation', cls: 'status-ok' },
-      savingsXgb: { stat: 'Runway: +28.5 mo', status: 'Net Trajectory: +10.4% YoY', cls: 'status-ok' },
-      loanLgbm: { stat: 'Default Risk: 0.28%', status: 'Rating: AAA Strong', cls: 'status-ok' }
-    },
-    orch: '"FinTwin Orchestrator: Minor intraday profit booking detected. XGBoost cash runway remains exceptionally robust at 28.5 months. Crisis probability stays firmly below 5% threshold; zero structural balance-sheet hazard."',
-    chartArea: 'M 0,65 Q 70,55 140,70 T 280,82 T 420,68 T 560,75 T 700,60 L 700,120 L 0,120 Z',
-    chartLine: 'M 0,65 Q 70,55 140,70 T 280,82 T 420,68 T 560,75 T 700,60'
+    regime: 'DPDP Act 2023 • Redline Required',
+    telemetry: 'Document Intake: 48 clauses parsed & cross-referenced against precedent DB',
+    chartArea: 'M 0,40 Q 70,85 140,45 T 280,95 T 420,50 T 560,85 T 700,45 L 700,120 L 0,120 Z',
+    chartLine: 'M 0,40 Q 70,85 140,45 T 280,95 T 420,50 T 560,85 T 700,45',
+    lblLeft: 'Clause Ingestion (52 pgs)',
+    lblMid: 'Trap Isolation (2.4s)',
+    lblRight: '→ Auto-Redline Generation',
+    models: [
+      { key: 'INDEMNITY_RISK', name: 'Perpetual Trap Detector', stat: 'Hazard: High (Sec 12.3)', status: 'Indemnity Uncapped', cls: 'status-warn' },
+      { key: 'LIABILITY_CAP', name: 'Mutual Cap Assessor', stat: 'Consequential: Unilateral', status: 'Severe Exposure', cls: 'status-stress' },
+      { key: 'DPDP_2023', name: 'India Privacy Rule', stat: 'Cross-Border Flow: Non-Compliant', status: 'Remedy Required', cls: 'status-warn' },
+      { key: 'IP_REVERSION', name: 'IP Ownership Sentry', stat: 'Works For Hire: Ambiguous', status: 'Carveout Added', cls: 'status-ok' }
+    ],
+    orchTitle: 'Legal-Clarity Orchestrator Synthesis',
+    orchText: '"Legal-Clarity Engine: Section 12.3 contains an asymmetric indemnity covenant exposing the enterprise to uncapped third-party consequential damages. Agent has auto-drafted mutual aggregate liability cap (12 months contract value) and generated DPDP compliant data transfer addendum."',
+    btnStress: 'Simulate Uncapped Claim',
+    btnAction: 'Auto-Generate Redlines',
+    stressOutput: {
+      metric: '₹42.8 Cr Exposure',
+      badge: 'Breach Liability (Worst Case)',
+      isUp: false,
+      models: [
+        { stat: 'Hazard: Extreme', status: 'Status: Action Mandated', cls: 'status-stress' },
+        { stat: 'Consequential: Uncapped', status: 'Regime: Fatal Term', cls: 'status-stress' },
+        { stat: 'Statutory Fine: ₹250 Cr', status: 'DPDP Penalty Risk', cls: 'status-stress' },
+        { stat: 'Workaround: Generated', status: 'Standardized Addendum', cls: 'status-ok' }
+      ],
+      orchText: '"STRESS CLAIM SIMULATED: In a breach scenario without mutual caps, enterprise faces ₹42.8 Cr unbounded liability plus statutory DPDP non-compliance exposure. Automated redline package eliminates 100% of unilateral indemnity risk."'
+    }
+  },
+
+  defense: {
+    tag: 'DEFENSE // AML GRAPH ENGINE',
+    status: 'SUB-50ms DEFENSE ONLINE',
+    target: 'Real-Time Checkout & Payment Gateway • 14 Processing Switches',
+    metric: '38ms Latency',
+    badge: 'Auto-Blocked (Mule)',
+    isUp: true,
+    regime: 'Graph Traversal • Velocity Spike',
+    telemetry: 'Velocity Ingestion: 42 tx/min burst detected across 3 synthetic accounts',
+    chartArea: 'M 0,95 Q 70,90 140,92 T 280,30 T 420,95 T 560,90 T 700,95 L 700,120 L 0,120 Z',
+    chartLine: 'M 0,95 Q 70,90 140,92 T 280,30 T 420,95 T 560,90 T 700,95',
+    lblLeft: 'Webhook Intake',
+    lblMid: 'Collusion Graph (18ms)',
+    lblRight: '→ Pre-Auth Block (38ms)',
+    models: [
+      { key: 'MULE_GRAPH', name: 'Graph Traversal Engine', stat: '3 Coordinated Rings', status: 'Blocked At Pre-Auth', cls: 'status-stress' },
+      { key: 'VELOCITY_XGB', name: 'Transaction Velocity', stat: 'Velocity: 42 tx/min', status: 'Abnormal Anomaly', cls: 'status-warn' },
+      { key: 'SYNTHETIC_ID', name: 'Identity Collusion', stat: 'Device Fingerprint: Cloned', status: 'Token Revoked', cls: 'status-ok' },
+      { key: 'SAR_FILING', name: 'Regulatory Auto-Draft', stat: 'Suspicious Report: Ready', status: 'Compliant FIU-IND', cls: 'status-ok' }
+    ],
+    orchTitle: 'Defense Swarm Orchestrator Synthesis',
+    orchText: '"Defense Engine: Sub-50ms graph traversal isolated 3 coordinated mule accounts cycling high-frequency UPI transactions across 14 payment switches. Terminated session before ledger capture, revoked credentials, and pre-compiled Suspicious Activity Report (SAR) with complete SHAP audit trail."',
+    btnStress: 'Simulate Botnet Surge',
+    btnAction: 'Deploy Pre-Auth Defense',
+    stressOutput: {
+      metric: '1,280 tx/sec Surge',
+      badge: 'DDoS / Smurfing Wave',
+      isUp: false,
+      models: [
+        { stat: '14 Sub-graphs Flagged', status: 'Isolation Activated', cls: 'status-stress' },
+        { stat: 'Burst: 1,280 tx/sec', status: 'Adaptive Rate-Limit', cls: 'status-stress' },
+        { stat: 'False Positive: 0.02%', status: 'Precision Locked', cls: 'status-ok' },
+        { stat: 'Auto-Report: Dispatched', status: 'FIU-IND Telemetry', cls: 'status-ok' }
+      ],
+      orchText: '"SURGE ATTACK SIMULATION: 1,280 tx/sec smurfing attack simulated across payment gateways. Deterministic sub-50ms filters absorbed the spike, blocked 412 fraudulent attempts with 0.02% false-positive rate, maintaining 100% gateway uptime."'
+    }
+  },
+
+  enterprise: {
+    tag: 'ENTERPRISE // OPERATIONAL SWARM',
+    status: 'MULTI-VPC ENCLAVE RUNNING',
+    target: 'Global Supply Chain & ERP Sync • NetSuite + Zoho + SAP',
+    metric: '100% GAAP',
+    badge: '₹0.00 Discrepancy',
+    isUp: true,
+    regime: '1,420 Manifests • Auto-Matched',
+    telemetry: 'ERP Feeds: Continuous PO matching across 4 subsidiaries on private VPC',
+    chartArea: 'M 0,80 Q 70,70 140,65 T 280,45 T 420,35 T 560,25 T 700,15 L 700,120 L 0,120 Z',
+    chartLine: 'M 0,80 Q 70,70 140,65 T 280,45 T 420,35 T 560,25 T 700,15',
+    lblLeft: 'Multi-Entity ERP Intake',
+    lblMid: '3-Way PO Reconciliation',
+    lblRight: '→ Continuous Zero-Defect Ledger',
+    models: [
+      { key: 'PO_MATCHER', name: '3-Way PO Reconciler', stat: '38 Invoices Matched', status: 'GAAP Precision: 100%', cls: 'status-ok' },
+      { key: 'SUPPLY_RISK', name: 'Lead Time Predictor', stat: 'Port Congestion: +2.1d', status: 'Buffer Adequate', cls: 'status-ok' },
+      { key: 'GST_RECON', name: 'Tax Credit Auditor', stat: 'GSTR-2B Mismatch: 0%', status: 'Fully Reconciled', cls: 'status-ok' },
+      { key: 'ENCLAVE_SYNC', name: 'Private VPC Security', stat: 'Data Retention: 0 Bytes', status: 'Enclave Verified', cls: 'status-ok' }
+    ],
+    orchTitle: 'Enterprise Swarm Orchestrator Synthesis',
+    orchText: '"Operational Swarm: Automated 3-way matching reconciled ₹18.4 Cr in vendor disbursements across NetSuite and Zoho Books with ₹0.00 discrepancy. Port transit delay of 2.1 days detected in Nhava Sheva; autonomous scheduler dispatched purchase order re-balancing to secondary supplier."',
+    btnStress: 'Simulate Invoice Mismatch',
+    btnAction: 'Reconcile Enterprise Ledgers',
+    stressOutput: {
+      metric: '₹2.4 Cr Discrepancy',
+      badge: 'Ghost Invoice Flagged',
+      isUp: false,
+      models: [
+        { stat: 'Unit Rate Mismatch: 14%', status: 'Vendor Hold Applied', cls: 'status-stress' },
+        { stat: 'Port Delay: +7.4d', status: 'Buffer Exceeded', cls: 'status-warn' },
+        { stat: 'GSTR-2B: Disputed', status: 'Credit Clawback Halted', cls: 'status-stress' },
+        { stat: 'Audit Proof: Sealed', status: 'Receipt Cryptographic', cls: 'status-ok' }
+      ],
+      orchText: '"DISCREPANCY SIMULATED: A ₹2.4 Cr supplier invoice with 14% rate divergence was detected before ERP posting. Swarm auto-quarantined the invoice, halted approval, and dispatched an automated discrepancy inquiry to the vendor."'
+    }
   }
 };
 
-let currentTicker = 'RELIANCE.NS';
+let activeDomain = 'finance';
 let isStressActive = false;
 
-// Ticker Switching
-function switchTicker(tickerKey) {
-  if (!FINTWIN_DATA[tickerKey]) return;
-  currentTicker = tickerKey;
+function switchDomain(domainKey) {
+  if (!DOMAIN_DATA[domainKey]) return;
+  activeDomain = domainKey;
   isStressActive = false;
 
   // Update Buttons
-  const buttons = document.querySelectorAll('.ticker-pill');
+  const buttons = document.querySelectorAll('#domain-selector-bar .ticker-pill');
   buttons.forEach(btn => {
-    if (btn.textContent.trim() === tickerKey) {
+    const fn = btn.getAttribute('onclick') || '';
+    if (fn.includes(domainKey)) {
       btn.classList.add('active');
     } else {
       btn.classList.remove('active');
     }
   });
 
-  const data = FINTWIN_DATA[tickerKey];
+  const data = DOMAIN_DATA[domainKey];
 
-  // Update Headers
-  const compEl = document.getElementById('twin-company-name');
-  const priceEl = document.getElementById('twin-price');
-  const changeEl = document.getElementById('twin-change');
-  const regimeEl = document.getElementById('twin-regime');
-  const newsEl = document.getElementById('twin-news-text');
+  // Update Topbar
+  const tagEl = document.getElementById('domain-pill-tag');
+  const statusEl = document.getElementById('domain-active-status');
+  if (tagEl) tagEl.textContent = data.tag;
+  if (statusEl) statusEl.textContent = data.status;
 
-  if (compEl) compEl.textContent = data.company;
-  if (priceEl) priceEl.textContent = data.price;
-  if (changeEl) {
-    changeEl.textContent = data.change;
-    changeEl.className = `fintwin-change ${data.isUp ? 'badge-up' : 'badge-down'}`;
+  // Update Meta
+  const targetEl = document.getElementById('domain-target-name');
+  const metricEl = document.getElementById('domain-primary-metric');
+  const badgeEl = document.getElementById('domain-badge-metric');
+  const regimeEl = document.getElementById('domain-regime-tag');
+  const teleEl = document.getElementById('domain-telemetry-text');
+
+  if (targetEl) targetEl.innerHTML = data.target;
+  if (metricEl) metricEl.textContent = data.metric;
+  if (badgeEl) {
+    badgeEl.textContent = data.badge;
+    badgeEl.className = `fintwin-change ${data.isUp ? 'badge-up' : 'badge-down'}`;
   }
-  if (regimeEl) regimeEl.textContent = data.regime;
-  if (newsEl) newsEl.textContent = data.news;
+  if (regimeEl) regimeEl.innerHTML = data.regime;
+  if (teleEl) teleEl.textContent = data.telemetry;
 
   // Update Chart
   const areaPath = document.getElementById('twin-chart-area');
@@ -119,123 +207,111 @@ function switchTicker(tickerKey) {
   if (areaPath) areaPath.setAttribute('d', data.chartArea);
   if (linePath) linePath.setAttribute('d', data.chartLine);
 
-  // Update Model Boxes
-  updateModelBox('stat-crash-iso', 'status-crash-iso', data.models.crashIso);
-  updateModelBox('stat-crash-rf', 'status-crash-rf', data.models.crashRf);
-  updateModelBox('stat-savings-xgb', 'status-savings-xgb', data.models.savingsXgb);
-  updateModelBox('stat-loan-lgbm', 'status-loan-lgbm', data.models.loanLgbm);
+  const lblLeft = document.getElementById('chart-lbl-left');
+  const lblMid = document.getElementById('chart-lbl-mid');
+  const lblRight = document.getElementById('chart-lbl-right');
+  if (lblLeft) lblLeft.textContent = data.lblLeft;
+  if (lblMid) lblMid.textContent = data.lblMid;
+  if (lblRight) lblRight.textContent = data.lblRight;
 
-  // Remove stress classes
+  // Update Model Boxes
+  data.models.forEach((m, idx) => {
+    const num = idx + 1;
+    const keyEl = document.getElementById(`key-model-${num}`);
+    const nameEl = document.getElementById(`name-model-${num}`);
+    const statEl = document.getElementById(`stat-model-${num}`);
+    const statusBoxEl = document.getElementById(`status-model-${num}`);
+
+    if (keyEl) keyEl.textContent = m.key;
+    if (nameEl) nameEl.textContent = m.name;
+    if (statEl) statEl.textContent = m.stat;
+    if (statusBoxEl) {
+      statusBoxEl.textContent = m.status;
+      statusBoxEl.className = `model-status ${m.cls}`;
+    }
+  });
+
+  // Remove stress styling
   document.querySelectorAll('.model-box').forEach(b => b.classList.remove('stress-active'));
 
-  // Update Orchestrator Text
-  const orchEl = document.getElementById('twin-orch-text');
-  if (orchEl) orchEl.textContent = data.orch;
+  // Update Orchestrator Box
+  const orchTitle = document.getElementById('domain-orch-title');
+  const orchText = document.getElementById('domain-orch-text');
+  if (orchTitle) orchTitle.textContent = data.orchTitle;
+  if (orchText) orchText.textContent = data.orchText;
+
+  // Update Button Labels
+  const btnStressText = document.getElementById('btn-stress-text');
+  const btnActionText = document.getElementById('btn-action-text');
+  if (btnStressText) btnStressText.textContent = data.btnStress;
+  if (btnActionText) btnActionText.textContent = data.btnAction;
 }
 
-function updateModelBox(statId, statusId, modelData) {
-  const statEl = document.getElementById(statId);
-  const statusEl = document.getElementById(statusId);
-  if (statEl) statEl.textContent = modelData.stat;
-  if (statusEl) {
-    statusEl.textContent = modelData.status;
-    statusEl.className = `model-status ${modelData.cls}`;
-  }
-}
-
-// Interactive Simulation: Simulate Market Shock
-function runStressSimulation() {
-  const btn = document.getElementById('btn-stress-sim');
+// Interactive Simulation: Stress Test
+function runDomainStressSimulation() {
+  const btn = document.getElementById('btn-domain-stress');
+  const btnStressText = document.getElementById('btn-stress-text');
   const boxes = document.querySelectorAll('.model-box');
-  const orchEl = document.getElementById('twin-orch-text');
-  const priceEl = document.getElementById('twin-price');
-  const changeEl = document.getElementById('twin-change');
+  const metricEl = document.getElementById('domain-primary-metric');
+  const badgeEl = document.getElementById('domain-badge-metric');
+  const orchText = document.getElementById('domain-orch-text');
+  const data = DOMAIN_DATA[activeDomain];
 
   if (!isStressActive) {
     isStressActive = true;
-    if (btn) btn.innerHTML = `<span>Reset Simulation</span>`;
+    if (btnStressText) btnStressText.textContent = 'Reset Simulation';
 
-    // Visual Stress Feedback
     boxes.forEach(b => b.classList.add('stress-active'));
 
-    if (priceEl) priceEl.textContent = '₹2,763.60 (-7.4%)';
-    if (changeEl) {
-      changeEl.textContent = '-7.40% (Shock Simulation)';
-      changeEl.className = 'fintwin-change badge-down';
+    const s = data.stressOutput;
+    if (metricEl) metricEl.textContent = s.metric;
+    if (badgeEl) {
+      badgeEl.textContent = s.badge;
+      badgeEl.className = 'fintwin-change badge-down';
     }
 
-    // Update Model Stress Outputs
-    const statCrashIso = document.getElementById('stat-crash-iso');
-    const statusCrashIso = document.getElementById('status-crash-iso');
-    if (statCrashIso) statCrashIso.textContent = 'Score: 0.46 (Spike)';
-    if (statusCrashIso) {
-      statusCrashIso.textContent = 'Status: Anomaly Detected';
-      statusCrashIso.className = 'model-status status-stress';
-    }
+    s.models.forEach((m, idx) => {
+      const num = idx + 1;
+      const statEl = document.getElementById(`stat-model-${num}`);
+      const statusBoxEl = document.getElementById(`status-model-${num}`);
+      if (statEl) statEl.textContent = m.stat;
+      if (statusBoxEl) {
+        statusBoxEl.textContent = m.status;
+        statusBoxEl.className = `model-status ${m.cls}`;
+      }
+    });
 
-    const statCrashRf = document.getElementById('stat-crash-rf');
-    const statusCrashRf = document.getElementById('status-crash-rf');
-    if (statCrashRf) statCrashRf.textContent = 'P(Crisis): 16.8%';
-    if (statusCrashRf) {
-      statusCrashRf.textContent = 'Regime: High Volatility';
-      statusCrashRf.className = 'model-status status-warn';
-    }
-
-    const statSavingsXgb = document.getElementById('stat-savings-xgb');
-    const statusSavingsXgb = document.getElementById('status-savings-xgb');
-    if (statSavingsXgb) statSavingsXgb.textContent = 'Runway: 11.2 mo';
-    if (statusSavingsXgb) {
-      statusSavingsXgb.textContent = 'Trajectory: Defensive Buffer';
-      statusSavingsXgb.className = 'model-status status-warn';
-    }
-
-    const statLoanLgbm = document.getElementById('stat-loan-lgbm');
-    const statusLoanLgbm = document.getElementById('status-loan-lgbm');
-    if (statLoanLgbm) statLoanLgbm.textContent = 'Default Risk: 1.84%';
-    if (statusLoanLgbm) {
-      statusLoanLgbm.textContent = 'Rating: AA+ Resilient';
-      statusLoanLgbm.className = 'model-status status-ok';
-    }
-
-    // Orchestrator Response
-    if (orchEl) {
-      orchEl.textContent = '"STRESS SHOCK SIMULATION: -7.4% sector contraction injected. FinTwin autonomous safety layer dynamically locks non-essential vendor outlays, hedges currency exposure, and re-allocates reserves to preserve an 11.2-month runway without solvency impairment."';
-    }
+    if (orchText) orchText.textContent = s.orchText;
   } else {
-    // Reset to normal state
-    if (btn) {
-      btn.innerHTML = `
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-        <span>Simulate Market Shock</span>
-      `;
-    }
-    switchTicker(currentTicker);
+    switchDomain(activeDomain);
   }
 }
 
-// Interactive Simulation: Run Composite Inference
-function runCompositeInference() {
-  const btn = document.getElementById('btn-composite');
-  const orchEl = document.getElementById('twin-orch-text');
-  if (!btn) return;
+// Interactive Simulation: Action / Composite Inference
+function runDomainCompositeInference() {
+  const btn = document.getElementById('btn-domain-action');
+  const btnText = document.getElementById('btn-action-text');
+  const orchText = document.getElementById('domain-orch-text');
+  const data = DOMAIN_DATA[activeDomain];
+  if (!btn || !btnText) return;
 
-  const originalContent = btn.innerHTML;
-  btn.innerHTML = `<span>Computing Composite Inference...</span>`;
+  const originalText = btnText.textContent;
+  btnText.textContent = 'Executing Autonomous Verification...';
   btn.disabled = true;
 
   setTimeout(() => {
-    btn.innerHTML = `<span>✓ Composite Inferred (38ms)</span>`;
-    if (orchEl) {
-      orchEl.textContent = `"COMPOSITE INFERENCE COMPLETE: Concurrently evaluated Isolation Forest, LightGBM, and XGBoost pipelines in 38ms. Correlation matrix confirms 0.994 deterministic agreement with live market order book."`;
+    btnText.textContent = '✓ Verified & Executed (38ms)';
+    if (orchText) {
+      orchText.textContent = `"EXECUTION CONFIRMED: Autonomous pipeline executed in 38ms with 100% cryptographic ledger audit trail. Zero compliance violations or unauthorized anomalies detected."`;
     }
     setTimeout(() => {
-      btn.innerHTML = originalContent;
+      btnText.textContent = originalText;
       btn.disabled = false;
     }, 2800);
-  }, 650);
+  }, 600);
 }
 
-// Quick Access Capsule Form (Hero Section)
+// Quick Access Capsule Form
 function handleQuickAccess(e) {
   e.preventDefault();
   const emailInput = document.getElementById('quick-email');
@@ -244,7 +320,6 @@ function handleQuickAccess(e) {
   const email = emailInput.value.trim();
   if (!email) return;
 
-  // Pre-fill full form in access section and scroll down smoothly
   const targetInput = document.getElementById('acc-email');
   if (targetInput) targetInput.value = email;
 
@@ -254,7 +329,7 @@ function handleQuickAccess(e) {
   }
 }
 
-// Full Early Access Request Form
+// Early Access Request Form
 function handleAccessSubmit(e) {
   e.preventDefault();
   const form = document.getElementById('access-form');
@@ -264,7 +339,6 @@ function handleAccessSubmit(e) {
   if (successBox) successBox.style.display = 'block';
 }
 
-// Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
-  // FinTwin default state initialized
+  // Initialized on Finance domain
 });
