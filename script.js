@@ -6,7 +6,7 @@
 
 const DOMAIN_DATA = {
   finance: {
-    tag: 'FINANCE // FINTWIN ENGINE',
+    tag: 'FINANCE // AUTONOMOUS ENGINE',
     status: 'AGENT SWARM ACTIVE',
     target: 'Reliance Industries Ltd • Corporate Digital Twin',
     metric: '₹2,984.50',
@@ -25,7 +25,7 @@ const DOMAIN_DATA = {
       { key: 'SAVINGS_XGB', name: 'XGBoost Runway', stat: 'Runway: +18.4 mo', status: 'Net Trajectory: +14.2% YoY', cls: 'status-ok' },
       { key: 'LOAN_LGBM', name: 'LightGBM Solvency', stat: 'Default Risk: 0.38%', status: 'Rating: AAA Prime', cls: 'status-ok' }
     ],
-    orchTitle: 'FinTwin Orchestrator Synthesis (Gemini Engine)',
+    orchTitle: 'Financial Operations Orchestrator Synthesis',
     orchText: '"Model ensemble confirms 98.6% solvency stability across live order books. Real-time news sentiment corroborates +14% refining export margin expansion. Dynamic runway model verifies capacity for ₹1,200 Cr capex deployment without debt ceiling breach."',
     btnStress: 'Simulate Market Shock',
     btnAction: 'Run Composite Inference',
