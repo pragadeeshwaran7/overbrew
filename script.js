@@ -4,6 +4,21 @@
  * (Finance // FinTwin, Legal // Legal-Clarity, Defense // AML, Enterprise // Swarms)
  */
 
+// Force scroll restoration to manual and always reset to top on refresh
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+if (window.location.hash) {
+  history.replaceState(null, document.title, window.location.pathname + window.location.search);
+}
+window.scrollTo(0, 0);
+window.addEventListener('beforeunload', () => {
+  window.scrollTo(0, 0);
+});
+window.addEventListener('load', () => {
+  window.scrollTo(0, 0);
+});
+
 const DOMAIN_DATA = {
   finance: {
     tag: 'FINANCE // AUTONOMOUS ENGINE',

@@ -13,6 +13,17 @@
   
   <!-- Slice-Inspired Design System -->
   <link rel="stylesheet" href="styles.css">
+
+  <script>
+    // Force scroll to top on reload/refresh
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    if (window.location.hash) {
+      history.replaceState(null, document.title, window.location.pathname + window.location.search);
+    }
+    window.scrollTo(0, 0);
+  </script>
 </head>
 <body>
 
@@ -94,12 +105,12 @@
               <svg viewBox="0 0 700 120" class="twin-svg-chart" id="twin-chart-svg">
                 <defs>
                   <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#A855F7" stop-opacity="0.35"/>
-                    <stop offset="100%" stop-color="#A855F7" stop-opacity="0.0"/>
+                    <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#00E5FF" stop-opacity="0.0"/>
                   </linearGradient>
                 </defs>
                 <path id="twin-chart-area" d="M 0,90 Q 70,80 140,85 T 280,60 T 420,70 T 560,40 T 700,25 L 700,120 L 0,120 Z" fill="url(#chartGrad)" />
-                <path id="twin-chart-line" d="M 0,90 Q 70,80 140,85 T 280,60 T 420,70 T 560,40 T 700,25" fill="none" stroke="#D8B4FE" stroke-width="3" stroke-linecap="round" />
+                <path id="twin-chart-line" d="M 0,90 Q 70,80 140,85 T 280,60 T 420,70 T 560,40 T 700,25" fill="none" stroke="#00E5FF" stroke-width="3" stroke-linecap="round" />
               </svg>
               <div class="chart-timeline-labels">
                 <span id="chart-lbl-left">Continuous Ingestion</span>
