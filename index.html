@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overbrewed — Autonomous AI Agents That Run Operations</title>
+  <meta name="description" content="Overbrewed designs and deploys domain-specialized autonomous AI agents for corporate finance, contract risk review, and real-time fraud defense.">
+  
+  <!-- Slice-Style Modern Typography: Bricolage Grotesque & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Slice-Inspired Design System -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Floating Pill Navbar (Slice Signature Style) -->
+  <header class="navbar" id="main-navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo" id="brand-link">
+        <div class="logo-spark">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <span class="brand-title">overbrewed</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#capabilities" class="nav-pill">What we do</a>
+        <a href="#how-it-works" class="nav-pill">How it works</a>
+        <a href="#access" class="nav-pill nav-pill-action">Get Access &rarr;</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section (Massive Bricolage Grotesque & Slice Capsule Input) -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-tag">
+          <span class="pulse-dot"></span>
+          <span>A new era of business operations</span>
+        </div>
+
+        <h1 class="hero-title">
+          Autonomous AI agents.<br>
+          <span>Engineered like FinTwin.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          FinTwin is our flagship financial digital twin — combining deterministic ML models, live market telemetry, and orchestrator reasoning. This is how we build custom autonomous solutions for enterprise operations.
+        </p>
+
+        <!-- Slice-Style Capsule Quick Access Input -->
+        <form class="hero-input-capsule" onsubmit="handleQuickAccess(event)">
+          <input type="email" id="quick-email" required placeholder="Enter your work email address...">
+          <button type="submit" class="capsule-btn">
+            <span>Request Access</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </form>
+
+        <!-- FinTwin Flagship Interactive Showcase (Slice-Inspired Glassmorphic Depth) -->
+        <div class="fintwin-showcase-container">
+          <div class="fintwin-card">
+            <!-- Topbar: Ticker Switcher & Status -->
+            <div class="fintwin-topbar">
+              <div class="fintwin-badge-wrap">
+                <span class="fintwin-pill-tag">FLAGSHIP // FINTWIN-V2</span>
+                <span class="fintwin-active-status">
+                  <span class="status-pulse-dot"></span>
+                  <span>DIGITAL TWIN ACTIVE</span>
+                </span>
+              </div>
+              <div class="fintwin-ticker-bar" id="ticker-selector-bar">
+                <button type="button" class="ticker-pill active" onclick="switchTicker('RELIANCE.NS')">RELIANCE.NS</button>
+                <button type="button" class="ticker-pill" onclick="switchTicker('TCS.NS')">TCS.NS</button>
+                <button type="button" class="ticker-pill" onclick="switchTicker('HDFCBANK.NS')">HDFCBANK.NS</button>
+                <button type="button" class="ticker-pill" onclick="switchTicker('INFY.NS')">INFY.NS</button>
+              </div>
+            </div>
+
+            <!-- Ticker Telemetry Header -->
+            <div class="fintwin-header-meta">
+              <div>
+                <div class="fintwin-company-name" id="twin-company-name">Reliance Industries Ltd</div>
+                <div class="fintwin-price-row">
+                  <span class="fintwin-price" id="twin-price">₹2,984.50</span>
+                  <span class="fintwin-change badge-up" id="twin-change">+1.84% (Today)</span>
+                  <span class="fintwin-regime-tag" id="twin-regime">Low Crash Risk</span>
+                </div>
+              </div>
+              <div class="fintwin-news-pill" id="twin-news">
+                <span class="news-dot"></span>
+                <span id="twin-news-text">News Ingestion: Q3 refining margins surge 14% on strong export volume</span>
+              </div>
+            </div>
+
+            <!-- Sparkline Dynamic Visualization -->
+            <div class="fintwin-chart-area">
+              <svg viewBox="0 0 700 120" class="twin-svg-chart" id="twin-chart-svg">
+                <defs>
+                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#A855F7" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#A855F7" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+                <path id="twin-chart-area" d="M 0,90 Q 70,80 140,85 T 280,60 T 420,70 T 560,40 T 700,25 L 700,120 L 0,120 Z" fill="url(#chartGrad)" />
+                <path id="twin-chart-line" d="M 0,90 Q 70,80 140,85 T 280,60 T 420,70 T 560,40 T 700,25" fill="none" stroke="#D8B4FE" stroke-width="3" stroke-linecap="round" />
+              </svg>
+              <div class="chart-timeline-labels">
+                <span>Historical 1Y Ingestion</span>
+                <span>Real-Time Feed</span>
+                <span class="predict-label">&rarr; Predictive Twin Projection</span>
+              </div>
+            </div>
+
+            <!-- FinTwin Multi-Model Ensemble Diagnostic Grid -->
+            <div class="fintwin-models-grid" id="fintwin-models-grid">
+              <div class="model-box">
+                <div class="model-box-top">
+                  <span class="model-key">CRASH_ISO</span>
+                  <span class="model-name">Isolation Forest</span>
+                </div>
+                <div class="model-stat" id="stat-crash-iso">Score: 0.08</div>
+                <div class="model-status status-ok" id="status-crash-iso">Status: Normal / Resilient</div>
+              </div>
+
+              <div class="model-box">
+                <div class="model-box-top">
+                  <span class="model-key">CRASH_RF</span>
+                  <span class="model-name">RF Crisis Classifier</span>
+                </div>
+                <div class="model-stat" id="stat-crash-rf">P(Crisis): 1.8%</div>
+                <div class="model-status status-ok" id="status-crash-rf">Regime: Expansion</div>
+              </div>
+
+              <div class="model-box">
+                <div class="model-box-top">
+                  <span class="model-key">SAVINGS_XGB</span>
+                  <span class="model-name">XGBoost Runway</span>
+                </div>
+                <div class="model-stat" id="stat-savings-xgb">Runway: +18.4 mo</div>
+                <div class="model-status status-ok" id="status-savings-xgb">Net Trajectory: +14.2% YoY</div>
+              </div>
+
+              <div class="model-box">
+                <div class="model-box-top">
+                  <span class="model-key">LOAN_LGBM</span>
+                  <span class="model-name">LightGBM Solvency</span>
+                </div>
+                <div class="model-stat" id="stat-loan-lgbm">Default Risk: 0.38%</div>
+                <div class="model-status status-ok" id="status-loan-lgbm">Rating: AAA Prime</div>
+              </div>
+            </div>
+
+            <!-- Gemini Orchestrator Synthesis Box -->
+            <div class="fintwin-orchestrator-box">
+              <div class="orch-header">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D8B4FE" stroke-width="2.5">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                <span>FinTwin Orchestrator Synthesis (Gemini Engine)</span>
+              </div>
+              <p class="orch-text" id="twin-orch-text">
+                "Model ensemble confirms 98.6% solvency stability across live order books. Real-time news sentiment corroborates +14% refining export margin expansion. Dynamic runway model verifies capacity for ₹1,200 Cr capex deployment without debt ceiling breach."
+              </p>
+            </div>
+
+            <!-- Twin Interactive Controls -->
+            <div class="fintwin-actions-bar">
+              <div class="actions-group">
+                <button type="button" class="twin-action-btn primary" id="btn-stress-sim" onclick="runStressSimulation()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                  <span>Simulate Market Shock</span>
+                </button>
+                <button type="button" class="twin-action-btn secondary" id="btn-composite" onclick="runCompositeInference()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                  <span>Run Composite Inference</span>
+                </button>
+              </div>
+              <div class="twin-meta-metrics">
+                <span>Deterministic SLA: <strong>99.4%</strong></span>
+                <span>Latency: <strong>38ms P99</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Do Section (Bento Grid) -->
+    <section class="section" id="capabilities">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">WHAT WE DO</div>
+          <h2 class="section-title">We build & deploy autonomous AI agents.</h2>
+          <p class="section-desc">
+            No shallow chatbots. No generic wrappers. Just self-governing autonomous agents executing mission-critical business operations with mathematical rigor.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Card 1: FinTwin Flagship -->
+          <div class="bento-card bento-card-featured">
+            <div class="bento-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <div class="bento-badge">FLAGSHIP AGENT</div>
+            <h3>FinTwin &mdash; Autonomous Financial Digital Twin</h3>
+            <p>
+              Our flagship autonomous agent architecture. FinTwin builds a live simulation of your financial state — continuous NSE/BSE tick feeds, ERP ledger sync, XGBoost cash runway forecasting, and Isolation Forest market crash anomaly detection.
+            </p>
+            <ul class="bento-list">
+              <li><span>&bull;</span> Real-time ticker & bank feed ingestion with automated news context</li>
+              <li><span>&bull;</span> Isolation Forest & LSTM Autoencoder market crash warning engine</li>
+              <li><span>&bull;</span> XGBoost rolling runway & LightGBM counterparty default scoring</li>
+              <li><span>&bull;</span> Grounded Gemini orchestrator delivering deterministic financial actions</li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Legal -->
+          <div class="bento-card">
+            <div class="bento-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </div>
+            <h3>Legal & Contract Intelligence Agents</h3>
+            <p>
+              Autonomous agents modeled on our Legal-Clarity-AI architecture that audit 50+ page agreements in seconds, isolating hidden indemnity traps, perpetual lock-ins, and uncapped liabilities with clause-by-clause risk triage.
+            </p>
+            <ul class="bento-list">
+              <li><span>&bull;</span> Automated clause-level risk extraction & redline suggestions</li>
+              <li><span>&bull;</span> Detection of uncapped liabilities & unfair termination covenants</li>
+              <li><span>&bull;</span> India DPDP Act 2023 & GDPR regulatory compliance checks</li>
+              <li><span>&bull;</span> Plain-English executive risk summaries & milestone tracking</li>
+            </ul>
+          </div>
+
+          <!-- Card 3: Risk & Fraud -->
+          <div class="bento-card">
+            <div class="bento-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h3>Defense, AML & Fraud Agents</h3>
+            <p>
+              Autonomous agents running graph traversal at sub-50ms latency to uncover synthetic identities, mule rings, and money laundering velocity spikes — auto-blocking risks before checkout and drafting SAR filings.
+            </p>
+            <ul class="bento-list">
+              <li><span>&bull;</span> Sub-50ms pre-authorization webhook anomaly blocking</li>
+              <li><span>&bull;</span> Coordinated mule account & transaction velocity graph traversal</li>
+              <li><span>&bull;</span> Automated Suspicious Activity Report (SAR) compliance filings</li>
+              <li><span>&bull;</span> Explainable AI (SHAP / XAI) transparent attribution audit trails</li>
+            </ul>
+          </div>
+
+          <!-- Card 4: Enterprise Swarms -->
+          <div class="bento-card">
+            <div class="bento-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3>Custom Enterprise Digital Twins</h3>
+            <p>
+              Bespoke multi-agent autonomous swarms engineered to execute your proprietary corporate workflows on dedicated private VPC enclaves (AWS / Azure / GCP) with strict zero-data-retention guarantees.
+            </p>
+            <ul class="bento-list">
+              <li><span>&bull;</span> Dedicated private cloud VPC in India (Zero Data Retention)</li>
+              <li><span>&bull;</span> Custom fine-tuned models aligned with internal enterprise schemas</li>
+              <li><span>&bull;</span> Seamless API integration with SAP, SQL, NetSuite & Zoho</li>
+              <li><span>&bull;</span> 99.4% deterministic SLA & dedicated AI engineering support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works / How We Provide Solutions Section -->
+    <section class="section" id="how-it-works" style="padding-top: 40px;">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">THE FINTWIN PARADIGM</div>
+          <h2 class="section-title">How we provide solutions.</h2>
+          <p class="section-desc">
+            Like FinTwin, every autonomous agent we build follows a 4-layer deterministic architecture — combining real-time telemetry, machine learning ensembles, and orchestrator reasoning.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <h3>Live Telemetry Ingestion</h3>
+            <p>We connect continuous real-time data streams — live market tickers (NSE/BSE), ERP ledgers (NetSuite, Zoho, SAP), bank APIs, and real-time news feeds with automated parsing.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <h3>Deterministic ML Ensembles</h3>
+            <p>Rather than relying on fuzzy LLM guesses, we deploy mathematical models: Isolation Forests for anomaly detection, LightGBM for credit classification, and XGBoost for runway forecasting.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <h3>Grounded Orchestration</h3>
+            <p>An intelligent orchestrator synthesizes live telemetry, news context, and ML predictions into actionable insights, operating with strict deterministic bounds and zero hallucination risk.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">04</div>
+            <h3>Digital Twin & Autonomy</h3>
+            <p>The resulting digital twin runs 24/7. It stress-tests scenarios, simulates market shocks, flags critical events in sub-50ms, and executes autonomous operational workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Early Access Section (Slice-Style Minimal Capsule Form) -->
+    <section class="section" id="access">
+      <div class="container">
+        <div class="access-card">
+          <h2 class="access-title">Ready to deploy your first agent?</h2>
+          <p class="access-desc">
+            Join forward-thinking finance and legal teams running operations on Overbrewed. Tell us your workflow and we'll blueprint an agent within 24 hours.
+          </p>
+
+          <form class="access-form" id="access-form" onsubmit="handleAccessSubmit(event)">
+            <div class="access-row">
+              <input type="text" id="acc-name" class="access-input" required placeholder="Your name">
+              <input type="email" id="acc-email" class="access-input" required placeholder="Work email address">
+            </div>
+            <textarea id="acc-workflow" class="access-input access-textarea" rows="3" required placeholder="What workflow would you like to automate? (e.g. 3-way invoice matching, contract risk triage, real-time fraud defense...)"></textarea>
+            <button type="submit" class="access-submit-btn" id="btn-request-access">
+              <span>Request Early Access</span>
+            </button>
+          </form>
+
+          <div id="access-success" style="display: none; padding: 20px 0;">
+            <div style="font-size: 2rem; margin-bottom: 8px;">✨</div>
+            <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: #FFFFFF; margin-bottom: 6px;">Request Received</h3>
+            <p style="color: var(--slice-muted); font-size: 0.95rem;">Our agent engineering team will review your workflow and send your custom blueprint within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Clean Minimalist Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="brand-logo">
+          <div class="logo-spark">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <span class="brand-title">overbrewed</span>
+        </div>
+        <div class="footer-links">
+          <a href="#capabilities">Capabilities</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#access">Early access</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Overbrewed Technologies. All rights reserved.</span>
+        <span>Zero Data Retention &bull; Private VPC Enclave</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lean Script -->
+  <script src="script.js"></script>
+</body>
+</html>
