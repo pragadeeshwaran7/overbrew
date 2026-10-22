@@ -19467,7 +19467,7 @@ if (typeof window !== "undefined") {
   });
 }
 var StakeholdersHero = () => {
-  const [fontReady, setFontReady] = import_react3.useState(false);
+  const [, setFontReady] = import_react3.useState(false);
   import_react3.useEffect(() => {
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
@@ -19499,7 +19499,7 @@ var StakeholdersHero = () => {
           color: #111111 !important;
         }
         .stakeholders-glyph-wrapper [data-gp-caption] {
-          inset: calc(var(--gp-word-bottom, 50%) + 84px) 24px auto;
+          inset: calc(var(--gp-word-bottom, 50%) + 72px) 24px auto;
           justify-content: center;
           display: flex;
           align-items: center;
@@ -19541,42 +19541,18 @@ var StakeholdersHero = () => {
           transform: translateY(-1.5px);
           color: #FFFFFF;
         }
-        .stakeholders-glyph-wrapper [data-gp-enter]:active {
-          transform: translateY(2px);
-          transition-duration: 0.06s;
-          box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.15),
-            inset 0 0 0 #9E5F28,
-            0 1px 2px rgba(17, 17, 17, 0.12),
-            0 3px 8px -4px rgba(200, 132, 67, 0.35);
-        }
-        .stakeholders-glyph-wrapper [data-gp-touch-picker] {
-          top: auto;
-          bottom: 24px;
-          left: 50%;
-        }
-        .stakeholders-glyph-wrapper [data-gp-select] {
-          border: 1px solid #E2D7C7;
-          background: #FFFFFF;
-          color: #111111;
-          border-radius: 8px;
-          font-size: 13px;
-        }
         .stakeholders-glyph-wrapper [data-gp-letter]:focus-visible {
           outline: 2px solid #C88443 !important;
           outline-offset: 4px;
-        }
-        .stakeholders-glyph-wrapper [data-gp-marks] path {
-          stroke: #C88443 !important;
         }
         .stakeholders-glyph-wrapper [data-gp-content] {
           padding: 0 !important;
           min-height: 100svh !important;
           display: flex !important;
           flex-direction: column !important;
-          justify-content: center !important;
+          justify-content: flex-start !important;
           position: relative !important;
-          overflow: hidden !important;
+          overflow: visible !important;
           background: #0C0B0A !important;
         }
       `
@@ -19585,7 +19561,7 @@ var StakeholdersHero = () => {
         word: "OVERBREWED",
         fontFamily: displayFont,
         fontWeight: 900,
-        scrollLength: 2.2,
+        scrollLength: 1.8,
         interactive: true,
         annotations: false,
         enterLabel: "Step Inside",
@@ -19625,52 +19601,38 @@ var StakeholdersHero = () => {
         }, undefined, true, undefined, this),
         front: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
           style: { pointerEvents: "auto", fontFamily: "'Plus Jakarta Sans', sans-serif" },
-          children: [
-            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("p", {
-              style: {
-                position: "absolute",
-                inset: "calc(var(--gp-word-bottom, 50%) + 28px) 24px auto",
-                margin: 0,
-                textAlign: "center",
-                fontSize: "16px",
-                fontWeight: 500,
-                lineHeight: 1.5,
-                color: "#57534E"
-              },
-              children: "Select any letter to step through live typography into hyperdrive."
-            }, undefined, false, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-              style: {
-                position: "absolute",
-                inset: "auto 24px 6%",
-                textAlign: "center",
-                color: "#78716C",
-                fontSize: "11px",
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                fontWeight: 600
-              },
-              children: "Scroll down to enter ↓"
-            }, undefined, false, undefined, this)
-          ]
-        }, undefined, true, undefined, this),
+          children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("p", {
+            style: {
+              position: "absolute",
+              inset: "calc(var(--gp-word-bottom, 50%) + 24px) 24px auto",
+              margin: 0,
+              textAlign: "center",
+              fontSize: "15px",
+              fontWeight: 500,
+              lineHeight: 1.5,
+              color: "#78716C"
+            },
+            children: "Scroll through typography to enter the studio ↓"
+          }, undefined, false, undefined, this)
+        }, undefined, false, undefined, this),
         children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+          id: "hero",
           style: {
             position: "relative",
             width: "100%",
-            minHeight: "100svh",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
             overflow: "hidden",
-            padding: "60px 24px",
-            boxSizing: "border-box"
+            padding: "80px 24px 0",
+            boxSizing: "border-box",
+            background: "#0C0B0A"
           },
           children: [
             /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(StarfieldCanvas, {
               starColor: "copper",
-              speed: 2.6,
+              speed: 2,
               interactive: true
             }, undefined, false, undefined, this),
             /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
@@ -19678,7 +19640,7 @@ var StakeholdersHero = () => {
                 position: "absolute",
                 inset: 0,
                 pointerEvents: "none",
-                background: "radial-gradient(circle at 50% 35%, rgba(200, 132, 67, 0.22) 0%, rgba(14, 13, 12, 0.8) 60%, #0A0A09 100%)",
+                background: "radial-gradient(circle at 50% 25%, rgba(200, 132, 67, 0.22) 0%, rgba(14, 13, 12, 0.85) 65%, #0A0A09 100%)",
                 zIndex: 1
               }
             }, undefined, false, undefined, this),
@@ -19686,7 +19648,7 @@ var StakeholdersHero = () => {
               style: {
                 position: "relative",
                 zIndex: 2,
-                maxWidth: "1040px",
+                maxWidth: "1140px",
                 width: "100%",
                 margin: "0 auto",
                 textAlign: "center"
@@ -19705,9 +19667,9 @@ var StakeholdersHero = () => {
                     fontSize: "12px",
                     fontWeight: 700,
                     letterSpacing: "0.08em",
-                    marginBottom: "18px",
+                    marginBottom: "20px",
                     textTransform: "uppercase",
-                    fontFamily: "'JetBrains Mono', monospace",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     backdropFilter: "blur(8px)"
                   },
                   children: [
@@ -19721,267 +19683,293 @@ var StakeholdersHero = () => {
                       }
                     }, undefined, false, undefined, this),
                     /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                      children: "HYPERDRIVE ENGAGED // OVERBREWED CO."
+                      children: "INDEPENDENT AI ENGINEERING STUDIO"
                     }, undefined, false, undefined, this)
                   ]
                 }, undefined, true, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("h2", {
+                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("h1", {
                   style: {
-                    fontSize: "clamp(2.4rem, 5vw, 4.2rem)",
+                    fontSize: "clamp(2.5rem, 5.2vw, 4.4rem)",
                     fontWeight: 600,
                     letterSpacing: "-0.025em",
-                    lineHeight: 1.1,
-                    marginBottom: "18px",
+                    lineHeight: 1.12,
+                    marginBottom: "20px",
                     color: "#F5F0E6",
                     fontFamily: "'Newsreader', Georgia, serif"
                   },
                   children: [
-                    "Independent ",
+                    "Intelligence, ",
                     /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("em", {
                       style: { fontStyle: "italic", color: "#DF9D5F" },
-                      children: "AI Engineering"
+                      children: "brewed"
                     }, undefined, false, undefined, this),
-                    " Studio."
+                    " for business."
                   ]
                 }, undefined, true, undefined, this),
                 /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("p", {
                   style: {
-                    fontSize: "clamp(16px, 2vw, 18px)",
+                    fontSize: "clamp(16px, 2vw, 19px)",
                     color: "#D6CEC3",
                     lineHeight: 1.6,
-                    maxWidth: "700px",
-                    margin: "0 auto 28px",
+                    maxWidth: "760px",
+                    margin: "0 auto 14px",
                     fontFamily: "'Plus Jakarta Sans', sans-serif"
                   },
-                  children: "You have stepped through the typography into our autonomous runtime. We engineer domain-specialized AI agent swarms and intelligent systems grounded in deterministic mathematical guardrails."
+                  children: "We build practical AI agents and intelligent software that help businesses automate repetitive workflows, make sense of complex data, and make better-informed decisions."
+                }, undefined, false, undefined, this),
+                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("p", {
+                  style: {
+                    fontSize: "clamp(14px, 1.6vw, 16px)",
+                    color: "#A8A29E",
+                    lineHeight: 1.6,
+                    maxWidth: "720px",
+                    margin: "0 auto 32px",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif"
+                  },
+                  children: "From financial intelligence to document automation, we turn complex operational problems into focused, usable software."
                 }, undefined, false, undefined, this),
                 /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
                   style: {
                     display: "flex",
                     flexWrap: "wrap",
                     justifyContent: "center",
-                    gap: "10px",
-                    marginBottom: "36px",
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: "11px",
-                    letterSpacing: "0.04em"
+                    gap: "16px",
+                    alignItems: "center",
+                    marginBottom: "32px"
                   },
                   children: [
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                      style: {
-                        padding: "6px 14px",
-                        background: "rgba(255, 255, 255, 0.05)",
-                        border: "1px solid rgba(255, 255, 255, 0.1)",
-                        borderRadius: "6px",
-                        color: "#D6CEC3"
-                      },
-                      children: [
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                          style: { color: "#C88443", marginRight: "6px" },
-                          children: "WARP VELOCITY:"
-                        }, undefined, false, undefined, this),
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                          children: "9.8c · MOUSE ACCELERATED"
-                        }, undefined, false, undefined, this)
-                      ]
-                    }, undefined, true, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                      style: {
-                        padding: "6px 14px",
-                        background: "rgba(255, 255, 255, 0.05)",
-                        border: "1px solid rgba(255, 255, 255, 0.1)",
-                        borderRadius: "6px",
-                        color: "#D6CEC3"
-                      },
-                      children: [
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                          style: { color: "#C88443", marginRight: "6px" },
-                          children: "ORCHESTRATION:"
-                        }, undefined, false, undefined, this),
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                          children: "< 12ms LATENCY"
-                        }, undefined, false, undefined, this)
-                      ]
-                    }, undefined, true, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                      style: {
-                        padding: "6px 14px",
-                        background: "rgba(255, 255, 255, 0.05)",
-                        border: "1px solid rgba(255, 255, 255, 0.1)",
-                        borderRadius: "6px",
-                        color: "#D6CEC3"
-                      },
-                      children: [
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                          style: { color: "#A5BBA8", marginRight: "6px" },
-                          children: "GUARDRAILS:"
-                        }, undefined, false, undefined, this),
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                          children: "DETERMINISTIC VERIFIED"
-                        }, undefined, false, undefined, this)
-                      ]
-                    }, undefined, true, undefined, this)
-                  ]
-                }, undefined, true, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                  style: {
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-                    gap: "20px",
-                    textAlign: "left",
-                    marginBottom: "36px"
-                  },
-                  children: [
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                      style: {
-                        background: "rgba(26, 25, 23, 0.72)",
-                        backdropFilter: "blur(14px)",
-                        WebkitBackdropFilter: "blur(14px)",
-                        border: "1px solid rgba(200, 132, 67, 0.28)",
-                        borderRadius: "14px",
-                        padding: "24px",
-                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
-                        transition: "transform 0.2s, border-color 0.2s"
-                      },
-                      children: [
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                          style: { fontFamily: "'JetBrains Mono', monospace", fontSize: "11px", color: "#C88443", marginBottom: "8px", fontWeight: 700 },
-                          children: "01 // WORKFLOWS"
-                        }, undefined, false, undefined, this),
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                          style: { fontWeight: 700, fontSize: "16px", marginBottom: "8px", color: "#FFFFFF" },
-                          children: "Autonomous Workflow Swarms"
-                        }, undefined, false, undefined, this),
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                          style: { fontSize: "13px", color: "#A8A29E", lineHeight: 1.6 },
-                          children: "Eliminate 30+ hours of manual reconciliation, invoice parsing, and contract triage per week without prompt hallucinations."
-                        }, undefined, false, undefined, this)
-                      ]
-                    }, undefined, true, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                      style: {
-                        background: "rgba(26, 25, 23, 0.72)",
-                        backdropFilter: "blur(14px)",
-                        WebkitBackdropFilter: "blur(14px)",
-                        border: "1px solid rgba(200, 132, 67, 0.28)",
-                        borderRadius: "14px",
-                        padding: "24px",
-                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
-                        transition: "transform 0.2s, border-color 0.2s"
-                      },
-                      children: [
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                          style: { fontFamily: "'JetBrains Mono', monospace", fontSize: "11px", color: "#C88443", marginBottom: "8px", fontWeight: 700 },
-                          children: "02 // FINANCE"
-                        }, undefined, false, undefined, this),
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                          style: { fontWeight: 700, fontSize: "16px", marginBottom: "8px", color: "#FFFFFF" },
-                          children: "FinTwin Dynamic Engine"
-                        }, undefined, false, undefined, this),
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                          style: { fontSize: "13px", color: "#A8A29E", lineHeight: 1.6 },
-                          children: "Live runway forecasting, dynamic burn stress testing, and real-time ledger radar calibrated for CFOs and operators."
-                        }, undefined, false, undefined, this)
-                      ]
-                    }, undefined, true, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                      style: {
-                        background: "rgba(26, 25, 23, 0.72)",
-                        backdropFilter: "blur(14px)",
-                        WebkitBackdropFilter: "blur(14px)",
-                        border: "1px solid rgba(200, 132, 67, 0.28)",
-                        borderRadius: "14px",
-                        padding: "24px",
-                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
-                        transition: "transform 0.2s, border-color 0.2s"
-                      },
-                      children: [
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                          style: { fontFamily: "'JetBrains Mono', monospace", fontSize: "11px", color: "#C88443", marginBottom: "8px", fontWeight: 700 },
-                          children: "03 // ENTERPRISE"
-                        }, undefined, false, undefined, this),
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                          style: { fontWeight: 700, fontSize: "16px", marginBottom: "8px", color: "#FFFFFF" },
-                          children: "Private VPC Engineering"
-                        }, undefined, false, undefined, this),
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                          style: { fontSize: "13px", color: "#A8A29E", lineHeight: 1.6 },
-                          children: "Zero third-party training, air-gapped models, and rigorous deterministic verification before any agent executes code."
-                        }, undefined, false, undefined, this)
-                      ]
-                    }, undefined, true, undefined, this)
-                  ]
-                }, undefined, true, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                  style: { display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px", alignItems: "center" },
-                  children: [
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("a", {
-                      href: "#hero",
-                      style: {
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "10px",
-                        padding: "14px 34px",
-                        background: "#C88443",
-                        borderRadius: "9999px",
-                        color: "#FFFFFF",
-                        textDecoration: "none",
-                        fontSize: "14px",
-                        fontWeight: 700,
-                        boxShadow: "0 4px 24px rgba(200, 132, 67, 0.45)",
-                        transition: "transform 0.2s, box-shadow 0.2s",
-                        fontFamily: "'Plus Jakarta Sans', sans-serif"
-                      },
-                      children: [
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                          children: "Explore Production Platform"
-                        }, undefined, false, undefined, this),
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                          children: "↓"
-                        }, undefined, false, undefined, this)
-                      ]
-                    }, undefined, true, undefined, this),
                     /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("a", {
                       href: "#fintwin",
+                      className: "btn btn-secondary btn-lg",
                       style: {
+                        minHeight: "48px",
+                        padding: "0 28px",
+                        borderRadius: "9999px",
+                        textDecoration: "none",
                         display: "inline-flex",
                         alignItems: "center",
                         gap: "8px",
-                        padding: "14px 28px",
-                        background: "rgba(255, 255, 255, 0.07)",
-                        border: "1px solid rgba(255, 255, 255, 0.18)",
-                        borderRadius: "9999px",
-                        color: "#F5F0E6",
-                        textDecoration: "none",
+                        fontFamily: "'Plus Jakarta Sans', sans-serif",
                         fontSize: "14px",
                         fontWeight: 600,
-                        backdropFilter: "blur(8px)",
-                        transition: "all 0.2s",
-                        fontFamily: "'Plus Jakarta Sans', sans-serif"
+                        color: "#F5F0E6",
+                        background: "rgba(255, 255, 255, 0.08)",
+                        border: "1px solid rgba(255, 255, 255, 0.2)",
+                        backdropFilter: "blur(8px)"
                       },
+                      children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                        children: "Explore FinTwin →"
+                      }, undefined, false, undefined, this)
+                    }, undefined, false, undefined, this),
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("a", {
+                      href: "#contact",
+                      className: "btn btn-primary btn-lg",
+                      style: {
+                        minHeight: "48px",
+                        padding: "0 28px",
+                        borderRadius: "9999px",
+                        textDecoration: "none",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        fontFamily: "'Plus Jakarta Sans', sans-serif",
+                        fontSize: "14px",
+                        fontWeight: 700,
+                        color: "#FFFFFF",
+                        background: "linear-gradient(180deg, #DF9D5F 0%, #C88443 62%)",
+                        boxShadow: "0 4px 20px rgba(200, 132, 67, 0.4)"
+                      },
+                      children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                        children: "Discuss a Project &nearr;"
+                      }, undefined, false, undefined, this)
+                    }, undefined, false, undefined, this)
+                  ]
+                }, undefined, true, undefined, this),
+                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                  style: {
+                    display: "flex",
+                    justifyContent: "center",
+                    flexWrap: "wrap",
+                    gap: "24px",
+                    color: "#A8A29E",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "12px",
+                    marginBottom: "48px"
+                  },
+                  children: [
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
                       children: [
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                          children: "Launch FinTwin Radar"
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("strong", {
+                          style: { color: "#C88443" },
+                          children: "•"
                         }, undefined, false, undefined, this),
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                          children: "→"
-                        }, undefined, false, undefined, this)
+                        " AI Engineering"
+                      ]
+                    }, undefined, true, undefined, this),
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                      children: [
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("strong", {
+                          style: { color: "#C88443" },
+                          children: "•"
+                        }, undefined, false, undefined, this),
+                        " Machine Learning"
+                      ]
+                    }, undefined, true, undefined, this),
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                      children: [
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("strong", {
+                          style: { color: "#C88443" },
+                          children: "•"
+                        }, undefined, false, undefined, this),
+                        " Workflow Automation"
                       ]
                     }, undefined, true, undefined, this)
                   ]
                 }, undefined, true, undefined, this),
                 /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                  style: {
-                    marginTop: "20px",
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: "11px",
-                    color: "#78716C",
-                    letterSpacing: "0.06em"
-                  },
-                  children: "✦ Move your cursor to accelerate hyperdrive warp speed · Scroll to navigate sections"
+                  className: "prototype-showcase-wrap",
+                  style: { maxWidth: "100%", margin: "0 auto 60px" },
+                  children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                    className: "dashboard-preview-frame",
+                    children: [
+                      /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                        className: "prototype-chrome",
+                        children: [
+                          /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                            className: "chrome-left",
+                            children: [
+                              /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                                className: "chrome-dots",
+                                children: [
+                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                                    className: "dot dot-red"
+                                  }, undefined, false, undefined, this),
+                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                                    className: "dot dot-yellow"
+                                  }, undefined, false, undefined, this),
+                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                                    className: "dot dot-green"
+                                  }, undefined, false, undefined, this)
+                                ]
+                              }, undefined, true, undefined, this),
+                              /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                                className: "prototype-badge-tag",
+                                children: [
+                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("strong", {
+                                    children: "FinTwin"
+                                  }, undefined, false, undefined, this),
+                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                                    children: "/ Product Dashboard"
+                                  }, undefined, false, undefined, this)
+                                ]
+                              }, undefined, true, undefined, this)
+                            ]
+                          }, undefined, true, undefined, this),
+                          /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                            className: "chrome-right",
+                            children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                              className: "status-indicator",
+                              children: [
+                                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                                  className: "status-dot-sage"
+                                }, undefined, false, undefined, this),
+                                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                                  children: "Interactive Walkthrough & Video Loading Soon"
+                                }, undefined, false, undefined, this)
+                              ]
+                            }, undefined, true, undefined, this)
+                          }, undefined, false, undefined, this)
+                        ]
+                      }, undefined, true, undefined, this),
+                      /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                        className: "dashboard-placeholder-canvas",
+                        children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                          className: "dashboard-placeholder-content",
+                          children: [
+                            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                              className: "dashboard-placeholder-icon",
+                              children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("svg", {
+                                width: "40",
+                                height: "40",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "#C88443",
+                                strokeWidth: "1.8",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round",
+                                children: [
+                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("rect", {
+                                    x: "2",
+                                    y: "3",
+                                    width: "20",
+                                    height: "14",
+                                    rx: "2",
+                                    ry: "2"
+                                  }, undefined, false, undefined, this),
+                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("line", {
+                                    x1: "8",
+                                    y1: "21",
+                                    x2: "16",
+                                    y2: "21"
+                                  }, undefined, false, undefined, this),
+                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("line", {
+                                    x1: "12",
+                                    y1: "17",
+                                    x2: "12",
+                                    y2: "21"
+                                  }, undefined, false, undefined, this),
+                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("polygon", {
+                                    points: "10 8 15 11 10 14 10 8",
+                                    fill: "#C88443",
+                                    fillOpacity: "0.25"
+                                  }, undefined, false, undefined, this)
+                                ]
+                              }, undefined, true, undefined, this)
+                            }, undefined, false, undefined, this),
+                            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("h3", {
+                              className: "dashboard-placeholder-heading",
+                              children: "FinTwin Dashboard & Interactive Walkthrough"
+                            }, undefined, false, undefined, this),
+                            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("p", {
+                              className: "dashboard-placeholder-text",
+                              children: "The live interactive financial intelligence dashboard and product demo video will be visible here."
+                            }, undefined, false, undefined, this),
+                            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                              className: "dashboard-placeholder-badges",
+                              children: [
+                                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                                  className: "dp-badge",
+                                  children: "Product Walkthrough Video"
+                                }, undefined, false, undefined, this),
+                                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                                  className: "dp-badge",
+                                  children: "Live Financial Digital Twin"
+                                }, undefined, false, undefined, this),
+                                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                                  className: "dp-badge",
+                                  children: "Dynamic Scenario Engine"
+                                }, undefined, false, undefined, this)
+                              ]
+                            }, undefined, true, undefined, this)
+                          ]
+                        }, undefined, true, undefined, this)
+                      }, undefined, false, undefined, this)
+                    ]
+                  }, undefined, true, undefined, this)
                 }, undefined, false, undefined, this)
               ]
-            }, undefined, true, undefined, this)
+            }, undefined, true, undefined, this),
+            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+              className: "starfield-to-cream-blend",
+              style: {
+                position: "relative",
+                width: "100%",
+                height: "100px",
+                background: "linear-gradient(180deg, #0C0B0A 0%, rgba(18, 17, 16, 0.85) 40%, rgba(245, 240, 230, 0.95) 85%, #F5F0E6 100%)",
+                zIndex: 3,
+                pointerEvents: "none"
+              }
+            }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this)
       }, undefined, false, undefined, this)
