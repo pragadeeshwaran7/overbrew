@@ -19736,12 +19736,12 @@ var StakeholdersHero = () => {
                     fontFamily: "'Newsreader', Georgia, serif"
                   },
                   children: [
-                    "Intelligence, ",
+                    "Independent ",
                     /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("em", {
                       style: { fontStyle: "italic", color: "#DF9D5F" },
-                      children: "brewed"
+                      children: "AI Engineering"
                     }, undefined, false, undefined, this),
-                    " for business."
+                    " Studio."
                   ]
                 }, undefined, true, undefined, this),
                 /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("p", {

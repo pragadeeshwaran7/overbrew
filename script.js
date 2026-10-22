@@ -67,28 +67,23 @@ const SCENARIOS = {
   }
 };
 
-// Switch Hero Prototype Scenario
+// Switch Hero Prototype Scenario (Safe no-op when preview placeholder is active)
 window.switchScenario = function(scenarioKey) {
   const data = SCENARIOS[scenarioKey];
   if (!data) return;
 
-  // Update pills active state
-  document.querySelectorAll('.scenario-pill').forEach(btn => {
-    btn.classList.remove('active');
-  });
   const activeBtn = document.getElementById(`pill-${scenarioKey}`);
-  if (activeBtn) activeBtn.classList.add('active');
+  if (activeBtn) {
+    document.querySelectorAll('.scenario-pill').forEach(btn => btn.classList.remove('active'));
+    activeBtn.classList.add('active');
+  }
 
-  // Update metric elements with smooth fade
+  // Update metric elements if present
   const updateMetric = (id, val, sub, cls) => {
     const el = document.getElementById(id);
     const subEl = document.getElementById(`${id}-sub`);
     if (el) {
-      el.style.opacity = '0.3';
-      setTimeout(() => {
-        el.textContent = val;
-        el.style.opacity = '1';
-      }, 120);
+      el.textContent = val;
     }
     if (subEl) {
       subEl.textContent = sub;
@@ -101,13 +96,13 @@ window.switchScenario = function(scenarioKey) {
   updateMetric('m-solvency', data.solvency, data.solvencySub, data.solvencyClass);
   updateMetric('m-leaks', data.leaks, data.leaksSub, data.leaksClass);
 
-  // Update SVG chart
+  // Update SVG chart if present
   const areaPath = document.getElementById('prototype-chart-area');
   const linePath = document.getElementById('prototype-chart-line');
   if (areaPath) areaPath.setAttribute('d', data.chartPathArea);
   if (linePath) linePath.setAttribute('d', data.chartPathLine);
 
-  // Update synthesis log
+  // Update synthesis log if present
   const logEl = document.getElementById('prototype-log-content');
   if (logEl) {
     logEl.innerHTML = data.log;
@@ -133,8 +128,8 @@ window.switchSandboxTab = function(tabKey) {
 window.setInterestChip = function(val, btn) {
   document.querySelectorAll('.interest-chip').forEach(chip => chip.classList.remove('active'));
   if (btn) btn.classList.add('active');
-  const selectEl = document.getElementById('form-interest');
-  if (selectEl) selectEl.value = val;
+  const inputEl = document.getElementById('form-interest');
+  if (inputEl) inputEl.value = val;
 };
 
 window.syncChipFromSelect = function(val) {
@@ -145,6 +140,8 @@ window.syncChipFromSelect = function(val) {
       chip.classList.remove('active');
     }
   });
+  const inputEl = document.getElementById('form-interest');
+  if (inputEl) inputEl.value = val;
 };
 
 // Form Submission Handler with Spring Transition

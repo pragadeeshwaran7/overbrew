@@ -131,10 +131,12 @@
         <!-- ==========================================================================
              Hero Visual: Interactive FinTwin Showcase (Labeled Illustrative Demo Data)
              ========================================================================== -->
+        <!-- ==========================================================================
+             Hero Visual: FinTwin Product Dashboard & Walkthrough (Asset Loading Soon)
+             ========================================================================== -->
         <div class="prototype-showcase-wrap">
-          <div class="prototype-card">
-            
-            <!-- Window Chrome Header -->
+          <div class="dashboard-preview-frame">
+            <!-- Window Chrome -->
             <div class="prototype-chrome">
               <div class="chrome-left">
                 <div class="chrome-dots">
@@ -144,113 +146,40 @@
                 </div>
                 <div class="prototype-badge-tag">
                   <strong>FinTwin</strong>
-                  <span>/ Financial Intelligence</span>
+                  <span>/ Product Dashboard</span>
                 </div>
               </div>
               <div class="chrome-right">
                 <span class="status-indicator">
                   <span class="status-dot-sage"></span>
-                  <span>Illustrative Demo Data</span>
+                  <span>Interactive Walkthrough &amp; Video Loading Soon</span>
                 </span>
               </div>
             </div>
 
-            <!-- Scenario Switcher Bar -->
-            <div class="prototype-scenario-bar">
-              <span class="scenario-label">Interactive Scenario Simulation:</span>
-              <div class="scenario-pills">
-                <button type="button" class="scenario-pill active" id="pill-base" onclick="switchScenario('base')">
-                  Base Operations (Simulated Data)
-                </button>
-                <button type="button" class="scenario-pill" id="pill-shock" onclick="switchScenario('shock')">
-                  Supply Shock (-8.5% Margin)
-                </button>
-                <button type="button" class="scenario-pill" id="pill-growth" onclick="switchScenario('growth')">
-                  Growth Expansion (+25% Capex)
-                </button>
-              </div>
-            </div>
-
-            <!-- Prototype Inner Body -->
-            <div class="prototype-body">
-              
-              <!-- Metrics Grid -->
-              <div class="prototype-metrics-grid">
-                <div class="metric-tile">
-                  <div class="metric-title">
-                    <span>Cash Runway</span>
-                    <span style="color: var(--copper);">&nearr;</span>
-                  </div>
-                  <div class="metric-value" id="m-runway">18.4 Mo</div>
-                  <div class="metric-sub positive" id="m-runway-sub">+14% YoY trajectory</div>
-                </div>
-
-                <div class="metric-tile">
-                  <div class="metric-title">
-                    <span>Working Capital Gap</span>
-                    <span>&bull;</span>
-                  </div>
-                  <div class="metric-value" id="m-gap">₹12.4 L</div>
-                  <div class="metric-sub neutral" id="m-gap-sub">Normal operational buffer</div>
-                </div>
-
-                <div class="metric-tile">
-                  <div class="metric-title">
-                    <span>Solvency Score</span>
-                    <span style="color: var(--sage);">&#10003;</span>
-                  </div>
-                  <div class="metric-value" id="m-solvency">94.2 / 100</div>
-                  <div class="metric-sub positive" id="m-solvency-sub">Prime Resilient</div>
-                </div>
-
-                <div class="metric-tile">
-                  <div class="metric-title">
-                    <span>Anomaly Radar</span>
-                    <span>&bull;</span>
-                  </div>
-                  <div class="metric-value" id="m-leaks">0 Detected</div>
-                  <div class="metric-sub positive" id="m-leaks-sub">142 ledger lines reconciled</div>
-                </div>
-              </div>
-
-              <!-- Dynamic Liquidity Chart Area -->
-              <div class="prototype-chart-area">
-                <div class="chart-header">
-                  <span class="chart-meta-title">Liquidity Projection &amp; Scenario Modeling</span>
-                  <div class="chart-legend">
-                    <span class="legend-item">
-                      <span class="legend-line-actual"></span>
-                      <span>Historical Benchmark</span>
-                    </span>
-                    <span class="legend-item">
-                      <span class="legend-line-proj"></span>
-                      <span>Simulated Trajectory</span>
-                    </span>
-                  </div>
-                </div>
-
-                <div class="chart-svg-wrap">
-                  <svg viewBox="0 0 720 120" preserveAspectRatio="none">
-                    <defs>
-                      <linearGradient id="chartCopperGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#C88443" stop-opacity="0.38"/>
-                        <stop offset="100%" stop-color="#C88443" stop-opacity="0.0"/>
-                      </linearGradient>
-                    </defs>
-                    <path id="prototype-chart-area" d="M 0,85 Q 90,75 180,80 T 360,55 T 540,45 T 720,25 L 720,120 L 0,120 Z" fill="url(#chartCopperGrad)"/>
-                    <path id="prototype-chart-line" d="M 0,85 Q 90,75 180,80 T 360,55 T 540,45 T 720,25" fill="none" stroke="#C88443" stroke-width="3" stroke-linecap="round"/>
+            <!-- Dashboard Frame Canvas (Clean Placeholder for Video / Screenshots) -->
+            <div class="dashboard-placeholder-canvas">
+              <div class="dashboard-placeholder-content">
+                <div class="dashboard-placeholder-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C88443" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                    <polygon points="10 8 15 11 10 14 10 8" fill="#C88443" fill-opacity="0.25"></polygon>
                   </svg>
                 </div>
-              </div>
-
-              <!-- Real-time Synthesis Log -->
-              <div class="prototype-footer-log">
-                <div class="log-icon">&#9881;</div>
-                <div class="log-content" id="prototype-log-content">
-                  <strong>ILLUSTRATIVE DEMO DATA:</strong> Ingested sample banking feeds and simulated ERP ledger. Working capital runway models 18.4 months under base operational assumptions. All disbursements matched against purchase orders with illustrative reconciliation.
+                <h3 class="dashboard-placeholder-heading">
+                  FinTwin Dashboard &amp; Interactive Walkthrough
+                </h3>
+                <p class="dashboard-placeholder-text">
+                  The live interactive financial intelligence dashboard and product demo video will be visible here.
+                </p>
+                <div class="dashboard-placeholder-badges">
+                  <span class="dp-badge">Product Walkthrough Video</span>
+                  <span class="dp-badge">Live Financial Digital Twin</span>
+                  <span class="dp-badge">Dynamic Scenario Engine</span>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -768,27 +697,16 @@
                 </div>
               </div>
 
-              <div class="form-grid">
-                <div>
-                  <label class="form-label" for="form-company">Company or organisation *</label>
-                  <input type="text" id="form-company" class="form-input" required placeholder="Company or organisation">
-                </div>
-                <div>
-                  <label class="form-label" for="form-interest">Area of interest</label>
-                  <select id="form-interest" class="form-select" onchange="syncChipFromSelect(this.value)">
-                    <option value="workflow">AI workflow automation</option>
-                    <option value="financial">Financial intelligence</option>
-                    <option value="document">Document intelligence</option>
-                    <option value="custom">Custom AI engineering</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
+              <div class="form-group-full">
+                <label class="form-label" for="form-company">Company or organisation *</label>
+                <input type="text" id="form-company" class="form-input" required placeholder="Company or organisation name">
               </div>
 
-              <!-- Quick Selection Chips -->
-              <div class="form-chips-wrap">
-                <span class="form-chips-label">Area of interest:</span>
-                <div class="form-chips-group">
+              <!-- Area of interest (Single, Clean Question with Interactive Chips) -->
+              <div class="form-group-full">
+                <label class="form-label" id="label-interest">Area of interest *</label>
+                <input type="hidden" id="form-interest" name="interest" value="workflow">
+                <div class="form-chips-group" role="group" aria-labelledby="label-interest">
                   <button type="button" class="interest-chip active" data-val="workflow" onclick="setInterestChip('workflow', this)">AI workflow automation</button>
                   <button type="button" class="interest-chip" data-val="financial" onclick="setInterestChip('financial', this)">Financial intelligence</button>
                   <button type="button" class="interest-chip" data-val="document" onclick="setInterestChip('document', this)">Document intelligence</button>
