@@ -147,6 +147,16 @@ window.handleContactSubmit = function(e) {
   }, 750);
 };
 
+// Select Pricing Plan Helper
+window.selectPricingPlan = function(planKey) {
+  const selectEl = document.getElementById('form-interest');
+  if (selectEl) {
+    if (planKey === 'pro') selectEl.value = 'fintwin-pro';
+    else if (planKey === 'free') selectEl.value = 'fintwin-free';
+    else if (planKey === 'custom') selectEl.value = 'custom-quote';
+  }
+};
+
 // Document Loaded Init
 document.addEventListener('DOMContentLoaded', () => {
   // Init default scenario

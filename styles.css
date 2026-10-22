@@ -1436,6 +1436,64 @@ body::before {
    Responsive Adaptations
    ========================================================================== */
 
+/* ==========================================================================
+   Pricing Section Cards
+   ========================================================================== */
+
+.pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card.featured {
+  border-color: var(--copper);
+  box-shadow: var(--shadow-md), 0 0 0 1px var(--copper);
+  background: #FFFFFF;
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -13px;
+  right: 24px;
+  background: var(--copper);
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 8px rgba(200, 132, 67, 0.4);
+}
+
+.pricing-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 10px 0 14px;
+}
+
+.pricing-amount {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  line-height: 1;
+}
+
+.pricing-period {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--charcoal-light);
+}
+
+.pricing-action-btn {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
 @media (max-width: 992px) {
   .solutions-grid {
     grid-template-columns: 1fr;
