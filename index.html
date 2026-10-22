@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Overbrewed — Autonomous AI Agents That Run Operations</title>
-  <meta name="description" content="Overbrewed designs and deploys domain-specialized autonomous AI agents for corporate finance, contract risk review, and real-time fraud defense.">
+  <title>Overbrewed — Independent AI Engineering Studio</title>
+  <meta name="description" content="We build practical AI agents and intelligent systems that help businesses automate workflows, understand data, and make better decisions.">
   
-  <!-- Slice-Style Modern Typography: Bricolage Grotesque & Plus Jakarta Sans -->
+  <!-- Modern Craft Typography: Newsreader (Editorial Serif) + Plus Jakarta Sans + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Slice-Inspired Design System -->
+  <!-- Overbrewed Design System -->
   <link rel="stylesheet" href="styles.css">
 
   <script>
-    // Force scroll to top on reload/refresh
+    // Reset scroll to top on refresh
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
@@ -27,362 +27,742 @@
 </head>
 <body>
 
-  <!-- Floating Pill Navbar (Slice Signature Style) -->
-  <header class="navbar" id="main-navbar">
+  <!-- ==========================================================================
+       Navigation Bar (Linear Precision × Brewery Warmth)
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
     <div class="container nav-container">
-      <a href="#" class="brand-logo" id="brand-link">
-        <div class="logo-spark">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+      <a href="#" class="brand-link" id="brand-link">
+        <div class="brand-emblem" aria-hidden="true">
+          <!-- Artisanal Copper Kettle / Flask Geometric Mark -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 2v7.31"></path>
+            <path d="M14 9.3V2"></path>
+            <path d="M8.5 2h7"></path>
+            <path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path>
+            <circle cx="12" cy="15" r="1.5" fill="currentColor"></circle>
           </svg>
         </div>
-        <span class="brand-title">overbrewed</span>
+        <div class="brand-wordmark">
+          overbrewed<span class="brand-dot">.</span>
+        </div>
+        <span class="brand-badge">STUDIO</span>
       </a>
 
-      <nav class="nav-links">
-        <a href="#capabilities" class="nav-pill">What we do</a>
-        <a href="#how-it-works" class="nav-pill">How it works</a>
-        <a href="#access" class="nav-pill nav-pill-action">Get Access &rarr;</a>
+      <nav class="nav-menu">
+        <a href="#solutions" class="nav-link">Solutions</a>
+        <a href="#fintwin" class="nav-link">FinTwin</a>
+        <a href="#how-we-work" class="nav-link">How We Work</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary" id="nav-cta-btn">
+          <span>Discuss a Project &rarr;</span>
+        </a>
+      </div>
     </div>
   </header>
 
   <main>
-    <!-- Overbrewed React Glyph Effect Portal Entry -->
-    <div id="overbrewed-glyph-root"></div>
-
-    <!-- Hero Section: Quick Access & Multi-Domain Agent Console -->
-    <section class="hero-section" id="hero" style="padding-top: 40px;">
+    <!-- ==========================================================================
+         Hero Section: 5-Second Clarity (What, Who, Why)
+         ========================================================================== -->
+    <section class="hero-section" id="hero">
       <div class="container">
+        <div class="hero-content">
+          
+          <!-- Eyebrow Pill -->
+          <div class="eyebrow-pill">
+            <span class="eyebrow-pulse"></span>
+            <span>INDEPENDENT AI ENGINEERING STUDIO</span>
+          </div>
 
-        <!-- Slice-Style Capsule Quick Access Input -->
-        <form class="hero-input-capsule" onsubmit="handleQuickAccess(event)">
-          <input type="email" id="quick-email" required placeholder="Enter your work email address...">
-          <button type="submit" class="capsule-btn">
-            <span>Request Access</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </button>
-        </form>
+          <!-- Brand Headline -->
+          <h1 class="hero-title">
+            Intelligence, <em>brewed</em> for business.
+          </h1>
 
-        <!-- Multi-Domain Autonomous Agent Showcase (Slice-Inspired Glassmorphic Depth) -->
-        <div class="fintwin-showcase-container">
-          <div class="fintwin-card">
-            <!-- Topbar: Domain Switcher (Finance, Legal, Defense, Enterprise) -->
-            <div class="fintwin-topbar">
-              <div class="fintwin-badge-wrap">
-                <span class="fintwin-pill-tag" id="domain-pill-tag">FINANCE // AUTONOMOUS ENGINE</span>
-                <span class="fintwin-active-status">
-                  <span class="status-pulse-dot"></span>
-                  <span id="domain-active-status">AGENT SWARM ACTIVE</span>
-                </span>
-              </div>
-              <div class="fintwin-ticker-bar" id="domain-selector-bar">
-                <button type="button" class="ticker-pill active" onclick="switchDomain('finance')">Finance & Ledgers</button>
-                <button type="button" class="ticker-pill" onclick="switchDomain('legal')">Legal & Contracts</button>
-                <button type="button" class="ticker-pill" onclick="switchDomain('defense')">Risk & AML Defense</button>
-                <button type="button" class="ticker-pill" onclick="switchDomain('enterprise')">Enterprise Operations</button>
-              </div>
+          <!-- Clear Subheadline -->
+          <p class="hero-subtitle">
+            We build practical AI agents and intelligent systems that help businesses automate workflows, understand complex data, and make faster, grounded decisions.
+          </p>
+
+          <!-- CTAs -->
+          <div class="hero-cta-group">
+            <a href="#contact" class="btn btn-primary btn-lg">
+              <span>Discuss a Project &rarr;</span>
+            </a>
+            <a href="#fintwin" class="btn btn-secondary btn-lg">
+              <span>Explore FinTwin &darr;</span>
+            </a>
+          </div>
+
+          <!-- Craft Signals -->
+          <div class="hero-signals">
+            <div class="signal-item">
+              <span class="signal-dot">&bull;</span>
+              <span>Small-Batch AI Engineering</span>
             </div>
-
-            <!-- Domain Operational Meta -->
-            <div class="fintwin-header-meta">
-              <div>
-                <div class="fintwin-company-name" id="domain-target-name">Reliance Industries Ltd &bull; Corporate Digital Twin</div>
-                <div class="fintwin-price-row">
-                  <span class="fintwin-price" id="domain-primary-metric">₹2,984.50</span>
-                  <span class="fintwin-change badge-up" id="domain-badge-metric">+1.84% (Today)</span>
-                  <span class="fintwin-regime-tag" id="domain-regime-tag">Low Crash Risk &bull; Stable Expansion</span>
-                </div>
-              </div>
-              <div class="fintwin-news-pill" id="domain-telemetry-pill">
-                <span class="news-dot" id="domain-news-dot"></span>
-                <span id="domain-telemetry-text">Live Ingestion: Q3 refining margins surge 14% on strong export volume</span>
-              </div>
+            <div class="signal-item">
+              <span class="signal-dot">&bull;</span>
+              <span>Deterministic Guardrails</span>
             </div>
-
-            <!-- Dynamic Graph Visualization -->
-            <div class="fintwin-chart-area">
-              <svg viewBox="0 0 700 120" class="twin-svg-chart" id="twin-chart-svg">
-                <defs>
-                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.35"/>
-                    <stop offset="100%" stop-color="#00E5FF" stop-opacity="0.0"/>
-                  </linearGradient>
-                </defs>
-                <path id="twin-chart-area" d="M 0,90 Q 70,80 140,85 T 280,60 T 420,70 T 560,40 T 700,25 L 700,120 L 0,120 Z" fill="url(#chartGrad)" />
-                <path id="twin-chart-line" d="M 0,90 Q 70,80 140,85 T 280,60 T 420,70 T 560,40 T 700,25" fill="none" stroke="#00E5FF" stroke-width="3" stroke-linecap="round" />
-              </svg>
-              <div class="chart-timeline-labels">
-                <span id="chart-lbl-left">Continuous Ingestion</span>
-                <span id="chart-lbl-mid">Deterministic Verification</span>
-                <span class="predict-label" id="chart-lbl-right">&rarr; Autonomous Operational Trajectory</span>
-              </div>
-            </div>
-
-            <!-- Multi-Model Diagnostic Grid (Adapts to Active Domain) -->
-            <div class="fintwin-models-grid" id="domain-models-grid">
-              <div class="model-box">
-                <div class="model-box-top">
-                  <span class="model-key" id="key-model-1">CRASH_ISO</span>
-                  <span class="model-name" id="name-model-1">Isolation Forest</span>
-                </div>
-                <div class="model-stat" id="stat-model-1">Score: 0.08</div>
-                <div class="model-status status-ok" id="status-model-1">Status: Normal / Resilient</div>
-              </div>
-
-              <div class="model-box">
-                <div class="model-box-top">
-                  <span class="model-key" id="key-model-2">CRASH_RF</span>
-                  <span class="model-name" id="name-model-2">RF Crisis Classifier</span>
-                </div>
-                <div class="model-stat" id="stat-model-2">P(Crisis): 1.8%</div>
-                <div class="model-status status-ok" id="status-model-2">Regime: Expansion</div>
-              </div>
-
-              <div class="model-box">
-                <div class="model-box-top">
-                  <span class="model-key" id="key-model-3">SAVINGS_XGB</span>
-                  <span class="model-name" id="name-model-3">XGBoost Runway</span>
-                </div>
-                <div class="model-stat" id="stat-model-3">Runway: +18.4 mo</div>
-                <div class="model-status status-ok" id="status-model-3">Net Trajectory: +14.2% YoY</div>
-              </div>
-
-              <div class="model-box">
-                <div class="model-box-top">
-                  <span class="model-key" id="key-model-4">LOAN_LGBM</span>
-                  <span class="model-name" id="name-model-4">LightGBM Solvency</span>
-                </div>
-                <div class="model-stat" id="stat-model-4">Default Risk: 0.38%</div>
-                <div class="model-status status-ok" id="status-model-4">Rating: AAA Prime</div>
-              </div>
-            </div>
-
-            <!-- Grounded Orchestrator Synthesis Box -->
-            <div class="fintwin-orchestrator-box">
-              <div class="orch-header">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D8B4FE" stroke-width="2.5">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                </svg>
-                <span id="domain-orch-title">Financial Operations Orchestrator Synthesis</span>
-              </div>
-              <p class="orch-text" id="domain-orch-text">
-                "Model ensemble confirms 98.6% solvency stability across live order books. Real-time news sentiment corroborates +14% refining export margin expansion. Dynamic runway model verifies capacity for ₹1,200 Cr capex deployment without debt ceiling breach."
-              </p>
-            </div>
-
-            <!-- Interactive Domain Controls -->
-            <div class="fintwin-actions-bar">
-              <div class="actions-group">
-                <button type="button" class="twin-action-btn primary" id="btn-domain-stress" onclick="runDomainStressSimulation()">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                  <span id="btn-stress-text">Simulate Market Shock</span>
-                </button>
-                <button type="button" class="twin-action-btn secondary" id="btn-domain-action" onclick="runDomainCompositeInference()">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-                  <span id="btn-action-text">Run Composite Inference</span>
-                </button>
-              </div>
-              <div class="twin-meta-metrics">
-                <span>Deterministic SLA: <strong>99.4%</strong></span>
-                <span>Execution Latency: <strong>38ms P99</strong></span>
-              </div>
+            <div class="signal-item">
+              <span class="signal-dot">&bull;</span>
+              <span>Fast 2-Week Prototypes</span>
             </div>
           </div>
         </div>
+
+        <!-- ==========================================================================
+             Hero Visual: Linear × Vercel FinTwin Prototype Showcase
+             ========================================================================== -->
+        <div class="prototype-showcase-wrap">
+          <div class="prototype-card">
+            
+            <!-- Window Chrome Header -->
+            <div class="prototype-chrome">
+              <div class="chrome-left">
+                <div class="chrome-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <div class="prototype-badge-tag">
+                  <strong>FinTwin</strong>
+                  <span>/ Financial Intelligence</span>
+                </div>
+              </div>
+              <div class="chrome-right">
+                <span class="status-indicator">
+                  <span class="status-dot-sage"></span>
+                  <span>Active Prototype v2.1</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Scenario Switcher Bar (Linear / Vercel style tabs) -->
+            <div class="prototype-scenario-bar">
+              <span class="scenario-label">Interactive Scenario Simulation:</span>
+              <div class="scenario-pills">
+                <button type="button" class="scenario-pill active" id="pill-base" onclick="switchScenario('base')">
+                  Base Operations (Live Telemetry)
+                </button>
+                <button type="button" class="scenario-pill" id="pill-shock" onclick="switchScenario('shock')">
+                  Supply Shock (-8.5% Margin)
+                </button>
+                <button type="button" class="scenario-pill" id="pill-growth" onclick="switchScenario('growth')">
+                  Growth Expansion (+25% Capex)
+                </button>
+              </div>
+            </div>
+
+            <!-- Prototype Inner Body -->
+            <div class="prototype-body">
+              
+              <!-- Metrics Grid -->
+              <div class="prototype-metrics-grid">
+                <div class="metric-tile">
+                  <div class="metric-title">
+                    <span>Cash Runway</span>
+                    <span style="color: var(--copper);">&nearr;</span>
+                  </div>
+                  <div class="metric-value" id="m-runway">18.4 Mo</div>
+                  <div class="metric-sub positive" id="m-runway-sub">+14% YoY trajectory</div>
+                </div>
+
+                <div class="metric-tile">
+                  <div class="metric-title">
+                    <span>Working Capital Gap</span>
+                    <span>&bull;</span>
+                  </div>
+                  <div class="metric-value" id="m-gap">₹12.4 L</div>
+                  <div class="metric-sub neutral" id="m-gap-sub">Normal operational buffer</div>
+                </div>
+
+                <div class="metric-tile">
+                  <div class="metric-title">
+                    <span>Solvency Score</span>
+                    <span style="color: var(--sage);">&#10003;</span>
+                  </div>
+                  <div class="metric-value" id="m-solvency">94.2 / 100</div>
+                  <div class="metric-sub positive" id="m-solvency-sub">Prime Resilient</div>
+                </div>
+
+                <div class="metric-tile">
+                  <div class="metric-title">
+                    <span>Anomaly Radar</span>
+                    <span>&bull;</span>
+                  </div>
+                  <div class="metric-value" id="m-leaks">0 Detected</div>
+                  <div class="metric-sub positive" id="m-leaks-sub">142 ledger lines reconciled</div>
+                </div>
+              </div>
+
+              <!-- Dynamic Chart Area -->
+              <div class="prototype-chart-area">
+                <div class="chart-header">
+                  <span class="chart-meta-title">Liquidity Projection & Shock Absorption</span>
+                  <div class="chart-legend">
+                    <span class="legend-item">
+                      <span class="legend-line-actual"></span>
+                      <span>Historical Telemetry</span>
+                    </span>
+                    <span class="legend-item">
+                      <span class="legend-line-proj"></span>
+                      <span>Simulated Trajectory</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="chart-svg-wrap">
+                  <svg viewBox="0 0 720 120" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="chartCopperGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#C88443" stop-opacity="0.38"/>
+                        <stop offset="100%" stop-color="#C88443" stop-opacity="0.0"/>
+                      </linearGradient>
+                    </defs>
+                    <path id="prototype-chart-area" d="M 0,85 Q 90,75 180,80 T 360,55 T 540,45 T 720,25 L 720,120 L 0,120 Z" fill="url(#chartCopperGrad)"/>
+                    <path id="prototype-chart-line" d="M 0,85 Q 90,75 180,80 T 360,55 T 540,45 T 720,25" fill="none" stroke="#C88443" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Real-time Synthesis Log -->
+              <div class="prototype-footer-log">
+                <div class="log-icon">&#9881;</div>
+                <div class="log-content" id="prototype-log-content">
+                  <strong>LIVE TELEMETRY VERIFIED:</strong> Ingested real-time banking feeds and ERP ledger. Working capital runway exceeds 18 months under current burn rate. All disbursements validated against purchase orders with zero anomalies.
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- What We Do Section (Bento Grid) -->
-    <section class="section" id="capabilities">
+    <!-- ==========================================================================
+         Section: What We Build (Solutions)
+         ========================================================================== -->
+    <section class="section section-alt" id="solutions">
       <div class="container">
-        <div class="section-head">
-          <div class="section-tag">WHAT WE DO</div>
-          <h2 class="section-title">We build & deploy autonomous AI agents.</h2>
+        
+        <div class="section-header">
+          <span class="section-tag">WHAT WE BUILD</span>
+          <h2 class="section-title">Practical AI, engineered with craft.</h2>
           <p class="section-desc">
-            No shallow chatbots. No generic wrappers. Just self-governing autonomous agents executing mission-critical business operations with mathematical rigor.
+            We focus on high-impact operational leverage. Three clear service areas where deterministic intelligence eliminates toil and unlocks measurable business outcomes.
           </p>
         </div>
 
-        <div class="bento-grid">
-          <!-- Card 1: Finance -->
-          <div class="bento-card">
-            <div class="bento-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="12" y1="1" x2="12" y2="23"></line>
-                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+        <div class="solutions-grid">
+          
+          <!-- Card 1: Workflow Automation -->
+          <div class="solution-card">
+            <div class="solution-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
               </svg>
             </div>
-            <h3>Financial Operations & Digital Twins</h3>
-            <p>
-              Autonomous financial agents that eliminate manual ledger toil — continuous bank feed synchronization, 3-way invoice matching across ERPs (NetSuite, Zoho, SAP), dynamic cash runway stress modeling, and automated treasury oversight.
+            <span class="solution-outcome">30+ Hours Saved / Week</span>
+            <h3 class="solution-heading">AI Workflow Automation</h3>
+            <p class="solution-text">
+              We engineer autonomous agents that connect directly to your ERP, document repositories, and communication channels. They extract invoice line items, perform 3-way matching, triage contract risks, and route exceptions to human operators with full auditability.
             </p>
-            <ul class="bento-list">
-              <li><span>&bull;</span> 3-way invoice, PO & ledger reconciliation with 100% GAAP precision</li>
-              <li><span>&bull;</span> Rolling cash runway simulations & treasury liquidity forecasting</li>
-              <li><span>&bull;</span> Multi-entity balance sheet synchronization & GST reconciliation</li>
-              <li><span>&bull;</span> Automated bank feed discrepancy isolation & anomaly alerts</li>
+            <ul class="solution-bullets">
+              <li><span class="bullet-check">&#10003;</span> Automated 3-way invoice matching</li>
+              <li><span class="bullet-check">&#10003;</span> Structured document & contract extraction</li>
+              <li><span class="bullet-check">&#10003;</span> Human-in-the-loop exception review</li>
             </ul>
           </div>
 
-          <!-- Card 2: Legal -->
-          <div class="bento-card">
-            <div class="bento-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                <path d="m9 12 2 2 4-4"></path>
+          <!-- Card 2: Financial Intelligence -->
+          <div class="solution-card">
+            <div class="solution-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
               </svg>
             </div>
-            <h3>Legal & Contract Intelligence</h3>
-            <p>
-              Autonomous legal agents that audit 50+ page agreements in seconds — extracting hidden indemnity traps, perpetual lock-ins, uncapped liabilities, and non-standard covenants with clause-by-clause risk triage.
+            <span class="solution-outcome">Real-Time Visibility</span>
+            <h3 class="solution-heading">Financial Intelligence</h3>
+            <p class="solution-text">
+              Powered by our FinTwin engine, we turn static spreadsheets into a dynamic, predictive financial replica. Model cash runway under fluctuating market conditions, stress-test receivables delay, and detect subtle working capital leaks long before month-end close.
             </p>
-            <ul class="bento-list">
-              <li><span>&bull;</span> Automated clause-level risk extraction & redline suggestions</li>
-              <li><span>&bull;</span> Detection of uncapped liabilities & unfair termination covenants</li>
-              <li><span>&bull;</span> India DPDP Act 2023 & GDPR regulatory compliance checks</li>
-              <li><span>&bull;</span> Plain-English executive risk summaries & milestone tracking</li>
+            <ul class="solution-bullets">
+              <li><span class="bullet-check">&#10003;</span> Dynamic cash runway forecasting</li>
+              <li><span class="bullet-check">&#10003;</span> Scenario stress-testing (margin shocks & capex)</li>
+              <li><span class="bullet-check">&#10003;</span> Automated ledger anomaly detection</li>
             </ul>
           </div>
 
-          <!-- Card 3: Risk & Fraud -->
-          <div class="bento-card">
-            <div class="bento-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-              </svg>
-            </div>
-            <h3>Defense, Risk & Fraud Engines</h3>
-            <p>
-              Autonomous security agents running graph traversal at sub-50ms latency — detecting synthetic identity rings, transaction velocity bursts, and mule networks to auto-block unauthorized activity before checkout.
-            </p>
-            <ul class="bento-list">
-              <li><span>&bull;</span> Sub-50ms pre-authorization webhook anomaly blocking</li>
-              <li><span>&bull;</span> Coordinated mule account & transaction velocity graph traversal</li>
-              <li><span>&bull;</span> Automated Suspicious Activity Report (SAR) compliance filings</li>
-              <li><span>&bull;</span> Explainable AI (SHAP / XAI) transparent attribution audit trails</li>
-            </ul>
-          </div>
-
-          <!-- Card 4: Enterprise Swarms -->
-          <div class="bento-card">
-            <div class="bento-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+          <!-- Card 3: Custom AI Engineering -->
+          <div class="solution-card">
+            <div class="solution-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
                 <line x1="8" y1="21" x2="16" y2="21"></line>
                 <line x1="12" y1="17" x2="12" y2="21"></line>
               </svg>
             </div>
-            <h3>Custom Enterprise Operational Swarms</h3>
-            <p>
-              Bespoke multi-agent swarms engineered to execute your proprietary corporate workflows on dedicated private VPC enclaves (AWS / Azure / GCP) with strict zero-data-retention guarantees.
+            <span class="solution-outcome">Deterministic Precision</span>
+            <h3 class="solution-heading">Custom AI Engineering</h3>
+            <p class="solution-text">
+              No generic wrapper apps. We design bespoke machine learning ensembles, private VPC-hosted agent swarms, and grounded retrieval architectures with strict mathematical guardrails. Built for organizations that require zero data leakage and deterministic reliability.
             </p>
-            <ul class="bento-list">
-              <li><span>&bull;</span> Dedicated private cloud VPC in India (Zero Data Retention)</li>
-              <li><span>&bull;</span> Custom fine-tuned models aligned with internal enterprise schemas</li>
-              <li><span>&bull;</span> Seamless API integration with SAP, SQL, NetSuite & Zoho</li>
-              <li><span>&bull;</span> 99.4% deterministic SLA & dedicated AI engineering support</li>
+            <ul class="solution-bullets">
+              <li><span class="bullet-check">&#10003;</span> Private VPC & on-premise deployment</li>
+              <li><span class="bullet-check">&#10003;</span> Deterministic ML models (Isolation Forests, XGBoost)</li>
+              <li><span class="bullet-check">&#10003;</span> Continuous drift monitoring & alerting</li>
             </ul>
           </div>
+
         </div>
+
       </div>
     </section>
 
-    <!-- How It Works / How We Provide Solutions Section -->
-    <section class="section" id="how-it-works" style="padding-top: 40px;">
+    <!-- ==========================================================================
+         Section: Featured Product — FinTwin Deep Dive
+         ========================================================================== -->
+    <section class="section" id="fintwin">
       <div class="container">
-        <div class="section-head">
-          <div class="section-tag">THE OVERBREWED AGENT BLUEPRINT</div>
-          <h2 class="section-title">How we provide solutions.</h2>
-          <p class="section-desc">
-            Every autonomous agent we engineer follows a battle-tested 4-layer architecture — combining real-time operational telemetry, domain-specific machine learning ensembles, and grounded orchestrator reasoning.
-          </p>
-        </div>
-
-        <div class="steps-grid">
-          <div class="step-card">
-            <div class="step-num">01</div>
-            <h3>Map & Ingest Any Workflow</h3>
-            <p>We connect directly into your existing enterprise ecosystem — databases, internal APIs, ERPs, CRMs, contract repositories, and communication channels. Zero migration or infrastructure disruption.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-num">02</div>
-            <h3>Deterministic Logic & Ensembles</h3>
-            <p>We replace fuzzy LLM guesswork with mathematical rigor. We deploy specialized domain models, graph traversal algorithms, deterministic validation engines, and custom fine-tuned SLMs tailored to your exact business rules.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-num">03</div>
-            <h3>Grounded Multi-Agent Orchestration</h3>
-            <p>Autonomous agent swarms plan, verify, and cross-reference tasks against your organizational guardrails. Every inference is checked for compliance and consistency before taking any external action.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-num">04</div>
-            <h3>Continuous 24/7 Autonomy</h3>
-            <p>Your agents run around the clock on dedicated private enclaves. They execute repetitive operations, triage anomalies in real time, and alert human operators only when high-stakes approval is required.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Early Access Section (Slice-Style Minimal Capsule Form) -->
-    <section class="section" id="access">
-      <div class="container">
-        <div class="access-card">
-          <h2 class="access-title">Ready to deploy your first agent?</h2>
-          <p class="access-desc">
-            Join forward-thinking enterprise teams running critical operations on Overbrewed. Tell us your workflow and we'll architect a production agent blueprint within 24 hours.
-          </p>
-
-          <form class="access-form" id="access-form" onsubmit="handleAccessSubmit(event)">
-            <div class="access-row">
-              <input type="text" id="acc-name" class="access-input" required placeholder="Your name">
-              <input type="email" id="acc-email" class="access-input" required placeholder="Work email address">
+        
+        <div class="fintwin-feature-layout">
+          
+          <!-- Story & Problem Definition -->
+          <div class="fintwin-story">
+            <div class="fintwin-status-badge">
+              <span>●</span> FEATURED PROTOTYPE &bull; CLOSED ALPHA
             </div>
-            <textarea id="acc-workflow" class="access-input access-textarea" rows="3" required placeholder="What workflow would you like to automate? (e.g. 3-way invoice matching, contract risk triage, real-time fraud defense...)"></textarea>
-            <button type="submit" class="access-submit-btn" id="btn-request-access">
-              <span>Request Early Access</span>
-            </button>
-          </form>
+            <h2 class="fintwin-title">
+              FinTwin — The Financial Digital Twin.
+            </h2>
+            <p class="fintwin-narrative">
+              Spreadsheets are static. Cash flow isn't. Mid-market finance teams spend 40+ hours every month manually consolidating bank statements and ERP ledgers, leaving leadership flying blind when macro volatility hits.
+            </p>
 
-          <div id="access-success" style="display: none; padding: 20px 0;">
-            <div style="font-size: 2rem; margin-bottom: 8px;">✨</div>
-            <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: #FFFFFF; margin-bottom: 6px;">Request Received</h3>
-            <p style="color: var(--slice-muted); font-size: 0.95rem;">Our agent engineering team will review your workflow and send your custom blueprint within 24 hours.</p>
+            <div class="fintwin-props">
+              <div class="prop-item">
+                <div class="prop-icon">&#10003;</div>
+                <div>
+                  <div class="prop-title">Continuous Telemetry Ingestion</div>
+                  <div class="prop-desc">Connects to bank feeds, invoices, and accounting ledgers to update cash positions continuously.</div>
+                </div>
+              </div>
+              <div class="prop-item">
+                <div class="prop-icon">&#10003;</div>
+                <div>
+                  <div class="prop-title">Predictive Shock Simulation</div>
+                  <div class="prop-desc">Test the operational impact of customer payment delays, inventory price surges, or capex expansions in seconds.</div>
+                </div>
+              </div>
+              <div class="prop-item">
+                <div class="prop-icon">&#10003;</div>
+                <div>
+                  <div class="prop-title">Transparent Development Status</div>
+                  <div class="prop-desc">Currently deployed in active pilot testing with selected manufacturing and logistics partners.</div>
+                </div>
+              </div>
+            </div>
+
+            <a href="#contact" class="btn btn-primary">
+              <span>Request Early Pilot Access &rarr;</span>
+            </a>
           </div>
+
+          <!-- Interactive Sandbox Container -->
+          <div class="fintwin-sandbox-card">
+            <div class="sandbox-nav">
+              <button type="button" class="sandbox-tab active" id="tab-btn-reconciliation" onclick="switchSandboxTab('reconciliation')">
+                3-Way Reconciliation
+              </button>
+              <button type="button" class="sandbox-tab" id="tab-btn-runway" onclick="switchSandboxTab('runway')">
+                Runway Horizon
+              </button>
+              <button type="button" class="sandbox-tab" id="tab-btn-stress" onclick="switchSandboxTab('stress')">
+                Stress Injector
+              </button>
+            </div>
+
+            <!-- Pane 1: 3-Way Reconciliation -->
+            <div class="sandbox-view-pane active" id="pane-reconciliation">
+              <div class="sandbox-stat-row">
+                <div class="stat-box">
+                  <div class="stat-box-label">Invoices Triaged</div>
+                  <div class="stat-box-val">284</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-box-label">Matched (100%)</div>
+                  <div class="stat-box-val" style="color: var(--sage);">283</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-box-label">Exception Alert</div>
+                  <div class="stat-box-val" style="color: #F87171;">1</div>
+                </div>
+              </div>
+
+              <table class="sandbox-ledger-table">
+                <thead>
+                  <tr>
+                    <th>Vendor</th>
+                    <th>PO Match</th>
+                    <th>Invoice Match</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Apex Logistics Ltd</td>
+                    <td>PO-8821</td>
+                    <td>₹1,42,000</td>
+                    <td><span class="pill-flag match">Auto-Approved</span></td>
+                  </tr>
+                  <tr>
+                    <td>Sterling Packaging</td>
+                    <td>PO-8819</td>
+                    <td>₹84,500</td>
+                    <td><span class="pill-flag match">Auto-Approved</span></td>
+                  </tr>
+                  <tr>
+                    <td>Orion Tech Systems</td>
+                    <td>PO-8794</td>
+                    <td>₹3,15,000</td>
+                    <td><span class="pill-flag anomaly">Price Mismatch (+12%)</span></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div style="font-size: 0.8rem; color: #9E998F; line-height: 1.5; padding-top: 6px;">
+                <em>Orion Tech Systems flagged:</em> Invoice exceeds approved purchase order by 12%. Routed to procurement lead with one-click approval / dispute trigger.
+              </div>
+            </div>
+
+            <!-- Pane 2: Runway Horizon -->
+            <div class="sandbox-view-pane" id="pane-runway">
+              <div class="sandbox-stat-row">
+                <div class="stat-box">
+                  <div class="stat-box-label">Conservative (90d)</div>
+                  <div class="stat-box-val">12.2 Mo</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-box-label">Expected Base</div>
+                  <div class="stat-box-val">18.4 Mo</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-box-label">Optimistic</div>
+                  <div class="stat-box-val">22.6 Mo</div>
+                </div>
+              </div>
+              <p style="font-size: 0.86rem; color: #D6CEC3; line-height: 1.6; margin-bottom: 12px;">
+                Dynamic runway models account for historical client DSO (Days Sales Outstanding) variance and vendor payment terms rather than fixed linear amortization.
+              </p>
+              <div style="background: rgba(255,255,255,0.04); padding: 12px; border-radius: 6px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--copper-light);">
+                &bull; Working Capital Coverage: 2.4x current monthly burn rate<br>
+                &bull; Zero reliance on uncommitted short-term credit facilities
+              </div>
+            </div>
+
+            <!-- Pane 3: Stress Injector -->
+            <div class="sandbox-view-pane" id="pane-stress">
+              <div class="sandbox-stat-row">
+                <div class="stat-box">
+                  <div class="stat-box-label">Simulated Shock</div>
+                  <div class="stat-box-val">-15% Rev</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-box-label">Buffer Capacity</div>
+                  <div class="stat-box-val">11.4 Mo</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-box-label">Action Priority</div>
+                  <div class="stat-box-val" style="color: var(--copper);">Gate Capex</div>
+                </div>
+              </div>
+              <p style="font-size: 0.86rem; color: #D6CEC3; line-height: 1.6;">
+                Simulating severe market drawdown: FinTwin generates deterministic operational recommendations to preserve positive cash balance without distressed financing.
+              </p>
+            </div>
+
+          </div>
+
         </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section: How We Work (Craft Process)
+         ========================================================================== -->
+    <section class="section section-alt" id="how-we-work">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">HOW WE WORK</span>
+          <h2 class="section-title">Small-batch engineering. Predictable delivery.</h2>
+          <p class="section-desc">
+            We don't do endless discovery decks or speculative wireframes. We sit with your operators, understand the real workflow, and ship working software from week one.
+          </p>
+        </div>
+
+        <div class="process-steps-grid">
+          
+          <div class="process-step-card">
+            <span class="step-num">01</span>
+            <h3 class="step-title">Discover the Workflow</h3>
+            <p class="step-text">
+              We interview your frontline operators to map exact bottlenecks, data silos, edge cases, and high-leverage points of automation.
+            </p>
+          </div>
+
+          <div class="process-step-card">
+            <span class="step-num">02</span>
+            <h3 class="step-title">Build a Prototype</h3>
+            <p class="step-text">
+              Within 10 to 14 days, we build a functional, interactive proof-of-concept tested on sanitized or synthetic data to prove feasibility.
+            </p>
+          </div>
+
+          <div class="process-step-card">
+            <span class="step-num">03</span>
+            <h3 class="step-title">Test with Real Data</h3>
+            <p class="step-text">
+              We benchmark the models against your historical records, measure deterministic accuracy, and set up strict verification guardrails.
+            </p>
+          </div>
+
+          <div class="process-step-card">
+            <span class="step-num">04</span>
+            <h3 class="step-title">Deploy & Monitor</h3>
+            <p class="step-text">
+              We containerize on your infrastructure (private VPC or cloud) with automated drift detection, human review controls, and clear audit logs.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section: Meet the Founders
+         ========================================================================== -->
+    <section class="section" id="about">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">ABOUT OVERBREWED</span>
+          <h2 class="section-title">Engineered by builders, not agency middlemen.</h2>
+          <p class="section-desc">
+            We are an independent engineering studio that believes business software deserves the meticulous craft, honest ingredients, and relentless care of a master brewery.
+          </p>
+        </div>
+
+        <div class="founders-layout">
+          
+          <!-- Founder Card -->
+          <div class="founder-card">
+            <div class="founder-header">
+              <div class="founder-avatar">P</div>
+              <div>
+                <h3 class="founder-name">Pragadeesh</h3>
+                <div class="founder-role">CO-FOUNDER &bull; AI SYSTEMS LEAD</div>
+              </div>
+            </div>
+            <p class="founder-bio">
+              Applied machine learning practitioner and distributed systems engineer. Obsessed with building deterministic operational software that businesses can trust with real capital, rather than probabilistic wrappers.
+            </p>
+            <div class="founder-creds">
+              <span class="cred-tag">Applied ML</span>
+              <span class="cred-tag">Deterministic Systems</span>
+              <span class="cred-tag">FinTwin Architecture</span>
+              <span class="cred-tag">Orchestration</span>
+            </div>
+          </div>
+
+          <!-- Studio Ethos Card -->
+          <div class="ethos-card">
+            <span class="ethos-badge">OUR ENGINEERING ETHOS</span>
+            <p class="ethos-quote">
+              &ldquo;Fine brewing requires pure water, selected grains, and exact temperatures. Fine AI requires clean data, deterministic models, and zero marketing fluff.&rdquo;
+            </p>
+            <p class="ethos-sub">
+              We stay intentionally small so you work directly with the engineers writing the code. Every project is small-batch, grounded, and tailored to your specific operational reality.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section: Work With Us (Primary Conversion Goal)
+         ========================================================================== -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        
+        <div class="contact-layout">
+          
+          <!-- Context Panel -->
+          <div class="contact-info-panel">
+            <span class="section-tag">WORK WITH US</span>
+            <h2 class="section-title" style="text-align: left; margin-bottom: 14px;">
+              Let's brew something exceptional.
+            </h2>
+            <p class="section-desc" style="text-align: left; margin-bottom: 24px;">
+              Have a complex operational bottleneck, manual financial workflow, or bespoke intelligence need? Fill out the brief and we'll reply with a technical assessment within 24 hours.
+            </p>
+
+            <div class="contact-promises">
+              <div class="promise-row">
+                <span class="promise-bullet">&#10003;</span>
+                <div class="promise-text">
+                  <h4>Direct Engineer Response</h4>
+                  <p>Your brief goes directly to technical founders, not a sales representative.</p>
+                </div>
+              </div>
+              <div class="promise-row">
+                <span class="promise-bullet">&#10003;</span>
+                <div class="promise-text">
+                  <h4>Concrete Architecture Proposal</h4>
+                  <p>We outline data flow, model choice, and a 2-week prototype timeline.</p>
+                </div>
+              </div>
+              <div class="promise-row">
+                <span class="promise-bullet">&#10003;</span>
+                <div class="promise-text">
+                  <h4>No Commitment Discovery</h4>
+                  <p>If our craft approach isn't the right fit for your challenge, we'll tell you honestly.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="direct-email-box">
+              <span class="email-label">Prefer Direct Email?</span>
+              <a href="mailto:hello@overbrewed.co" class="email-val">hello@overbrewed.co</a>
+            </div>
+          </div>
+
+          <!-- Conversion Form -->
+          <div class="contact-form-card">
+            <form id="project-form" onsubmit="handleContactSubmit(event)">
+              <div class="form-grid">
+                <div>
+                  <label class="form-label" for="form-name">Your Name *</label>
+                  <input type="text" id="form-name" class="form-input" required placeholder="Jane Doe">
+                </div>
+                <div>
+                  <label class="form-label" for="form-email">Work Email *</label>
+                  <input type="email" id="form-email" class="form-input" required placeholder="jane@company.com">
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div>
+                  <label class="form-label" for="form-company">Company Name *</label>
+                  <input type="text" id="form-company" class="form-input" required placeholder="Acme Logistics">
+                </div>
+                <div>
+                  <label class="form-label" for="form-interest">Primary Interest</label>
+                  <select id="form-interest" class="form-select">
+                    <option value="workflow">AI Workflow Automation</option>
+                    <option value="fintwin">FinTwin Pilot Access</option>
+                    <option value="custom">Custom AI Engineering</option>
+                    <option value="other">General Technical Inquiry</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group-full">
+                <label class="form-label" for="form-challenge">Describe Your Operational Challenge *</label>
+                <textarea id="form-challenge" class="form-textarea" required placeholder="What manual workflow, document bottleneck, or financial data challenge are you trying to automate? (e.g. 3-way invoice reconciliation, dynamic runway modeling, contract extraction...)"></textarea>
+              </div>
+
+              <button type="submit" class="form-submit-btn" id="btn-submit-brief">
+                <span>Send Project Brief &rarr;</span>
+              </button>
+              
+              <p class="form-note">
+                Zero spam. NDA-protected. Tailored technical response within 24 hours.
+              </p>
+            </form>
+
+            <!-- Success State -->
+            <div class="form-success-box" id="form-success">
+              <div class="success-icon">&#10024;</div>
+              <h3 class="success-title">Project Brief Received</h3>
+              <p class="success-desc">
+                Thank you. Pragadeesh and the engineering team are reviewing your workflow challenge. We will reply with a technical blueprint within 24 hours.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
   </main>
 
-  <!-- Clean Minimalist Footer -->
-  <footer class="footer">
+  <!-- ==========================================================================
+       Site Footer
+       ========================================================================== -->
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div class="brand-logo">
-          <div class="logo-spark">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-            </svg>
+        
+        <div class="footer-brand">
+          <div class="footer-wordmark">
+            overbrewed<span class="brand-dot">.</span>
           </div>
-          <span class="brand-title">overbrewed</span>
+          <p class="footer-tagline">
+            Independent AI Engineering Studio.<br>
+            Small-batch intelligence, brewed for business.
+          </p>
         </div>
-        <div class="footer-links">
-          <a href="#capabilities">Capabilities</a>
-          <a href="#how-it-works">How it works</a>
-          <a href="#access">Early access</a>
+
+        <div class="footer-nav-col">
+          <div class="footer-col-title">What We Build</div>
+          <a href="#solutions" class="footer-link">AI Workflow Automation</a>
+          <a href="#fintwin" class="footer-link">FinTwin Engine</a>
+          <a href="#solutions" class="footer-link">Custom AI Engineering</a>
         </div>
+
+        <div class="footer-nav-col">
+          <div class="footer-col-title">Studio</div>
+          <a href="#how-we-work" class="footer-link">How We Work</a>
+          <a href="#about" class="footer-link">Meet the Founders</a>
+          <a href="#contact" class="footer-link">Discuss a Project</a>
+        </div>
+
+        <div class="footer-nav-col">
+          <div class="footer-col-title">Contact & Status</div>
+          <span style="font-size: 0.86rem; color: var(--sage); display: flex; align-items: center; gap: 6px;">
+            <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--sage);"></span>
+            Accepting 2 Pilot Cohorts
+          </span>
+          <a href="mailto:hello@overbrewed.co" class="footer-link">hello@overbrewed.co</a>
+          <span style="font-size: 0.8rem; color: #78716C;">Bengaluru &bull; Remote Global</span>
+        </div>
+
       </div>
+
       <div class="footer-bottom">
-        <span>&copy; 2026 Overbrewed Technologies. All rights reserved.</span>
-        <span>Zero Data Retention &bull; Private VPC Enclave</span>
+        <div>
+          &copy; 2026 Overbrewed Technologies. All rights reserved.
+        </div>
+        <div>
+          Deterministic Engineering &bull; Private Infrastructure &bull; Zero Hallucination Risk
+        </div>
       </div>
     </div>
   </footer>
 
   <!-- Lean Script -->
   <script src="script.js"></script>
-  <!-- Overbrewed React Glyph Effect Portal Bundle -->
-  <script type="module" src="glyph-portal.bundle.js"></script>
 </body>
 </html>
