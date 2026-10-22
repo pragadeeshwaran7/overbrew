@@ -12,7 +12,7 @@ if (window.location.hash) {
 }
 window.scrollTo(0, 0);
 
-// FinTwin Hero Interactive Simulation Data
+// FinTwin Hero Interactive Simulation Data (Illustrative Demo Data)
 const SCENARIOS = {
   base: {
     runway: '18.4 Mo',
@@ -29,7 +29,7 @@ const SCENARIOS = {
     leaksClass: 'positive',
     chartPathArea: 'M 0,85 Q 90,75 180,80 T 360,55 T 540,45 T 720,25 L 720,120 L 0,120 Z',
     chartPathLine: 'M 0,85 Q 90,75 180,80 T 360,55 T 540,45 T 720,25',
-    log: '<strong>LIVE TELEMETRY VERIFIED:</strong> Ingested real-time banking feeds and ERP ledger. Working capital runway exceeds 18 months under current burn rate. All disbursements validated against purchase orders with zero anomalies.'
+    log: '<strong>ILLUSTRATIVE DEMO DATA:</strong> Ingested sample banking feeds and simulated ERP ledger. Working capital runway models 18.4 months under base operational assumptions. All disbursements matched against purchase orders with illustrative reconciliation.'
   },
   shock: {
     runway: '11.2 Mo',
@@ -46,7 +46,7 @@ const SCENARIOS = {
     leaksClass: 'alert',
     chartPathArea: 'M 0,85 Q 90,75 180,95 T 360,105 T 540,90 T 720,75 L 720,120 L 0,120 Z',
     chartPathLine: 'M 0,85 Q 90,75 180,95 T 360,105 T 540,90 T 720,75',
-    log: '<strong>STRESS TEST TRIGGERED:</strong> -8.5% gross margin shock and 45-day collection delay simulated. FinTwin identifies runway compression; recommends gating non-essential vendor outlays to maintain liquidity above 11 months.'
+    log: '<strong>ILLUSTRATIVE DEMO DATA:</strong> -8.5% gross margin shock and 45-day collection delay simulated. Model identifies runway compression; suggests gating non-essential vendor outlays to preserve liquidity above 11 months.'
   },
   growth: {
     runway: '14.8 Mo',
@@ -63,7 +63,7 @@ const SCENARIOS = {
     leaksClass: 'positive',
     chartPathArea: 'M 0,85 Q 90,75 180,70 T 360,40 T 540,30 T 720,15 L 720,120 L 0,120 Z',
     chartPathLine: 'M 0,85 Q 90,75 180,70 T 360,40 T 540,30 T 720,15',
-    log: '<strong>EXPANSION SCENARIO:</strong> ₹1,500 L capex deployment modeled against cash flow seasonality. Operational margins absorb equipment amortization without credit line drawdowns.'
+    log: '<strong>ILLUSTRATIVE DEMO DATA:</strong> Capex expansion modeled against cash flow seasonality. Illustrates operational margins absorbing equipment amortization without credit line drawdowns.'
   }
 };
 
@@ -129,7 +129,25 @@ window.switchSandboxTab = function(tabKey) {
   if (pane) pane.classList.add('active');
 };
 
-// Form Submission Handler
+// Quick Engagement Interest Chip Selector (eida.ai Selector style)
+window.setInterestChip = function(val, btn) {
+  document.querySelectorAll('.interest-chip').forEach(chip => chip.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const selectEl = document.getElementById('form-interest');
+  if (selectEl) selectEl.value = val;
+};
+
+window.syncChipFromSelect = function(val) {
+  document.querySelectorAll('.interest-chip').forEach(chip => {
+    if (chip.getAttribute('data-val') === val) {
+      chip.classList.add('active');
+    } else {
+      chip.classList.remove('active');
+    }
+  });
+};
+
+// Form Submission Handler with Spring Transition
 window.handleContactSubmit = function(e) {
   e.preventDefault();
   const form = document.getElementById('project-form');
@@ -141,24 +159,111 @@ window.handleContactSubmit = function(e) {
     btn.innerHTML = '<span>Brewing Blueprint...</span>';
   }
 
+  if (form) {
+    form.style.opacity = '0';
+    form.style.transform = 'translateY(-12px) scale(0.98)';
+    form.style.transition = 'all 0.36s cubic-bezier(0.22, 1, 0.36, 1)';
+  }
+
   setTimeout(() => {
     if (form) form.style.display = 'none';
-    if (successBox) successBox.style.display = 'block';
-  }, 750);
+    if (successBox) {
+      successBox.style.display = 'block';
+      successBox.classList.add('show');
+    }
+  }, 380);
 };
 
 // Select Pricing Plan Helper
 window.selectPricingPlan = function(planKey) {
+  let val = 'fintwin-pro';
+  if (planKey === 'pro') val = 'fintwin-pro';
+  else if (planKey === 'free') val = 'fintwin-free';
+  else if (planKey === 'custom') val = 'custom-quote';
+
   const selectEl = document.getElementById('form-interest');
   if (selectEl) {
-    if (planKey === 'pro') selectEl.value = 'fintwin-pro';
-    else if (planKey === 'free') selectEl.value = 'fintwin-free';
-    else if (planKey === 'custom') selectEl.value = 'custom-quote';
+    selectEl.value = val;
+    window.syncChipFromSelect(val);
   }
 };
+
+// eida.ai Scroll Reveal & Sticky Navbar Controller
+function initScrollAndNavbarAnimations() {
+  const header = document.getElementById('site-header');
+
+  // 1. Throttled Scroll Listener (Shrink & On-Dark)
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+
+        // Shrink nav bar on scroll
+        if (header) {
+          if (scrollY > 35) {
+            header.classList.add('shrunk');
+          } else {
+            header.classList.remove('shrunk');
+          }
+
+          // Detect if navbar is over a dark section
+          const darkElements = document.querySelectorAll('[data-gp-content], .ethos-card, .site-footer');
+          let isOverDark = false;
+          const headerHeight = header.offsetHeight || 60;
+
+          darkElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= headerHeight && rect.bottom >= 0) {
+              isOverDark = true;
+            }
+          });
+
+          if (isOverDark) {
+            header.classList.add('on-dark');
+          } else {
+            header.classList.remove('on-dark');
+          }
+        }
+
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // 2. IntersectionObserver for Smooth Scroll Reveals (.reveal)
+  const targets = document.querySelectorAll(
+    '.section-header, .prototype-card, .solution-card, .fintwin-help-card, .lab-card, .principle-card, .about-single-box, .contact-info-panel, .contact-form-card'
+  );
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('on');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.05,
+    rootMargin: '0px 0px 80px 0px'
+  });
+
+  targets.forEach(el => {
+    el.classList.add('reveal');
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 50) {
+      el.classList.add('on');
+    } else {
+      observer.observe(el);
+    }
+  });
+}
 
 // Document Loaded Init
 document.addEventListener('DOMContentLoaded', () => {
   // Init default scenario
   switchScenario('base');
+  // Init animations & transitions
+  initScrollAndNavbarAnimations();
 });

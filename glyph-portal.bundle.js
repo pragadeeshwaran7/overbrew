@@ -18764,7 +18764,7 @@ var require_jsx_dev_runtime = __commonJS(function(exports, module) {
 });
 
 // src/stakeholders-glyph-entry.tsx
-var import_react2 = __toESM(require_react(), 1);
+var import_react3 = __toESM(require_react(), 1);
 var import_client = __toESM(require_client(), 1);
 
 // src/components/ui/glyph-portal.tsx
@@ -19314,8 +19314,146 @@ function GlyphPortal({
   }, undefined, true, undefined, this);
 }
 
-// src/stakeholders-glyph-entry.tsx
+// src/components/ui/hyperdrive-hero.tsx
+var import_react2 = __toESM(require_react(), 1);
 var jsx_dev_runtime2 = __toESM(require_jsx_dev_runtime(), 1);
+"use client";
+var cn = (...classes) => classes.filter(Boolean).join(" ");
+var StarfieldCanvas = ({
+  starColor = "white",
+  speed: baseSpeed = 2,
+  interactive = true,
+  className,
+  style
+}) => {
+  const canvasRef = import_react2.useRef(null);
+  import_react2.useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas)
+      return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx)
+      return;
+    let animationFrameId;
+    let stars = [];
+    const numStars = 800;
+    let speed = baseSpeed;
+    const resizeCanvas = () => {
+      if (!canvas)
+        return;
+      const parent = canvas.parentElement;
+      const w = parent ? parent.clientWidth : window.innerWidth;
+      const h = parent ? parent.clientHeight : window.innerHeight;
+      canvas.width = Math.max(w || window.innerWidth, 320);
+      canvas.height = Math.max(h || window.innerHeight, 320);
+    };
+
+    class Star {
+      x;
+      y;
+      z;
+      pz;
+      constructor() {
+        this.x = Math.random() * canvas.width - canvas.width / 2;
+        this.y = Math.random() * canvas.height - canvas.height / 2;
+        this.z = Math.random() * canvas.width;
+        this.pz = this.z;
+      }
+      update() {
+        this.z = this.z - speed;
+        if (this.z < 1) {
+          this.z = canvas.width;
+          this.x = Math.random() * canvas.width - canvas.width / 2;
+          this.y = Math.random() * canvas.height - canvas.height / 2;
+          this.pz = this.z;
+        }
+      }
+      draw() {
+        if (!ctx || !canvas)
+          return;
+        const sx = this.x / this.z * canvas.width / 2 + canvas.width / 2;
+        const sy = this.y / this.z * canvas.height / 2 + canvas.height / 2;
+        const r = Math.max(0.1, (1 - this.z / canvas.width) * 2.5);
+        const px = this.x / this.pz * canvas.width / 2 + canvas.width / 2;
+        const py = this.y / this.pz * canvas.height / 2 + canvas.height / 2;
+        this.pz = this.z;
+        ctx.beginPath();
+        ctx.moveTo(px, py);
+        ctx.lineTo(sx, sy);
+        ctx.lineWidth = r * 2;
+        const alpha = Math.max(0, Math.min(1, 1 - this.z / canvas.width));
+        if (starColor === "copper") {
+          const variant = Math.abs(Math.floor(this.x + this.y)) % 4;
+          if (variant === 0) {
+            ctx.strokeStyle = `rgba(255, 248, 238, ${alpha})`;
+          } else if (variant === 1) {
+            ctx.strokeStyle = `rgba(223, 157, 95, ${alpha})`;
+          } else {
+            ctx.strokeStyle = `rgba(200, 132, 67, ${alpha})`;
+          }
+        } else if (starColor === "cyan") {
+          ctx.strokeStyle = `rgba(0, 229, 255, ${alpha})`;
+        } else {
+          ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+        }
+        ctx.stroke();
+      }
+    }
+    const init = () => {
+      stars = [];
+      for (let i = 0;i < numStars; i++) {
+        stars.push(new Star);
+      }
+    };
+    const animate = () => {
+      ctx.fillStyle = "rgba(12, 11, 10, 0.22)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      stars.forEach((star) => {
+        star.update();
+        star.draw();
+      });
+      animationFrameId = requestAnimationFrame(animate);
+    };
+    const handleMouseMove = (event) => {
+      if (!interactive)
+        return;
+      const centerX = window.innerWidth / 2;
+      const dist = Math.abs(event.clientX - centerX);
+      const maxDist = window.innerWidth / 2;
+      speed = baseSpeed + (1 - dist / maxDist) * 20;
+    };
+    window.addEventListener("resize", resizeCanvas);
+    if (interactive) {
+      window.addEventListener("mousemove", handleMouseMove);
+    }
+    resizeCanvas();
+    init();
+    animate();
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", resizeCanvas);
+      if (interactive) {
+        window.removeEventListener("mousemove", handleMouseMove);
+      }
+    };
+  }, [starColor, baseSpeed, interactive]);
+  return /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("canvas", {
+    ref: canvasRef,
+    className: cn("absolute inset-0 z-0 w-full h-full", className),
+    style: {
+      position: "absolute",
+      inset: 0,
+      width: "100%",
+      height: "100%",
+      pointerEvents: "none",
+      zIndex: 0,
+      ...style
+    }
+  }, undefined, false, undefined, this);
+};
+
+// src/stakeholders-glyph-entry.tsx
+var jsx_dev_runtime3 = __toESM(require_jsx_dev_runtime(), 1);
 if (typeof window !== "undefined") {
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
@@ -19329,8 +19467,8 @@ if (typeof window !== "undefined") {
   });
 }
 var StakeholdersHero = () => {
-  const [fontReady, setFontReady] = import_react2.useState(false);
-  import_react2.useEffect(() => {
+  const [fontReady, setFontReady] = import_react3.useState(false);
+  import_react3.useEffect(() => {
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
@@ -19342,7 +19480,7 @@ var StakeholdersHero = () => {
     }
   }, []);
   const displayFont = '"Bricolage Grotesque", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-  return /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+  return /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
     className: "stakeholders-glyph-wrapper",
     role: "region",
     "aria-label": "Overbrewed Portal Entrance",
@@ -19353,7 +19491,7 @@ var StakeholdersHero = () => {
       background: "#F5F0E6"
     },
     children: [
-      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("style", {
+      /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("style", {
         children: `
         /* Overbrewed Craft Brewery x Futuristic Tech Portal Theme */
         .stakeholders-glyph-wrapper section {
@@ -19373,16 +19511,20 @@ var StakeholdersHero = () => {
         .stakeholders-glyph-wrapper [data-gp-enter] {
           min-height: 48px;
           padding: 0 28px;
-          background: #C88443;
-          border: 1px solid rgba(200, 132, 67, 0.4);
+          background: linear-gradient(180deg, #DF9D5F 0%, #C88443 62%);
+          border: 0;
           border-radius: 9999px;
           color: #FFFFFF;
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 14px;
           font-weight: 700;
           letter-spacing: 0.02em;
-          box-shadow: 0 4px 20px rgba(200, 132, 67, 0.35);
-          transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.36),
+            inset 0 -2px 0 #9E5F28,
+            0 1px 2px rgba(17, 17, 17, 0.12),
+            0 8px 20px -6px rgba(200, 132, 67, 0.45);
+          transition: background 0.2s cubic-bezier(0.22, 1, 0.36, 1), transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1);
           text-decoration: none;
           cursor: pointer;
           display: inline-flex;
@@ -19390,10 +19532,23 @@ var StakeholdersHero = () => {
           gap: 10px;
         }
         .stakeholders-glyph-wrapper [data-gp-enter]:hover {
-          background: #B27031;
-          box-shadow: 0 6px 26px rgba(200, 132, 67, 0.48);
-          transform: translateY(-2px);
+          background: linear-gradient(180deg, #E6A76E 0%, #C88443 62%);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.48),
+            inset 0 -3px 0 #9E5F28,
+            0 2px 4px rgba(17, 17, 17, 0.16),
+            0 16px 28px -8px rgba(200, 132, 67, 0.55);
+          transform: translateY(-1.5px);
           color: #FFFFFF;
+        }
+        .stakeholders-glyph-wrapper [data-gp-enter]:active {
+          transform: translateY(2px);
+          transition-duration: 0.06s;
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.15),
+            inset 0 0 0 #9E5F28,
+            0 1px 2px rgba(17, 17, 17, 0.12),
+            0 3px 8px -4px rgba(200, 132, 67, 0.35);
         }
         .stakeholders-glyph-wrapper [data-gp-touch-picker] {
           top: auto;
@@ -19414,71 +19569,64 @@ var StakeholdersHero = () => {
         .stakeholders-glyph-wrapper [data-gp-marks] path {
           stroke: #C88443 !important;
         }
+        .stakeholders-glyph-wrapper [data-gp-content] {
+          padding: 0 !important;
+          min-height: 100svh !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: center !important;
+          position: relative !important;
+          overflow: hidden !important;
+          background: #0C0B0A !important;
+        }
       `
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV(GlyphPortal, {
+      /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(GlyphPortal, {
         word: "OVERBREWED",
         fontFamily: displayFont,
         fontWeight: 900,
         scrollLength: 2.2,
         interactive: true,
         annotations: false,
-        enterLabel: "Step Inside Studio",
+        enterLabel: "Step Inside",
         style: {
           "--gp-paper": "#F5F0E6",
           "--gp-ink": "#111111",
-          "--gp-field": "#141413",
+          "--gp-field": "#0D0C0B",
           "--gp-foreground": "#F5F0E6"
         },
-        background: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-          style: { position: "absolute", inset: 0, overflow: "hidden", background: "#141413" },
+        background: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+          style: { position: "absolute", inset: 0, overflow: "hidden", background: "#0E0D0C" },
           children: [
-            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(StarfieldCanvas, {
+              starColor: "copper",
+              speed: 1.2,
+              interactive: false
+            }, undefined, false, undefined, this),
+            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
               style: {
                 position: "absolute",
                 inset: 0,
-                background: "linear-gradient(135deg, #C88443 0%, #DF9D5F 28%, #A8672E 60%, #161513 100%)",
-                opacity: 1
+                background: "radial-gradient(ellipse at 50% 50%, rgba(200, 132, 67, 0.28) 0%, rgba(14, 13, 12, 0.72) 70%, #0E0D0C 100%)",
+                pointerEvents: "none"
               }
             }, undefined, false, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
               style: {
                 position: "absolute",
                 inset: 0,
-                opacity: 0.18,
-                backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px)",
-                backgroundSize: "28px 28px"
+                opacity: 0.15,
+                backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.25) 1px, transparent 1px)",
+                backgroundSize: "32px 32px",
+                pointerEvents: "none"
               }
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        front: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+        front: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
           style: { pointerEvents: "auto", fontFamily: "'Plus Jakarta Sans', sans-serif" },
           children: [
-            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("p", {
-              style: {
-                position: "absolute",
-                inset: "auto 24px calc(100% - var(--gp-word-top, 35%) + 24px)",
-                margin: 0,
-                textAlign: "center",
-                fontSize: "12px",
-                fontWeight: 700,
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "#C88443",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "8px"
-              },
-              children: [
-                /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
-                  children: "✦"
-                }, undefined, false, undefined, this),
-                " INDEPENDENT AI ENGINEERING STUDIO"
-              ]
-            }, undefined, true, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("p", {
+            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("p", {
               style: {
                 position: "absolute",
                 inset: "calc(var(--gp-word-bottom, 50%) + 28px) 24px auto",
@@ -19489,9 +19637,9 @@ var StakeholdersHero = () => {
                 lineHeight: 1.5,
                 color: "#57534E"
               },
-              children: "Select any letter to step through live typography into our studio."
+              children: "Select any letter to step through live typography into hyperdrive."
             }, undefined, false, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
               style: {
                 position: "absolute",
                 inset: "auto 24px 6%",
@@ -19506,140 +19654,331 @@ var StakeholdersHero = () => {
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-          style: { maxWidth: "1000px", margin: "0 auto", textAlign: "center", padding: "20px", color: "#FFFFFF" },
+        children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+          style: {
+            position: "relative",
+            width: "100%",
+            minHeight: "100svh",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            overflow: "hidden",
+            padding: "60px 24px",
+            boxSizing: "border-box"
+          },
           children: [
-            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
-              style: {
-                display: "inline-block",
-                padding: "4px 14px",
-                background: "rgba(200, 132, 67, 0.18)",
-                border: "1px solid rgba(200, 132, 67, 0.4)",
-                color: "#DF9D5F",
-                borderRadius: "9999px",
-                fontSize: "12px",
-                fontWeight: 700,
-                letterSpacing: "0.08em",
-                marginBottom: "16px",
-                textTransform: "uppercase",
-                fontFamily: "'JetBrains Mono', monospace"
-              },
-              children: "OVERBREWED CO. // ARTISANAL INTELLIGENCE"
+            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(StarfieldCanvas, {
+              starColor: "copper",
+              speed: 2.6,
+              interactive: true
             }, undefined, false, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("h2", {
+            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
               style: {
-                fontSize: "clamp(2.2rem, 4vw, 3.5rem)",
-                fontWeight: 600,
-                letterSpacing: "-0.02em",
-                lineHeight: 1.15,
-                marginBottom: "18px",
-                color: "#F5F0E6",
-                fontFamily: "'Newsreader', Georgia, serif"
+                position: "absolute",
+                inset: 0,
+                pointerEvents: "none",
+                background: "radial-gradient(circle at 50% 35%, rgba(200, 132, 67, 0.22) 0%, rgba(14, 13, 12, 0.8) 60%, #0A0A09 100%)",
+                zIndex: 1
+              }
+            }, undefined, false, undefined, this),
+            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+              style: {
+                position: "relative",
+                zIndex: 2,
+                maxWidth: "1040px",
+                width: "100%",
+                margin: "0 auto",
+                textAlign: "center"
               },
               children: [
-                "Intelligence, ",
-                /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("em", {
-                  children: "brewed"
-                }, undefined, false, undefined, this),
-                " for business."
-              ]
-            }, undefined, true, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("p", {
-              style: {
-                fontSize: "17px",
-                color: "#D6CEC3",
-                lineHeight: 1.6,
-                maxWidth: "680px",
-                margin: "0 auto 36px",
-                fontFamily: "'Plus Jakarta Sans', sans-serif"
-              },
-              children: "We build practical AI agents and intelligent systems that help businesses automate workflows, understand complex data, and make faster, grounded decisions."
-            }, undefined, false, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-              style: {
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-                gap: "20px",
-                textAlign: "left",
-                marginBottom: "40px"
-              },
-              children: [
-                /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-                  style: { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "20px" },
+                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                  style: {
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    padding: "6px 16px",
+                    background: "rgba(200, 132, 67, 0.15)",
+                    border: "1px solid rgba(200, 132, 67, 0.35)",
+                    borderRadius: "9999px",
+                    color: "#DF9D5F",
+                    fontSize: "12px",
+                    fontWeight: 700,
+                    letterSpacing: "0.08em",
+                    marginBottom: "18px",
+                    textTransform: "uppercase",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    backdropFilter: "blur(8px)"
+                  },
                   children: [
-                    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-                      style: { fontFamily: "'JetBrains Mono', monospace", fontSize: "11px", color: "#C88443", marginBottom: "8px" },
-                      children: "01 WORKFLOWS"
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                      style: {
+                        width: "7px",
+                        height: "7px",
+                        borderRadius: "50%",
+                        background: "#C88443",
+                        boxShadow: "0 0 10px #C88443"
+                      }
                     }, undefined, false, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-                      style: { fontWeight: 600, fontSize: "15px", marginBottom: "6px", color: "#FFFFFF" },
-                      children: "AI Workflow Automation"
-                    }, undefined, false, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-                      style: { fontSize: "13px", color: "#9E998F", lineHeight: 1.5 },
-                      children: "Eliminate 30+ hours of manual reconciliation and document triage per week."
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                      children: "HYPERDRIVE ENGAGED // OVERBREWED CO."
                     }, undefined, false, undefined, this)
                   ]
                 }, undefined, true, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-                  style: { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "20px" },
+                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("h2", {
+                  style: {
+                    fontSize: "clamp(2.4rem, 5vw, 4.2rem)",
+                    fontWeight: 600,
+                    letterSpacing: "-0.025em",
+                    lineHeight: 1.1,
+                    marginBottom: "18px",
+                    color: "#F5F0E6",
+                    fontFamily: "'Newsreader', Georgia, serif"
+                  },
                   children: [
-                    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-                      style: { fontFamily: "'JetBrains Mono', monospace", fontSize: "11px", color: "#C88443", marginBottom: "8px" },
-                      children: "02 FINANCE"
+                    "Intelligence, ",
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("em", {
+                      style: { fontStyle: "italic", color: "#DF9D5F" },
+                      children: "brewed"
                     }, undefined, false, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-                      style: { fontWeight: 600, fontSize: "15px", marginBottom: "6px", color: "#FFFFFF" },
-                      children: "FinTwin Engine"
-                    }, undefined, false, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-                      style: { fontSize: "13px", color: "#9E998F", lineHeight: 1.5 },
-                      children: "Dynamic runway forecasting, scenario stress tests, and automated ledger radar."
-                    }, undefined, false, undefined, this)
+                    " for business."
                   ]
                 }, undefined, true, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-                  style: { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "20px" },
-                  children: [
-                    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-                      style: { fontFamily: "'JetBrains Mono', monospace", fontSize: "11px", color: "#C88443", marginBottom: "8px" },
-                      children: "03 CUSTOM"
-                    }, undefined, false, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-                      style: { fontWeight: 600, fontSize: "15px", marginBottom: "6px", color: "#FFFFFF" },
-                      children: "Custom AI Engineering"
-                    }, undefined, false, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-                      style: { fontSize: "13px", color: "#9E998F", lineHeight: 1.5 },
-                      children: "Private VPC containerization with strict deterministic mathematical guardrails."
-                    }, undefined, false, undefined, this)
-                  ]
-                }, undefined, true, undefined, this)
-              ]
-            }, undefined, true, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("a", {
-              href: "#hero",
-              style: {
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "10px",
-                padding: "14px 34px",
-                background: "#C88443",
-                borderRadius: "9999px",
-                color: "#FFFFFF",
-                textDecoration: "none",
-                fontSize: "14px",
-                fontWeight: 700,
-                boxShadow: "0 4px 22px rgba(200, 132, 67, 0.4)",
-                transition: "transform 0.2s, box-shadow 0.2s",
-                fontFamily: "'Plus Jakarta Sans', sans-serif"
-              },
-              children: [
-                /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
-                  children: "Explore Live Prototypes & Solutions"
+                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("p", {
+                  style: {
+                    fontSize: "clamp(16px, 2vw, 18px)",
+                    color: "#D6CEC3",
+                    lineHeight: 1.6,
+                    maxWidth: "700px",
+                    margin: "0 auto 28px",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif"
+                  },
+                  children: "You have stepped through the typography into our autonomous runtime. We engineer domain-specialized AI agent swarms and intelligent systems grounded in deterministic mathematical guardrails."
                 }, undefined, false, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
-                  children: "↓"
+                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                  style: {
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                    gap: "10px",
+                    marginBottom: "36px",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "11px",
+                    letterSpacing: "0.04em"
+                  },
+                  children: [
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                      style: {
+                        padding: "6px 14px",
+                        background: "rgba(255, 255, 255, 0.05)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        borderRadius: "6px",
+                        color: "#D6CEC3"
+                      },
+                      children: [
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                          style: { color: "#C88443", marginRight: "6px" },
+                          children: "WARP VELOCITY:"
+                        }, undefined, false, undefined, this),
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                          children: "9.8c · MOUSE ACCELERATED"
+                        }, undefined, false, undefined, this)
+                      ]
+                    }, undefined, true, undefined, this),
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                      style: {
+                        padding: "6px 14px",
+                        background: "rgba(255, 255, 255, 0.05)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        borderRadius: "6px",
+                        color: "#D6CEC3"
+                      },
+                      children: [
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                          style: { color: "#C88443", marginRight: "6px" },
+                          children: "ORCHESTRATION:"
+                        }, undefined, false, undefined, this),
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                          children: "< 12ms LATENCY"
+                        }, undefined, false, undefined, this)
+                      ]
+                    }, undefined, true, undefined, this),
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                      style: {
+                        padding: "6px 14px",
+                        background: "rgba(255, 255, 255, 0.05)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        borderRadius: "6px",
+                        color: "#D6CEC3"
+                      },
+                      children: [
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                          style: { color: "#A5BBA8", marginRight: "6px" },
+                          children: "GUARDRAILS:"
+                        }, undefined, false, undefined, this),
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                          children: "DETERMINISTIC VERIFIED"
+                        }, undefined, false, undefined, this)
+                      ]
+                    }, undefined, true, undefined, this)
+                  ]
+                }, undefined, true, undefined, this),
+                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                  style: {
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                    gap: "20px",
+                    textAlign: "left",
+                    marginBottom: "36px"
+                  },
+                  children: [
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                      style: {
+                        background: "rgba(26, 25, 23, 0.72)",
+                        backdropFilter: "blur(14px)",
+                        WebkitBackdropFilter: "blur(14px)",
+                        border: "1px solid rgba(200, 132, 67, 0.28)",
+                        borderRadius: "14px",
+                        padding: "24px",
+                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
+                        transition: "transform 0.2s, border-color 0.2s"
+                      },
+                      children: [
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                          style: { fontFamily: "'JetBrains Mono', monospace", fontSize: "11px", color: "#C88443", marginBottom: "8px", fontWeight: 700 },
+                          children: "01 // WORKFLOWS"
+                        }, undefined, false, undefined, this),
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                          style: { fontWeight: 700, fontSize: "16px", marginBottom: "8px", color: "#FFFFFF" },
+                          children: "Autonomous Workflow Swarms"
+                        }, undefined, false, undefined, this),
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                          style: { fontSize: "13px", color: "#A8A29E", lineHeight: 1.6 },
+                          children: "Eliminate 30+ hours of manual reconciliation, invoice parsing, and contract triage per week without prompt hallucinations."
+                        }, undefined, false, undefined, this)
+                      ]
+                    }, undefined, true, undefined, this),
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                      style: {
+                        background: "rgba(26, 25, 23, 0.72)",
+                        backdropFilter: "blur(14px)",
+                        WebkitBackdropFilter: "blur(14px)",
+                        border: "1px solid rgba(200, 132, 67, 0.28)",
+                        borderRadius: "14px",
+                        padding: "24px",
+                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
+                        transition: "transform 0.2s, border-color 0.2s"
+                      },
+                      children: [
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                          style: { fontFamily: "'JetBrains Mono', monospace", fontSize: "11px", color: "#C88443", marginBottom: "8px", fontWeight: 700 },
+                          children: "02 // FINANCE"
+                        }, undefined, false, undefined, this),
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                          style: { fontWeight: 700, fontSize: "16px", marginBottom: "8px", color: "#FFFFFF" },
+                          children: "FinTwin Dynamic Engine"
+                        }, undefined, false, undefined, this),
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                          style: { fontSize: "13px", color: "#A8A29E", lineHeight: 1.6 },
+                          children: "Live runway forecasting, dynamic burn stress testing, and real-time ledger radar calibrated for CFOs and operators."
+                        }, undefined, false, undefined, this)
+                      ]
+                    }, undefined, true, undefined, this),
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                      style: {
+                        background: "rgba(26, 25, 23, 0.72)",
+                        backdropFilter: "blur(14px)",
+                        WebkitBackdropFilter: "blur(14px)",
+                        border: "1px solid rgba(200, 132, 67, 0.28)",
+                        borderRadius: "14px",
+                        padding: "24px",
+                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
+                        transition: "transform 0.2s, border-color 0.2s"
+                      },
+                      children: [
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                          style: { fontFamily: "'JetBrains Mono', monospace", fontSize: "11px", color: "#C88443", marginBottom: "8px", fontWeight: 700 },
+                          children: "03 // ENTERPRISE"
+                        }, undefined, false, undefined, this),
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                          style: { fontWeight: 700, fontSize: "16px", marginBottom: "8px", color: "#FFFFFF" },
+                          children: "Private VPC Engineering"
+                        }, undefined, false, undefined, this),
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                          style: { fontSize: "13px", color: "#A8A29E", lineHeight: 1.6 },
+                          children: "Zero third-party training, air-gapped models, and rigorous deterministic verification before any agent executes code."
+                        }, undefined, false, undefined, this)
+                      ]
+                    }, undefined, true, undefined, this)
+                  ]
+                }, undefined, true, undefined, this),
+                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                  style: { display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px", alignItems: "center" },
+                  children: [
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("a", {
+                      href: "#hero",
+                      style: {
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        padding: "14px 34px",
+                        background: "#C88443",
+                        borderRadius: "9999px",
+                        color: "#FFFFFF",
+                        textDecoration: "none",
+                        fontSize: "14px",
+                        fontWeight: 700,
+                        boxShadow: "0 4px 24px rgba(200, 132, 67, 0.45)",
+                        transition: "transform 0.2s, box-shadow 0.2s",
+                        fontFamily: "'Plus Jakarta Sans', sans-serif"
+                      },
+                      children: [
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                          children: "Explore Production Platform"
+                        }, undefined, false, undefined, this),
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                          children: "↓"
+                        }, undefined, false, undefined, this)
+                      ]
+                    }, undefined, true, undefined, this),
+                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("a", {
+                      href: "#fintwin",
+                      style: {
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        padding: "14px 28px",
+                        background: "rgba(255, 255, 255, 0.07)",
+                        border: "1px solid rgba(255, 255, 255, 0.18)",
+                        borderRadius: "9999px",
+                        color: "#F5F0E6",
+                        textDecoration: "none",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        backdropFilter: "blur(8px)",
+                        transition: "all 0.2s",
+                        fontFamily: "'Plus Jakarta Sans', sans-serif"
+                      },
+                      children: [
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                          children: "Launch FinTwin Radar"
+                        }, undefined, false, undefined, this),
+                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                          children: "→"
+                        }, undefined, false, undefined, this)
+                      ]
+                    }, undefined, true, undefined, this)
+                  ]
+                }, undefined, true, undefined, this),
+                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+                  style: {
+                    marginTop: "20px",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "11px",
+                    color: "#78716C",
+                    letterSpacing: "0.06em"
+                  },
+                  children: "✦ Move your cursor to accelerate hyperdrive warp speed · Scroll to navigate sections"
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this)
@@ -19651,5 +19990,5 @@ var StakeholdersHero = () => {
 };
 var rootEl = document.getElementById("overbrewed-glyph-root");
 if (rootEl) {
-  import_client.createRoot(rootEl).render(/* @__PURE__ */ jsx_dev_runtime2.jsxDEV(StakeholdersHero, {}, undefined, false, undefined, this));
+  import_client.createRoot(rootEl).render(/* @__PURE__ */ jsx_dev_runtime3.jsxDEV(StakeholdersHero, {}, undefined, false, undefined, this));
 }
