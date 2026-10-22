@@ -19455,56 +19455,6 @@ var StakeholdersHero = () => {
         front: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
           style: { pointerEvents: "auto", fontFamily: "'Plus Jakarta Sans', sans-serif" },
           children: [
-            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-              style: {
-                position: "absolute",
-                inset: "clamp(20px, 3.5vw, 40px) clamp(24px, 5vw, 64px) auto",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: "20px"
-              },
-              children: [
-                /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
-                  style: { display: "flex", alignItems: "center", gap: "8px" },
-                  children: [
-                    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
-                      style: { fontFamily: "'Newsreader', Georgia, serif", fontSize: "22px", fontWeight: 700, color: "#111111" },
-                      children: [
-                        "overbrewed",
-                        /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
-                          style: { color: "#C88443" },
-                          children: "."
-                        }, undefined, false, undefined, this)
-                      ]
-                    }, undefined, true, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
-                      style: {
-                        fontFamily: "'JetBrains Mono', monospace",
-                        fontSize: "10px",
-                        fontWeight: 600,
-                        color: "#C88443",
-                        background: "rgba(200, 132, 67, 0.12)",
-                        border: "1px solid rgba(200, 132, 67, 0.3)",
-                        padding: "2px 8px",
-                        borderRadius: "9999px"
-                      },
-                      children: "STUDIO"
-                    }, undefined, false, undefined, this)
-                  ]
-                }, undefined, true, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
-                  style: {
-                    fontSize: "12px",
-                    color: "#57534E",
-                    fontFamily: "'JetBrains Mono', monospace",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase"
-                  },
-                  children: "Independent AI Engineering"
-                }, undefined, false, undefined, this)
-              ]
-            }, undefined, true, undefined, this),
             /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("p", {
               style: {
                 position: "absolute",
@@ -19574,7 +19524,7 @@ var StakeholdersHero = () => {
                 textTransform: "uppercase",
                 fontFamily: "'JetBrains Mono', monospace"
               },
-              children: "ARTISANAL INTELLIGENCE // EST. 2026"
+              children: "OVERBREWED CO. // ARTISANAL INTELLIGENCE"
             }, undefined, false, undefined, this),
             /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("h2", {
               style: {

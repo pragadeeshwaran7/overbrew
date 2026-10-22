@@ -161,6 +161,15 @@ body::before {
   margin-left: 1px;
 }
 
+.brand-domain {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--copper);
+  letter-spacing: -0.01em;
+  margin-left: 1px;
+}
+
 .brand-badge {
   font-family: var(--font-mono);
   font-size: 0.65rem;
