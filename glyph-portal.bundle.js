@@ -18961,7 +18961,7 @@ function GlyphPortal({
       return clamp((origin - section.getBoundingClientRect().top) / travel);
     };
     const paint = (progress) => {
-      const isStatic = motion.matches || !browserFrameSeen || stalled || !target;
+      const isStatic = motion.matches || !target;
       const p = isStatic ? 0 : progress;
       const t = clamp(p / 0.78);
       const eased = t < 0.5 ? 4 * t ** 3 : 1 - (-2 * t + 2) ** 3 / 2;
@@ -18982,7 +18982,7 @@ function GlyphPortal({
       section.dataset.gpChoosing = String(choosing);
       field.style.clipPath = t >= 1 ? "none" : `url(#${clipId})`;
       section.style.setProperty("--gp-caption", String(1 - smooth(0.01, 0.16, p)));
-      section.style.setProperty("--gp-reveal", String(isStatic ? 1 : smooth(0.78, 0.9, p)));
+      section.style.setProperty("--gp-reveal", String(isStatic ? 1 : smooth(0.6, 0.88, p)));
       section.style.setProperty("--gp-field-scale", String(1 + 0.16 * smooth(0, 0.82, p)));
       section.style.setProperty("--gp-caption-hit", p < 0.08 ? "auto" : "none");
       section.dataset.gpEntered = String(p >= 0.9);
@@ -19023,7 +19023,7 @@ function GlyphPortal({
       section.style.setProperty("--gp-word-top", `${H * 0.46 - bounds.height * startScale / 2}px`);
       section.style.setProperty("--gp-word-bottom", `${H * 0.46 + bounds.height * startScale / 2}px`);
       section.dataset.gpReady = "true";
-      section.dataset.gpMotion = !motion.matches && browserFrameSeen && !stalled && target ? "on" : "off";
+      section.dataset.gpMotion = !motion.matches && target ? "on" : "off";
     };
     const frame = (time) => {
       raf = 0;
@@ -19488,15 +19488,21 @@ var StakeholdersHero = () => {
       width: "100%",
       fontFamily: displayFont,
       position: "relative",
-      background: "#F5F0E6"
+      background: "#0C0B0A"
     },
     children: [
       /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("style", {
         children: `
         /* Overbrewed Craft Brewery x Futuristic Tech Portal Theme */
+        .stakeholders-glyph-wrapper {
+          background: #0C0B0A !important;
+        }
         .stakeholders-glyph-wrapper section {
-          background: #F5F0E6 !important;
+          background: #0C0B0A !important;
           color: #111111 !important;
+        }
+        .stakeholders-glyph-wrapper [data-gp-pin] {
+          background: #F5F0E6 !important;
         }
         .stakeholders-glyph-wrapper [data-gp-caption] {
           inset: calc(var(--gp-word-bottom, 50%) + 72px) 24px auto;
@@ -19547,6 +19553,7 @@ var StakeholdersHero = () => {
         }
         .stakeholders-glyph-wrapper [data-gp-content] {
           padding: 0 !important;
+          margin-top: 0 !important;
           min-height: 100svh !important;
           display: flex !important;
           flex-direction: column !important;
@@ -19554,6 +19561,7 @@ var StakeholdersHero = () => {
           position: relative !important;
           overflow: visible !important;
           background: #0C0B0A !important;
+          z-index: 2 !important;
         }
       `
       }, undefined, false, undefined, this),
@@ -19625,7 +19633,7 @@ var StakeholdersHero = () => {
             justifyContent: "center",
             alignItems: "center",
             overflow: "hidden",
-            padding: "80px 24px 0",
+            padding: "48px 24px 0",
             boxSizing: "border-box",
             background: "#0C0B0A"
           },
@@ -19780,7 +19788,7 @@ var StakeholdersHero = () => {
                         boxShadow: "0 4px 20px rgba(200, 132, 67, 0.4)"
                       },
                       children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                        children: "Discuss a Project &nearr;"
+                        children: "Discuss a Project ↗"
                       }, undefined, false, undefined, this)
                     }, undefined, false, undefined, this)
                   ]
