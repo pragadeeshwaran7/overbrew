@@ -18533,7 +18533,7 @@ var require_client = __commonJS(function(exports, module) {
 
 // node_modules/react/cjs/react-jsx-dev-runtime.development.js
 var require_react_jsx_dev_runtime_development = __commonJS(function(exports) {
-  var React = __toESM(require_react());
+  var React2 = __toESM(require_react());
   (function() {
     function getComponentNameFromType(type) {
       if (type == null)
@@ -18589,7 +18589,7 @@ var require_react_jsx_dev_runtime_development = __commonJS(function(exports) {
       try {
         testStringCoercion(value);
         var JSCompiler_inline_result = false;
-      } catch (e) {
+      } catch (e2) {
         JSCompiler_inline_result = true;
       }
       if (JSCompiler_inline_result) {
@@ -18727,17 +18727,17 @@ React keys must be passed directly to JSX without using spread:
     function isValidElement(object) {
       return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
     }
-    var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_VIEW_TRANSITION_TYPE = Symbol.for("react.view_transition"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
+    var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_VIEW_TRANSITION_TYPE = Symbol.for("react.view_transition"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React2.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
       return null;
     };
-    React = {
+    React2 = {
       react_stack_bottom_frame: function(callStackForError) {
         return callStackForError();
       }
     };
     var specialPropKeyWarningShown;
     var didWarnAboutElementRef = {};
-    var unknownOwnerDebugStack = React.react_stack_bottom_frame.bind(React, UnknownOwner)();
+    var unknownOwnerDebugStack = React2.react_stack_bottom_frame.bind(React2, UnknownOwner)();
     var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
     var didWarnAboutKeySpread = {};
     exports.Fragment = REACT_FRAGMENT_TYPE;
@@ -18764,1227 +18764,2700 @@ var require_jsx_dev_runtime = __commonJS(function(exports, module) {
 });
 
 // src/stakeholders-glyph-entry.tsx
-var import_react3 = __toESM(require_react(), 1);
+var import_react2 = __toESM(require_react(), 1);
 var import_client = __toESM(require_client(), 1);
 
-// src/components/ui/glyph-portal.tsx
-var import_react = __toESM(require_react(), 1);
-var jsx_dev_runtime = __toESM(require_jsx_dev_runtime(), 1);
-"use client";
-var clamp = (n, a = 0, b = 1) => Math.min(b, Math.max(a, n));
-var smooth = (a, b, n) => {
-  const t = clamp((n - a) / (b - a));
-  return t * t * (3 - 2 * t);
+// node_modules/clsx/dist/clsx.mjs
+function r(e) {
+  var t, f, n = "";
+  if (typeof e == "string" || typeof e == "number")
+    n += e;
+  else if (typeof e == "object")
+    if (Array.isArray(e)) {
+      var o = e.length;
+      for (t = 0;t < o; t++)
+        e[t] && (f = r(e[t])) && (n && (n += " "), n += f);
+    } else
+      for (f in e)
+        e[f] && (n && (n += " "), n += f);
+  return n;
+}
+function clsx() {
+  for (var e, t, f = 0, n = "", o = arguments.length;f < o; f++)
+    (e = arguments[f]) && (t = r(e)) && (n && (n += " "), n += t);
+  return n;
+}
+
+// node_modules/tailwind-merge/dist/bundle-mjs.mjs
+var concatArrays = (array1, array2) => {
+  const combinedArray = new Array(array1.length + array2.length);
+  for (let i = 0;i < array1.length; i++) {
+    combinedArray[i] = array1[i];
+  }
+  for (let i = 0;i < array2.length; i++) {
+    combinedArray[array1.length + i] = array2[i];
+  }
+  return combinedArray;
 };
-var DEFAULT_FONT = '"Arial Black", "Arial", sans-serif';
-function interior(context, char, font) {
-  const canvas = context.canvas;
-  context.font = font;
-  const m = context.measureText(char);
-  const pad = 8;
-  const left = Math.ceil(m.actualBoundingBoxLeft);
-  const ascent = Math.ceil(m.actualBoundingBoxAscent);
-  canvas.width = Math.max(1, Math.ceil(m.actualBoundingBoxLeft + m.actualBoundingBoxRight) + pad * 2);
-  canvas.height = Math.max(1, Math.ceil(m.actualBoundingBoxAscent + m.actualBoundingBoxDescent) + pad * 2);
-  context.font = font;
-  context.fontKerning = "none";
-  context.fillText(char, pad + left, pad + ascent);
-  const { width, height } = canvas;
-  const pixels = context.getImageData(0, 0, width, height).data;
-  const rows = new Uint16Array(width + 1);
-  let size = 0, bx = 0, by = 0;
-  for (let y = 0;y < height; y++) {
-    let diagonal = 0;
-    for (let x = 0;x < width; x++) {
-      const above = rows[x + 1];
-      rows[x + 1] = pixels[(y * width + x) * 4 + 3] > 245 ? Math.min(above, rows[x], diagonal) + 1 : 0;
-      diagonal = above;
-      if (rows[x + 1] > size) {
-        size = rows[x + 1];
-        bx = x;
-        by = y;
+var createClassValidatorObject = (classGroupId, validator) => ({
+  classGroupId,
+  validator
+});
+var createClassPartObject = (nextPart = new Map, validators = null, classGroupId) => ({
+  nextPart,
+  validators,
+  classGroupId
+});
+var CLASS_PART_SEPARATOR = "-";
+var EMPTY_CONFLICTS = [];
+var ARBITRARY_PROPERTY_PREFIX = "arbitrary..";
+var createClassGroupUtils = (config) => {
+  const classMap = createClassMap(config);
+  const {
+    conflictingClassGroups,
+    conflictingClassGroupModifiers
+  } = config;
+  const getClassGroupId = (className) => {
+    if (className.startsWith("[") && className.endsWith("]")) {
+      return getGroupIdForArbitraryProperty(className);
+    }
+    const classParts = className.split(CLASS_PART_SEPARATOR);
+    const startIndex = classParts[0] === "" && classParts.length > 1 ? 1 : 0;
+    return getGroupRecursive(classParts, startIndex, classMap);
+  };
+  const getConflictingClassGroupIds = (classGroupId, hasPostfixModifier) => {
+    if (hasPostfixModifier) {
+      const modifierConflicts = conflictingClassGroupModifiers[classGroupId];
+      const baseConflicts = conflictingClassGroups[classGroupId];
+      if (modifierConflicts) {
+        if (baseConflicts) {
+          return concatArrays(baseConflicts, modifierConflicts);
+        }
+        return modifierConflicts;
+      }
+      return baseConflicts || EMPTY_CONFLICTS;
+    }
+    return conflictingClassGroups[classGroupId] || EMPTY_CONFLICTS;
+  };
+  return {
+    getClassGroupId,
+    getConflictingClassGroupIds
+  };
+};
+var getGroupRecursive = (classParts, startIndex, classPartObject) => {
+  const classPathsLength = classParts.length - startIndex;
+  if (classPathsLength === 0) {
+    return classPartObject.classGroupId;
+  }
+  const currentClassPart = classParts[startIndex];
+  const nextClassPartObject = classPartObject.nextPart.get(currentClassPart);
+  if (nextClassPartObject) {
+    const result = getGroupRecursive(classParts, startIndex + 1, nextClassPartObject);
+    if (result)
+      return result;
+  }
+  const validators = classPartObject.validators;
+  if (validators === null) {
+    return;
+  }
+  const classRest = startIndex === 0 ? classParts.join(CLASS_PART_SEPARATOR) : classParts.slice(startIndex).join(CLASS_PART_SEPARATOR);
+  const validatorsLength = validators.length;
+  for (let i = 0;i < validatorsLength; i++) {
+    const validatorObj = validators[i];
+    if (validatorObj.validator(classRest)) {
+      return validatorObj.classGroupId;
+    }
+  }
+  return;
+};
+var getGroupIdForArbitraryProperty = (className) => className.slice(1, -1).indexOf(":") === -1 ? undefined : (() => {
+  const content = className.slice(1, -1);
+  const colonIndex = content.indexOf(":");
+  const property = content.slice(0, colonIndex);
+  return property ? ARBITRARY_PROPERTY_PREFIX + property : undefined;
+})();
+var createClassMap = (config) => {
+  const {
+    theme,
+    classGroups
+  } = config;
+  return processClassGroups(classGroups, theme);
+};
+var processClassGroups = (classGroups, theme) => {
+  const classMap = createClassPartObject();
+  for (const classGroupId in classGroups) {
+    const group = classGroups[classGroupId];
+    processClassesRecursively(group, classMap, classGroupId, theme);
+  }
+  return classMap;
+};
+var processClassesRecursively = (classGroup, classPartObject, classGroupId, theme) => {
+  const len = classGroup.length;
+  for (let i = 0;i < len; i++) {
+    const classDefinition = classGroup[i];
+    processClassDefinition(classDefinition, classPartObject, classGroupId, theme);
+  }
+};
+var processClassDefinition = (classDefinition, classPartObject, classGroupId, theme) => {
+  if (typeof classDefinition === "string") {
+    processStringDefinition(classDefinition, classPartObject, classGroupId);
+    return;
+  }
+  if (typeof classDefinition === "function") {
+    processFunctionDefinition(classDefinition, classPartObject, classGroupId, theme);
+    return;
+  }
+  processObjectDefinition(classDefinition, classPartObject, classGroupId, theme);
+};
+var processStringDefinition = (classDefinition, classPartObject, classGroupId) => {
+  const classPartObjectToEdit = classDefinition === "" ? classPartObject : getPart(classPartObject, classDefinition);
+  classPartObjectToEdit.classGroupId = classGroupId;
+};
+var processFunctionDefinition = (classDefinition, classPartObject, classGroupId, theme) => {
+  if (isThemeGetter(classDefinition)) {
+    processClassesRecursively(classDefinition(theme), classPartObject, classGroupId, theme);
+    return;
+  }
+  if (classPartObject.validators === null) {
+    classPartObject.validators = [];
+  }
+  classPartObject.validators.push(createClassValidatorObject(classGroupId, classDefinition));
+};
+var processObjectDefinition = (classDefinition, classPartObject, classGroupId, theme) => {
+  const entries = Object.entries(classDefinition);
+  const len = entries.length;
+  for (let i = 0;i < len; i++) {
+    const [key, value] = entries[i];
+    processClassesRecursively(value, getPart(classPartObject, key), classGroupId, theme);
+  }
+};
+var getPart = (classPartObject, path) => {
+  let current = classPartObject;
+  const parts = path.split(CLASS_PART_SEPARATOR);
+  const len = parts.length;
+  for (let i = 0;i < len; i++) {
+    const part = parts[i];
+    let next = current.nextPart.get(part);
+    if (!next) {
+      next = createClassPartObject();
+      current.nextPart.set(part, next);
+    }
+    current = next;
+  }
+  return current;
+};
+var isThemeGetter = (func) => ("isThemeGetter" in func) && func.isThemeGetter === true;
+var createLruCache = (maxCacheSize) => {
+  if (maxCacheSize < 1) {
+    return {
+      get: () => {
+        return;
+      },
+      set: () => {}
+    };
+  }
+  let cacheSize = 0;
+  let cache = Object.create(null);
+  let previousCache = Object.create(null);
+  const update = (key, value) => {
+    cache[key] = value;
+    cacheSize++;
+    if (cacheSize > maxCacheSize) {
+      cacheSize = 0;
+      previousCache = cache;
+      cache = Object.create(null);
+    }
+  };
+  return {
+    get(key) {
+      let value = cache[key];
+      if (value !== undefined) {
+        return value;
+      }
+      if ((value = previousCache[key]) !== undefined) {
+        update(key, value);
+        return value;
+      }
+    },
+    set(key, value) {
+      if (key in cache) {
+        cache[key] = value;
+      } else {
+        update(key, value);
+      }
+    }
+  };
+};
+var IMPORTANT_MODIFIER = "!";
+var MODIFIER_SEPARATOR = ":";
+var EMPTY_MODIFIERS = [];
+var createResultObject = (modifiers, hasImportantModifier, baseClassName, maybePostfixModifierPosition, isExternal) => ({
+  modifiers,
+  hasImportantModifier,
+  baseClassName,
+  maybePostfixModifierPosition,
+  isExternal
+});
+var createParseClassName = (config) => {
+  const {
+    prefix,
+    experimentalParseClassName
+  } = config;
+  let parseClassName = (className) => {
+    const modifiers = [];
+    let bracketDepth = 0;
+    let parenDepth = 0;
+    let modifierStart = 0;
+    let postfixModifierPosition;
+    const len = className.length;
+    for (let index = 0;index < len; index++) {
+      const currentCharacter = className[index];
+      if (bracketDepth === 0 && parenDepth === 0) {
+        if (currentCharacter === MODIFIER_SEPARATOR) {
+          modifiers.push(className.slice(modifierStart, index));
+          modifierStart = index + 1;
+          continue;
+        }
+        if (currentCharacter === "/") {
+          postfixModifierPosition = index;
+          continue;
+        }
+      }
+      if (currentCharacter === "[")
+        bracketDepth++;
+      else if (currentCharacter === "]")
+        bracketDepth--;
+      else if (currentCharacter === "(")
+        parenDepth++;
+      else if (currentCharacter === ")")
+        parenDepth--;
+    }
+    const baseClassNameWithImportantModifier = modifiers.length === 0 ? className : className.slice(modifierStart);
+    let baseClassName = baseClassNameWithImportantModifier;
+    let hasImportantModifier = false;
+    if (baseClassNameWithImportantModifier.endsWith(IMPORTANT_MODIFIER)) {
+      baseClassName = baseClassNameWithImportantModifier.slice(0, -1);
+      hasImportantModifier = true;
+    } else if (baseClassNameWithImportantModifier.startsWith(IMPORTANT_MODIFIER)) {
+      baseClassName = baseClassNameWithImportantModifier.slice(1);
+      hasImportantModifier = true;
+    }
+    const maybePostfixModifierPosition = postfixModifierPosition && postfixModifierPosition > modifierStart ? postfixModifierPosition - modifierStart : undefined;
+    return createResultObject(modifiers, hasImportantModifier, baseClassName, maybePostfixModifierPosition);
+  };
+  if (prefix) {
+    const fullPrefix = prefix + MODIFIER_SEPARATOR;
+    const parseClassNameOriginal = parseClassName;
+    parseClassName = (className) => className.startsWith(fullPrefix) ? parseClassNameOriginal(className.slice(fullPrefix.length)) : createResultObject(EMPTY_MODIFIERS, false, className, undefined, true);
+  }
+  if (experimentalParseClassName) {
+    const parseClassNameOriginal = parseClassName;
+    parseClassName = (className) => experimentalParseClassName({
+      className,
+      parseClassName: parseClassNameOriginal
+    });
+  }
+  return parseClassName;
+};
+var createSortModifiers = (config) => {
+  const modifierWeights = new Map;
+  config.orderSensitiveModifiers.forEach((mod, index) => {
+    modifierWeights.set(mod, 1e6 + index);
+  });
+  return (modifiers) => {
+    const result = [];
+    let currentSegment = [];
+    for (let i = 0;i < modifiers.length; i++) {
+      const modifier = modifiers[i];
+      const isArbitrary = modifier[0] === "[";
+      const isOrderSensitive = modifierWeights.has(modifier);
+      if (isArbitrary || isOrderSensitive) {
+        if (currentSegment.length > 0) {
+          currentSegment.sort();
+          result.push(...currentSegment);
+          currentSegment = [];
+        }
+        result.push(modifier);
+      } else {
+        currentSegment.push(modifier);
+      }
+    }
+    if (currentSegment.length > 0) {
+      currentSegment.sort();
+      result.push(...currentSegment);
+    }
+    return result;
+  };
+};
+var createConfigUtils = (config) => ({
+  cache: createLruCache(config.cacheSize),
+  parseClassName: createParseClassName(config),
+  sortModifiers: createSortModifiers(config),
+  postfixLookupClassGroupIds: createPostfixLookupClassGroupIds(config),
+  ...createClassGroupUtils(config)
+});
+var createPostfixLookupClassGroupIds = (config) => {
+  const lookup = Object.create(null);
+  const classGroupIds = config.postfixLookupClassGroups;
+  if (classGroupIds) {
+    for (let i = 0;i < classGroupIds.length; i++) {
+      lookup[classGroupIds[i]] = true;
+    }
+  }
+  return lookup;
+};
+var SPLIT_CLASSES_REGEX = /\s+/;
+var mergeClassList = (classList, configUtils) => {
+  const {
+    parseClassName,
+    getClassGroupId,
+    getConflictingClassGroupIds,
+    sortModifiers,
+    postfixLookupClassGroupIds
+  } = configUtils;
+  const classGroupsInConflict = [];
+  const classNames = classList.trim().split(SPLIT_CLASSES_REGEX);
+  let result = "";
+  for (let index = classNames.length - 1;index >= 0; index -= 1) {
+    const originalClassName = classNames[index];
+    const {
+      isExternal,
+      modifiers,
+      hasImportantModifier,
+      baseClassName,
+      maybePostfixModifierPosition
+    } = parseClassName(originalClassName);
+    if (isExternal) {
+      result = originalClassName + (result.length > 0 ? " " + result : result);
+      continue;
+    }
+    let hasPostfixModifier = !!maybePostfixModifierPosition;
+    let classGroupId;
+    if (hasPostfixModifier) {
+      const baseClassNameWithoutPostfix = baseClassName.substring(0, maybePostfixModifierPosition);
+      classGroupId = getClassGroupId(baseClassNameWithoutPostfix);
+      const classGroupIdWithPostfix = classGroupId && postfixLookupClassGroupIds[classGroupId] ? getClassGroupId(baseClassName) : undefined;
+      if (classGroupIdWithPostfix && classGroupIdWithPostfix !== classGroupId) {
+        classGroupId = classGroupIdWithPostfix;
+        hasPostfixModifier = false;
+      }
+    } else {
+      classGroupId = getClassGroupId(baseClassName);
+    }
+    if (!classGroupId) {
+      if (!hasPostfixModifier) {
+        result = originalClassName + (result.length > 0 ? " " + result : result);
+        continue;
+      }
+      classGroupId = getClassGroupId(baseClassName);
+      if (!classGroupId) {
+        result = originalClassName + (result.length > 0 ? " " + result : result);
+        continue;
+      }
+      hasPostfixModifier = false;
+    }
+    const variantModifier = modifiers.length === 0 ? "" : modifiers.length === 1 ? modifiers[0] : sortModifiers(modifiers).join(":");
+    const modifierId = hasImportantModifier ? variantModifier + IMPORTANT_MODIFIER : variantModifier;
+    const classId = modifierId + classGroupId;
+    if (classGroupsInConflict.indexOf(classId) > -1) {
+      continue;
+    }
+    classGroupsInConflict.push(classId);
+    const conflictGroups = getConflictingClassGroupIds(classGroupId, hasPostfixModifier);
+    for (let i = 0;i < conflictGroups.length; ++i) {
+      const group = conflictGroups[i];
+      classGroupsInConflict.push(modifierId + group);
+    }
+    result = originalClassName + (result.length > 0 ? " " + result : result);
+  }
+  return result;
+};
+var twJoin = (...classLists) => {
+  let index = 0;
+  let argument;
+  let resolvedValue;
+  let string = "";
+  while (index < classLists.length) {
+    if (argument = classLists[index++]) {
+      if (resolvedValue = toValue(argument)) {
+        string && (string += " ");
+        string += resolvedValue;
       }
     }
   }
-  if (size < 3)
-    return null;
-  return {
-    x: (bx + 1 - size / 2 - pad - left) / 3,
-    y: (by + 1 - size / 2 - pad - ascent) / 3,
-    radius: (size / 2 - 1) / 3
-  };
-}
-function scrollParent(element) {
-  for (let p = element.parentElement;p; p = p.parentElement) {
-    if (/(auto|scroll|hidden)/.test(getComputedStyle(p).overflowY) && p !== document.body && p !== document.documentElement)
-      return p;
+  return string;
+};
+var toValue = (mix) => {
+  if (typeof mix === "string") {
+    return mix;
   }
-  return null;
-}
-function GlyphPortal({
-  word = "SUBLIME",
-  focusChar,
-  interactive = true,
-  background,
-  front,
-  children,
-  scrollLength = 2.4,
-  fontFamily = DEFAULT_FONT,
-  fontWeight = 900,
-  annotations = false,
-  enterLabel = "Enter section",
-  className,
-  style,
-  onProgress
-}) {
-  const uid = `gp-${import_react.useId().replace(/[^a-zA-Z0-9]/g, "")}`;
-  const clipId = `${uid}-clip`;
-  const sectionRef = import_react.useRef(null);
-  const progressRef = import_react.useRef(onProgress);
-  import_react.useLayoutEffect(() => {
-    progressRef.current = onProgress;
-  }, [onProgress]);
-  const text = word.trim().normalize("NFC") || "SUBLIME";
-  let characterOffset = 0;
-  const characters = Array.from(text, (char) => {
-    const index = characterOffset;
-    characterOffset += char.length;
-    return { char, index };
-  });
-  const length = Number.isFinite(scrollLength) ? clamp(scrollLength, 1, 8) : 2.4;
-  const weight = Number.isFinite(fontWeight) ? clamp(fontWeight, 1, 1000) : 900;
-  const hasFront = front != null;
-  const q = `:where(#${uid})`;
-  import_react.useLayoutEffect(() => {
-    const section = sectionRef.current;
-    const pin = section.querySelector("[data-gp-pin]");
-    const field = section.querySelector("[data-gp-field]");
-    const art = section.querySelector("[data-gp-art]");
-    const clip = section.querySelector(`#${clipId}`);
-    const glyph = section.querySelector("[data-gp-glyph]");
-    const marks = section.querySelector("[data-gp-marks]");
-    const choices = section.querySelector("[data-gp-choices]");
-    const buttons = Array.from(choices.querySelectorAll("button"));
-    const picker = section.querySelector("[data-gp-select]");
-    const root = scrollParent(section);
-    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const canvas = document.createElement("canvas");
-    const context = canvas.getContext("2d", { willReadFrequently: true });
-    let disposed = false, raf = 0, dirty = true, active = true, ready = false;
-    const mountedAt = performance.now();
-    let browserFrameSeen = false, stalled = false;
-    let W = 1, H = 1, travel = 1, startScale = 1, endScale = 1;
-    let center = { x: 0, y: 0 }, target = null;
-    let lastProgress = -1;
-    let candidates = [], letters = [];
-    let choosing = false;
-    let bounds = { x: 0, y: 0, width: 1, height: 1 };
-    let fontDirty = true;
-    glyph.style.fontFamily = fontFamily;
-    const computedFamily = getComputedStyle(glyph).fontFamily;
-    const families = computedFamily.match(/(?:[^,"']+|"[^"]*"|'[^']*')+/g) ?? [];
-    const available = families.filter((family) => {
-      try {
-        return document.fonts.check(`${weight} 100px ${family.trim()}`, text);
-      } catch {
-        return false;
+  let resolvedValue;
+  let string = "";
+  for (let k = 0;k < mix.length; k++) {
+    if (mix[k]) {
+      if (resolvedValue = toValue(mix[k])) {
+        string && (string += " ");
+        string += resolvedValue;
       }
-    });
-    glyph.style.fontFamily = [...available, DEFAULT_FONT].join(",");
-    stalled = available.length < families.length;
-    const readInk = () => {
-      if (!context)
-        return false;
-      const font = getComputedStyle(glyph);
-      const scanFont = `${font.fontWeight} 300px ${font.fontFamily}`;
-      context.font = `${font.fontWeight} 100px ${font.fontFamily}`;
-      context.fontKerning = "none";
-      const metrics = context.measureText(text);
-      const advances = Array.from({ length: text.length }, (_, i) => context.measureText(text.slice(0, i)).width);
-      bounds = {
-        x: -metrics.actualBoundingBoxLeft,
-        y: -metrics.actualBoundingBoxAscent,
-        width: metrics.actualBoundingBoxLeft + metrics.actualBoundingBoxRight,
-        height: metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent
-      };
-      if (!bounds.width || !bounds.height)
-        return false;
-      center = { x: bounds.x + bounds.width / 2, y: bounds.y + bounds.height / 2 };
-      const requested = focusChar ? text.indexOf(focusChar.normalize("NFC")) : -1;
-      let offset = 0;
-      candidates = [];
-      letters = [];
-      for (const char of Array.from(text)) {
-        context.font = `${font.fontWeight} 100px ${font.fontFamily}`;
-        const m = context.measureText(char);
-        letters.push({
-          index: offset,
-          x: advances[offset] - m.actualBoundingBoxLeft,
-          y: -m.actualBoundingBoxAscent,
-          width: m.actualBoundingBoxLeft + m.actualBoundingBoxRight,
-          height: m.actualBoundingBoxAscent + m.actualBoundingBoxDescent
-        });
-        const found = interior(context, char, scanFont);
-        if (found)
-          candidates.push({ ...found, x: found.x + advances[offset], index: offset });
-        offset += char.length;
-      }
-      target = candidates.find((candidate) => candidate.index === requested) ?? [...candidates].sort((a, b) => b.radius - a.radius || Math.abs(a.x - center.x) - Math.abs(b.x - center.x))[0] ?? null;
-      return true;
-    };
-    const select = (next) => {
-      target = next;
-      endScale = target ? Math.max(startScale, Math.hypot(W, H) / (target.radius * 1.35)) : startScale;
-      section.dataset.gpFocus = target ? Array.from(text.slice(target.index))[0] : "";
-      section.dataset.gpFocusIndex = String(target?.index ?? -1);
-      for (const button of buttons) {
-        const selected = Number(button.dataset.gpLetter) === target?.index;
-        button.disabled = !candidates.some((candidate) => candidate.index === Number(button.dataset.gpLetter));
-        button.setAttribute("aria-checked", String(selected));
-        button.tabIndex = selected ? 0 : -1;
-      }
-      if (picker.value !== "")
-        picker.value = String(target?.index ?? -1);
-      for (const option of Array.from(picker.options))
-        option.disabled = option.value === "" || !candidates.some((candidate) => candidate.index === Number(option.value));
-      const u = 1 / startScale;
-      const y = bounds.y + bounds.height + 25 * u;
-      const x = bounds.x;
-      const right = x + bounds.width;
-      const cross = target ? `M${target.x - 9 * u} ${target.y}h${18 * u}M${target.x} ${target.y - 9 * u}v${18 * u}` : "";
-      const annotationPath = marks.querySelector("path");
-      annotationPath.setAttribute("d", `M${x} ${y}H${right}M${x} ${y - 5 * u}v${10 * u}M${right} ${y - 5 * u}v${10 * u}${cross}`);
-      annotationPath.setAttribute("stroke-width", String(u));
-    };
-    const position = () => {
-      const origin = root ? root.getBoundingClientRect().top + root.clientTop : 0;
-      return clamp((origin - section.getBoundingClientRect().top) / travel);
-    };
-    const paint = (progress) => {
-      const isStatic = motion.matches || !target;
-      const p = isStatic ? 0 : progress;
-      const t = clamp(p / 0.78);
-      const eased = t < 0.5 ? 4 * t ** 3 : 1 - (-2 * t + 2) ** 3 / 2;
-      const scale = Math.exp(Math.log(startScale) + Math.log(endScale / startScale) * eased);
-      const blend = endScale === startScale ? 0 : (1 / scale - 1 / startScale) / (1 / endScale - 1 / startScale);
-      const cx = center.x + ((target?.x ?? center.x) - center.x) * blend;
-      const cy = center.y + ((target?.y ?? center.y) - center.y) * blend;
-      const roll = -4 * smooth(0.06, 0.5, t) * (1 - smooth(0.62, 0.92, t));
-      const transform = `translate(${W / 2} ${H * 0.46 + H * 0.04 * eased}) scale(${scale}) rotate(${roll}) translate(${-cx} ${-cy})`;
-      const radians = roll * Math.PI / 180;
-      const dx = W / 2 / scale, dy = (H * 0.46 + H * 0.04 * eased) / scale;
-      clip.setAttribute("transform", `scale(${scale}) rotate(${roll})`);
-      glyph.setAttribute("transform", `translate(${Math.cos(radians) * dx + Math.sin(radians) * dy - cx} ${-Math.sin(radians) * dx + Math.cos(radians) * dy - cy})`);
-      marks.setAttribute("transform", transform);
-      marks.style.opacity = String(1 - smooth(0.015, 0.17, p));
-      choosing = interactive && !isStatic && p < 0.04;
-      choices.inert = !choosing;
-      section.dataset.gpChoosing = String(choosing);
-      field.style.clipPath = t >= 1 ? "none" : `url(#${clipId})`;
-      section.style.setProperty("--gp-caption", String(1 - smooth(0.01, 0.16, p)));
-      section.style.setProperty("--gp-reveal", String(isStatic ? 1 : smooth(0.6, 0.88, p)));
-      section.style.setProperty("--gp-field-scale", String(1 + 0.16 * smooth(0, 0.82, p)));
-      section.style.setProperty("--gp-caption-hit", p < 0.08 ? "auto" : "none");
-      section.dataset.gpEntered = String(p >= 0.9);
-      section.dataset.gpProgress = p.toFixed(5);
-      if (p !== lastProgress) {
-        lastProgress = p;
-        progressRef.current?.(p);
-      }
-    };
-    const layout = () => {
-      if (!section.clientWidth)
-        return;
-      W = pin.clientWidth;
-      const smallViewport = section.querySelector("[data-gp-viewport]").offsetHeight;
-      const viewportHeight = Math.max(1, Math.min(root?.clientHeight ?? smallViewport, smallViewport));
-      H = motion.matches ? Math.min(viewportHeight * 0.75, 480) : viewportHeight;
-      section.style.setProperty("--gp-height", `${H}px`);
-      travel = H * length;
-      art.setAttribute("viewBox", `0 0 ${W} ${H}`);
-      if (fontDirty) {
-        ready = readInk();
-        fontDirty = false;
-      }
-      if (!ready)
-        return;
-      const wordHeight = hasFront && H < 480 ? Math.min(H * 0.38, Math.max(24, H - 264)) : H * 0.38;
-      startScale = Math.min(W * 0.84 / bounds.width, wordHeight / bounds.height);
-      select(target);
-      for (const button of buttons) {
-        const letter = letters.find((item) => item.index === Number(button.dataset.gpLetter));
-        Object.assign(button.style, {
-          left: `${W / 2 + (letter.x - center.x) * startScale}px`,
-          top: `${H * 0.46 + (letter.y - center.y) * startScale - Math.max(0, 44 - letter.height * startScale) / 2}px`,
-          width: `${Math.max(1, letter.width * startScale)}px`,
-          height: `${Math.max(44, letter.height * startScale)}px`
-        });
-      }
-      section.style.setProperty("--gp-word-top", `${H * 0.46 - bounds.height * startScale / 2}px`);
-      section.style.setProperty("--gp-word-bottom", `${H * 0.46 + bounds.height * startScale / 2}px`);
-      section.dataset.gpReady = "true";
-      section.dataset.gpMotion = !motion.matches && target ? "on" : "off";
-    };
-    const frame = (time) => {
-      raf = 0;
-      if (disposed)
-        return;
-      if (time !== undefined && !browserFrameSeen) {
-        browserFrameSeen = true;
-        stalled ||= performance.now() - mountedAt > 2500;
-        dirty = true;
-      }
-      if (dirty) {
-        dirty = false;
-        layout();
-      }
-      if (ready)
-        paint(position());
-    };
-    const schedule = () => {
-      if (!raf && active)
-        raf = requestAnimationFrame(frame);
-    };
-    const resize = () => {
-      cancelAnimationFrame(raf);
-      dirty = true;
-      frame();
-    };
-    const scroll = () => schedule();
-    const choose = (event) => {
-      if (!choosing || position() >= 0.04)
-        return;
-      const button = event.target.closest("[data-gp-letter]");
-      const next = candidates.find((candidate) => candidate.index === Number(button?.dataset.gpLetter));
-      if (!next || next === target)
-        return;
-      select(next);
-      paint(position());
-    };
-    const navigate = (event) => {
-      if (!choosing || !["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"].includes(event.key))
-        return;
-      event.preventDefault();
-      const current = candidates.indexOf(target);
-      const index = event.key === "Home" ? 0 : event.key === "End" ? candidates.length - 1 : (current + (event.key === "ArrowLeft" || event.key === "ArrowUp" ? -1 : 1) + candidates.length) % candidates.length;
-      buttons.find((button) => Number(button.dataset.gpLetter) === candidates[index].index)?.focus({ preventScroll: true });
-    };
-    const pick = () => {
-      if (!choosing || position() >= 0.04)
-        return;
-      const next = candidates.find((candidate) => candidate.index === Number(picker.value));
-      if (next) {
-        select(next);
-        paint(position());
-      }
-    };
-    choices.addEventListener("pointerover", choose);
-    choices.addEventListener("click", choose);
-    choices.addEventListener("focusin", choose);
-    choices.addEventListener("keydown", navigate);
-    picker.addEventListener("change", pick);
-    const observer = new ResizeObserver(resize);
-    observer.observe(section);
-    if (root)
-      observer.observe(root);
-    const visibility = new IntersectionObserver(([entry]) => {
-      active = entry.isIntersecting;
-      if (active) {
-        dirty = true;
-        schedule();
-      } else if (raf) {
-        cancelAnimationFrame(raf);
-        raf = 0;
-      }
-    }, { root, rootMargin: "100% 0px" });
-    visibility.observe(section);
-    (root ?? window).addEventListener("scroll", scroll, { passive: true });
-    window.addEventListener("resize", resize);
-    window.visualViewport?.addEventListener("resize", resize);
-    motion.addEventListener("change", resize);
-    frame();
-    schedule();
-    return () => {
-      disposed = true;
-      cancelAnimationFrame(raf);
-      observer.disconnect();
-      visibility.disconnect();
-      (root ?? window).removeEventListener("scroll", scroll);
-      window.removeEventListener("resize", resize);
-      window.visualViewport?.removeEventListener("resize", resize);
-      motion.removeEventListener("change", resize);
-      choices.removeEventListener("pointerover", choose);
-      choices.removeEventListener("click", choose);
-      choices.removeEventListener("focusin", choose);
-      choices.removeEventListener("keydown", navigate);
-      picker.removeEventListener("change", pick);
-    };
-  }, [text, focusChar, interactive, fontFamily, weight, length, clipId, hasFront]);
-  return /* @__PURE__ */ jsx_dev_runtime.jsxDEV("section", {
-    ref: sectionRef,
-    id: uid,
-    className,
-    "aria-label": text,
-    style: { "--gp-length": length, "--gp-characters": Array.from(text).length, ...style },
-    children: [
-      /* @__PURE__ */ jsx_dev_runtime.jsxDEV("style", {
-        children: `
-        ${q}{--gp-paper:#fff;--gp-ink:#0c1212;--gp-field:#0b3b2a;--gp-foreground:#fbfbfa;position:relative;isolation:isolate;background:var(--gp-paper);color:var(--gp-ink);font-family:Arial,sans-serif;}
-        ${q}>[data-gp-viewport]{position:absolute;inset:0 auto auto 0;height:100vh;height:100svh;width:0;pointer-events:none;visibility:hidden;}
-        ${q} [data-gp-pin]{position:relative;height:var(--gp-height,100svh);overflow:clip;isolation:isolate;container-type:size;}
-        ${q} [data-gp-field]{position:absolute;inset:0;background:var(--gp-field);opacity:0;pointer-events:none;}
-        ${q}[data-gp-ready] [data-gp-field]{opacity:1;}
-        ${q} [data-gp-art]{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;}
-        ${q} [data-gp-marks]{fill:none;stroke:var(--gp-ink);opacity:.6;}
-        ${q} [data-gp-choices]{position:absolute;inset:0;visibility:hidden;pointer-events:none;}
-        ${q}[data-gp-choosing=true] [data-gp-choices]{visibility:visible;}
-        ${q} [data-gp-letter]{box-sizing:border-box;position:absolute;border:0;padding:0;margin:0;background:transparent;cursor:pointer;pointer-events:auto;touch-action:pan-y;}
-        ${q} [data-gp-letter]:disabled{pointer-events:none;}
-        ${q} [data-gp-letter]:focus-visible{outline:2px solid var(--gp-field);outline-offset:5px;}
-        ${q} [data-gp-touch-picker]{display:none;position:absolute;top:calc(var(--gp-word-bottom,50%) + 42px);left:50%;transform:translateX(-50%);font:12px/1.4 Arial,sans-serif;align-items:center;gap:12px;visibility:hidden;}
-        ${q}[data-gp-choosing=true] [data-gp-touch-picker]{visibility:visible;}
-        ${q} [data-gp-select]{min-height:44px;min-width:90px;border:1px solid #d8deda;border-radius:4px;background:var(--gp-paper);color:var(--gp-ink);padding:0 10px;font:inherit;}
-        ${q} [data-gp-select]:focus-visible{outline:2px solid var(--gp-field);outline-offset:4px;}
-        @media(any-pointer:coarse){${q} [data-gp-touch-picker]{display:flex;}}
-        ${q} [data-gp-fallback]{position:absolute;inset:0;display:none;place-items:center;font-size:min(calc(100cqw / var(--gp-characters)),38cqh);line-height:1;color:var(--gp-field);}
-        ${q}[data-gp-ready] [data-gp-fallback]{visibility:hidden;}
-        ${q} [data-gp-caption]{position:absolute;inset:auto 8% 9%;display:flex;align-items:center;justify-content:space-between;gap:1rem;font:12px/1.4 Arial,sans-serif;opacity:var(--gp-caption,1);pointer-events:var(--gp-caption-hit,auto);}
-        ${q} [data-gp-caption]{font-family:inherit;}
-        ${q} [data-gp-front]{position:absolute;inset:0;opacity:var(--gp-caption,1);pointer-events:none;}
-        ${q} [data-gp-front] a,${q} [data-gp-front] button{pointer-events:var(--gp-caption-hit,auto);}
-        ${q} [data-gp-front]:focus-within{opacity:1;}
-        ${q} [data-gp-hint]{max-width:30ch;color:var(--gp-ink);}
-        ${q} [data-gp-enter]{display:inline-flex;align-items:center;gap:16px;min-height:44px;color:inherit;font:inherit;text-decoration:none;letter-spacing:inherit;}
-        ${q} [data-gp-enter]:focus-visible{outline:2px solid currentColor;outline-offset:5px;}
-        ${q} [data-gp-caption]:focus-within{opacity:1;pointer-events:auto;}
-        ${q} [data-gp-enter]:focus-visible{background:var(--gp-paper);color:var(--gp-ink);padding:0 12px;margin:0 -12px;}
-        ${q} [data-gp-content]{box-sizing:border-box;position:relative;min-height:var(--gp-height,100svh);padding:clamp(32px,7%,100px);display:grid;align-content:center;color:var(--gp-foreground);background:var(--gp-field);overflow-wrap:anywhere;}
-        ${q}[data-gp-motion=on] [data-gp-pin]{position:sticky;top:0;}
-        ${q}[data-gp-motion=off] [data-gp-hint]{display:none;}
-        ${q}[data-gp-motion=on] [data-gp-content]{margin-top:calc((var(--gp-length) - 1) * var(--gp-height));background:transparent;opacity:var(--gp-reveal,0);pointer-events:none;}
-        ${q}[data-gp-motion=on][data-gp-entered=true] [data-gp-content]{pointer-events:auto;}
-        ${q}[data-gp-motion=on]:has([data-gp-content]:focus-within) [data-gp-field]{clip-path:none!important;}
-        ${q}[data-gp-motion=on] [data-gp-content]:focus-within{opacity:1;pointer-events:auto;}
-        ${q}:has([data-gp-content]:focus-within) [data-gp-caption],${q}:has([data-gp-content]:focus-within) [data-gp-marks]{opacity:0;}
-        ${q} [data-gp-default-title]{color:inherit;font:400 clamp(32px,5vw,72px)/1.05 Georgia,serif;letter-spacing:-.035em;max-width:13ch;margin:0 0 24px;text-wrap:balance;}
-        ${q} [data-gp-default-copy]{color:inherit;font:16px/1.6 Arial,sans-serif;max-width:36ch;margin:0;}
-        @media(prefers-reduced-motion:reduce){${q} [data-gp-pin]{position:relative!important;} ${q} [data-gp-content]{margin-top:0!important;opacity:1!important;background:var(--gp-field)!important;min-height:0;padding-block:64px;} ${q} [data-gp-caption]{opacity:1!important;}}
-        @media(prefers-reduced-motion:reduce){${q} [data-gp-hint]{display:none;}}
-      `
-      }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime.jsxDEV("noscript", {
-        children: /* @__PURE__ */ jsx_dev_runtime.jsxDEV("style", {
-          children: `${q} [data-gp-fallback]{display:grid}${q} [data-gp-hint]{display:none}`
-        }, undefined, false, undefined, this)
-      }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
-        "data-gp-viewport": true,
-        "aria-hidden": "true"
-      }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
-        "data-gp-pin": true,
-        children: [
-          /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
-            "data-gp-field": true,
-            "aria-hidden": "true",
-            inert: true,
-            children: background ?? /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
-              "data-gp-default-field": true,
-              style: { position: "absolute", inset: 0, transform: "scale(var(--gp-field-scale,1))", background: "radial-gradient(circle at 18% 8%, rgba(68,125,98,.72), transparent 34%), radial-gradient(circle at 82% 20%, rgba(251,251,250,.12), transparent 28%), radial-gradient(circle at 48% 78%, rgba(9,48,35,.5), transparent 44%), linear-gradient(135deg,#0b3b2a 0%,#14573f 48%,#082d22 100%)" }
-            }, undefined, false, undefined, this)
-          }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsx_dev_runtime.jsxDEV("svg", {
-            "data-gp-art": true,
-            "aria-hidden": "true",
-            focusable: "false",
-            children: [
-              /* @__PURE__ */ jsx_dev_runtime.jsxDEV("defs", {
-                children: /* @__PURE__ */ jsx_dev_runtime.jsxDEV("clipPath", {
-                  id: clipId,
-                  clipPathUnits: "userSpaceOnUse",
-                  children: /* @__PURE__ */ jsx_dev_runtime.jsxDEV("text", {
-                    "data-gp-glyph": true,
-                    x: "0",
-                    y: "0",
-                    style: { fontFamily, fontWeight: weight, fontSize: 100, fontKerning: "none", fontVariantLigatures: "none", letterSpacing: 0 },
-                    children: text
-                  }, undefined, false, undefined, this)
-                }, undefined, false, undefined, this)
-              }, undefined, false, undefined, this),
-              /* @__PURE__ */ jsx_dev_runtime.jsxDEV("g", {
-                "data-gp-marks": true,
-                style: { visibility: annotations ? "visible" : "hidden" },
-                children: /* @__PURE__ */ jsx_dev_runtime.jsxDEV("path", {}, undefined, false, undefined, this)
-              }, undefined, false, undefined, this)
-            ]
-          }, undefined, true, undefined, this),
-          /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
-            "data-gp-choices": true,
-            role: "radiogroup",
-            "aria-label": "Choose the letter to enter through",
-            inert: true,
-            children: characters.map(({ char, index }, i) => /* @__PURE__ */ jsx_dev_runtime.jsxDEV("button", {
-              type: "button",
-              role: "radio",
-              "aria-checked": "false",
-              tabIndex: -1,
-              "data-gp-letter": index,
-              "aria-label": `${char}, letter ${i + 1} of ${characters.length}`
-            }, index, false, undefined, this))
-          }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsx_dev_runtime.jsxDEV("label", {
-            "data-gp-touch-picker": true,
-            children: [
-              /* @__PURE__ */ jsx_dev_runtime.jsxDEV("span", {
-                style: { position: "absolute", width: 1, height: 1, overflow: "hidden", clipPath: "inset(50%)" },
-                children: "Entry letter"
-              }, undefined, false, undefined, this),
-              /* @__PURE__ */ jsx_dev_runtime.jsxDEV("select", {
-                "data-gp-select": true,
-                defaultValue: "",
-                children: [
-                  /* @__PURE__ */ jsx_dev_runtime.jsxDEV("option", {
-                    value: "",
-                    disabled: true,
-                    children: "Choose a letter"
-                  }, undefined, false, undefined, this),
-                  characters.map(({ char, index }, i) => /* @__PURE__ */ jsx_dev_runtime.jsxDEV("option", {
-                    value: index,
-                    children: [
-                      i + 1,
-                      " · ",
-                      char
-                    ]
-                  }, index, true, undefined, this))
-                ]
-              }, undefined, true, undefined, this)
-            ]
-          }, undefined, true, undefined, this),
-          front && /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
-            "data-gp-front": true,
-            children: front
-          }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsx_dev_runtime.jsxDEV("span", {
-            "data-gp-fallback": true,
-            "aria-hidden": "true",
-            style: { fontFamily, fontWeight: weight },
-            children: text
-          }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
-            "data-gp-caption": true,
-            children: [
-              /* @__PURE__ */ jsx_dev_runtime.jsxDEV("span", {
-                "data-gp-hint": true,
-                "aria-hidden": "true",
-                children: interactive ? "Scroll to enter." : annotations ? "A passage through type" : ""
-              }, undefined, false, undefined, this),
-              /* @__PURE__ */ jsx_dev_runtime.jsxDEV("a", {
-                "data-gp-enter": true,
-                href: `#${uid}-content`,
-                children: [
-                  enterLabel,
-                  /* @__PURE__ */ jsx_dev_runtime.jsxDEV("span", {
-                    "aria-hidden": "true",
-                    children: "↘"
-                  }, undefined, false, undefined, this)
-                ]
-              }, undefined, true, undefined, this)
-            ]
-          }, undefined, true, undefined, this)
+    }
+  }
+  return string;
+};
+var createTailwindMerge = (createConfigFirst, ...createConfigRest) => {
+  let configUtils;
+  let cacheGet;
+  let cacheSet;
+  let functionToCall;
+  const initTailwindMerge = (classList) => {
+    const config = createConfigRest.reduce((previousConfig, createConfigCurrent) => createConfigCurrent(previousConfig), createConfigFirst());
+    configUtils = createConfigUtils(config);
+    cacheGet = configUtils.cache.get;
+    cacheSet = configUtils.cache.set;
+    functionToCall = tailwindMerge;
+    return tailwindMerge(classList);
+  };
+  const tailwindMerge = (classList) => {
+    const cachedResult = cacheGet(classList);
+    if (cachedResult) {
+      return cachedResult;
+    }
+    const result = mergeClassList(classList, configUtils);
+    cacheSet(classList, result);
+    return result;
+  };
+  functionToCall = initTailwindMerge;
+  return (...args) => functionToCall(twJoin(...args));
+};
+var fallbackThemeArr = [];
+var fromTheme = (key) => {
+  const themeGetter = (theme) => theme[key] || fallbackThemeArr;
+  themeGetter.isThemeGetter = true;
+  themeGetter.themeKey = key;
+  return themeGetter;
+};
+var arbitraryValueRegex = /^\[(?:(\w[\w-]*):)?(.+)\]$/i;
+var arbitraryVariableRegex = /^\((?:(\w[\w-]*):)?(.+)\)$/i;
+var fractionRegex = /^\d+(?:\.\d+)?\/\d+(?:\.\d+)?$/;
+var tshirtUnitRegex = /^(\d+(\.\d+)?)?(xs|sm|md|lg|xl)$/;
+var lengthUnitRegex = /\d+(%|px|r?em|[sdl]?v([hwib]|min|max)|pt|pc|in|cm|mm|cap|ch|ex|r?lh|cq(w|h|i|b|min|max))|\b(calc|min|max|clamp)\(.+\)|^0$/;
+var colorFunctionRegex = /^(rgba?|hsla?|hwb|(ok)?(lab|lch)|color-mix|color|light-dark)\(.+\)$/;
+var shadowRegex = /^(inset_)?-?((\d+)?\.?(\d+)[a-z]+|0)_-?((\d+)?\.?(\d+)[a-z]+|0)/;
+var imageRegex = /^(url|image|image-set|cross-fade|element|(repeating-)?(linear|radial|conic)-gradient)\(.+\)$/;
+var isFraction = (value) => fractionRegex.test(value);
+var isNumber = (value) => !!value && !Number.isNaN(Number(value));
+var isInteger = (value) => !!value && Number.isInteger(Number(value));
+var isPercent = (value) => value.endsWith("%") && isNumber(value.slice(0, -1));
+var isTshirtSize = (value) => tshirtUnitRegex.test(value);
+var isAny = () => true;
+var isLengthOnly = (value) => lengthUnitRegex.test(value) && !colorFunctionRegex.test(value);
+var isNever = () => false;
+var isShadow = (value) => shadowRegex.test(value);
+var isImage = (value) => imageRegex.test(value);
+var isAnyNonArbitrary = (value) => !isArbitraryValue(value) && !isArbitraryVariable(value);
+var isNamedContainerQuery = (value) => value.startsWith("@container") && (value[10] === "/" && value[11] !== undefined || value[11] === "s" && value[16] !== undefined && value.startsWith("-size/", 10) || value[11] === "n" && value[18] !== undefined && value.startsWith("-normal/", 10));
+var isArbitrarySize = (value) => getIsArbitraryValue(value, isLabelSize, isNever);
+var isArbitraryValue = (value) => arbitraryValueRegex.test(value);
+var isArbitraryLength = (value) => getIsArbitraryValue(value, isLabelLength, isLengthOnly);
+var isArbitraryNumber = (value) => getIsArbitraryValue(value, isLabelNumber, isNumber);
+var isArbitraryWeight = (value) => getIsArbitraryValue(value, isLabelWeight, isAny);
+var isArbitraryFamilyName = (value) => getIsArbitraryValue(value, isLabelFamilyName, isNever);
+var isArbitraryPosition = (value) => getIsArbitraryValue(value, isLabelPosition, isNever);
+var isArbitraryImage = (value) => getIsArbitraryValue(value, isLabelImage, isImage);
+var isArbitraryShadow = (value) => getIsArbitraryValue(value, isLabelShadow, isShadow);
+var isArbitraryVariable = (value) => arbitraryVariableRegex.test(value);
+var isArbitraryVariableLength = (value) => getIsArbitraryVariable(value, isLabelLength);
+var isArbitraryVariableFamilyName = (value) => getIsArbitraryVariable(value, isLabelFamilyName);
+var isArbitraryVariablePosition = (value) => getIsArbitraryVariable(value, isLabelPosition);
+var isArbitraryVariableSize = (value) => getIsArbitraryVariable(value, isLabelSize);
+var isArbitraryVariableImage = (value) => getIsArbitraryVariable(value, isLabelImage);
+var isArbitraryVariableShadow = (value) => getIsArbitraryVariable(value, isLabelShadow, true);
+var isArbitraryVariableWeight = (value) => getIsArbitraryVariable(value, isLabelWeight, true);
+var getIsArbitraryValue = (value, testLabel, testValue) => {
+  const result = arbitraryValueRegex.exec(value);
+  if (result) {
+    if (result[1]) {
+      return testLabel(result[1]);
+    }
+    return testValue(result[2]);
+  }
+  return false;
+};
+var getIsArbitraryVariable = (value, testLabel, shouldMatchNoLabel = false) => {
+  const result = arbitraryVariableRegex.exec(value);
+  if (result) {
+    if (result[1]) {
+      return testLabel(result[1]);
+    }
+    return shouldMatchNoLabel;
+  }
+  return false;
+};
+var isLabelPosition = (label) => label === "position" || label === "percentage";
+var isLabelImage = (label) => label === "image" || label === "url";
+var isLabelSize = (label) => label === "length" || label === "size" || label === "bg-size";
+var isLabelLength = (label) => label === "length";
+var isLabelNumber = (label) => label === "number";
+var isLabelFamilyName = (label) => label === "family-name";
+var isLabelWeight = (label) => label === "number" || label === "weight";
+var isLabelShadow = (label) => label === "shadow";
+var getDefaultConfig = () => {
+  const themeColor = fromTheme("color");
+  const themeFont = fromTheme("font");
+  const themeText = fromTheme("text");
+  const themeFontWeight = fromTheme("font-weight");
+  const themeTracking = fromTheme("tracking");
+  const themeLeading = fromTheme("leading");
+  const themeBreakpoint = fromTheme("breakpoint");
+  const themeContainer = fromTheme("container");
+  const themeSpacing = fromTheme("spacing");
+  const themeRadius = fromTheme("radius");
+  const themeShadow = fromTheme("shadow");
+  const themeInsetShadow = fromTheme("inset-shadow");
+  const themeTextShadow = fromTheme("text-shadow");
+  const themeDropShadow = fromTheme("drop-shadow");
+  const themeBlur = fromTheme("blur");
+  const themePerspective = fromTheme("perspective");
+  const themeAspect = fromTheme("aspect");
+  const themeEase = fromTheme("ease");
+  const themeAnimate = fromTheme("animate");
+  const scaleBreak = () => ["auto", "avoid", "all", "avoid-page", "page", "left", "right", "column"];
+  const scalePosition = () => [
+    "center",
+    "top",
+    "bottom",
+    "left",
+    "right",
+    "top-left",
+    "left-top",
+    "top-right",
+    "right-top",
+    "bottom-right",
+    "right-bottom",
+    "bottom-left",
+    "left-bottom"
+  ];
+  const scalePositionWithArbitrary = () => [...scalePosition(), isArbitraryVariable, isArbitraryValue];
+  const scaleOverflow = () => ["auto", "hidden", "clip", "visible", "scroll"];
+  const scaleOverscroll = () => ["auto", "contain", "none"];
+  const scaleUnambiguousSpacing = () => [isArbitraryVariable, isArbitraryValue, themeSpacing];
+  const scaleInset = () => [isFraction, "full", "auto", ...scaleUnambiguousSpacing()];
+  const scaleGridTemplateColsRows = () => [isInteger, "none", "subgrid", isArbitraryVariable, isArbitraryValue];
+  const scaleGridColRowStartAndEnd = () => ["auto", {
+    span: ["full", isInteger, isArbitraryVariable, isArbitraryValue]
+  }, isInteger, isArbitraryVariable, isArbitraryValue];
+  const scaleGridColRowStartOrEnd = () => [isInteger, "auto", isArbitraryVariable, isArbitraryValue];
+  const scaleGridAutoColsRows = () => ["auto", "min", "max", "fr", isArbitraryVariable, isArbitraryValue];
+  const scaleAlignPrimaryAxis = () => ["start", "end", "center", "between", "around", "evenly", "stretch", "baseline", "center-safe", "end-safe"];
+  const scaleAlignSecondaryAxis = () => ["start", "end", "center", "stretch", "center-safe", "end-safe"];
+  const scaleMargin = () => ["auto", ...scaleUnambiguousSpacing()];
+  const scaleSizing = () => [isFraction, "auto", "full", "dvw", "dvh", "lvw", "lvh", "svw", "svh", "min", "max", "fit", ...scaleUnambiguousSpacing()];
+  const scaleSizingInline = () => [themeContainer, isFraction, "screen", "full", "dvw", "lvw", "svw", "min", "max", "fit", ...scaleUnambiguousSpacing()];
+  const scaleSizingBlock = () => [isFraction, "screen", "full", "lh", "dvh", "lvh", "svh", "min", "max", "fit", ...scaleUnambiguousSpacing()];
+  const scaleColor = () => [themeColor, isArbitraryVariable, isArbitraryValue];
+  const scaleBgPosition = () => [...scalePosition(), isArbitraryVariablePosition, isArbitraryPosition, {
+    position: [isArbitraryVariable, isArbitraryValue]
+  }];
+  const scaleBgRepeat = () => ["no-repeat", {
+    repeat: ["", "x", "y", "space", "round"]
+  }];
+  const scaleBgSize = () => ["auto", "cover", "contain", isArbitraryVariableSize, isArbitrarySize, {
+    size: [isArbitraryVariable, isArbitraryValue]
+  }];
+  const scaleGradientStopPosition = () => [isPercent, isArbitraryVariableLength, isArbitraryLength];
+  const scaleRadius = () => [
+    "",
+    "none",
+    "full",
+    themeRadius,
+    isArbitraryVariable,
+    isArbitraryValue
+  ];
+  const scaleBorderWidth = () => ["", isNumber, isArbitraryVariableLength, isArbitraryLength];
+  const scaleLineStyle = () => ["solid", "dashed", "dotted", "double"];
+  const scaleBlendMode = () => ["normal", "multiply", "screen", "overlay", "darken", "lighten", "color-dodge", "color-burn", "hard-light", "soft-light", "difference", "exclusion", "hue", "saturation", "color", "luminosity"];
+  const scaleMaskImagePosition = () => [isNumber, isPercent, isArbitraryVariablePosition, isArbitraryPosition];
+  const scaleBlur = () => [
+    "",
+    "none",
+    themeBlur,
+    isArbitraryVariable,
+    isArbitraryValue
+  ];
+  const scaleRotate = () => ["none", isNumber, isArbitraryVariable, isArbitraryValue];
+  const scaleScale = () => ["none", isNumber, isArbitraryVariable, isArbitraryValue];
+  const scaleSkew = () => [isNumber, isArbitraryVariable, isArbitraryValue];
+  const scaleTranslate = () => [isFraction, "full", ...scaleUnambiguousSpacing()];
+  return {
+    cacheSize: 500,
+    theme: {
+      animate: ["spin", "ping", "pulse", "bounce"],
+      aspect: ["video"],
+      blur: [isTshirtSize],
+      breakpoint: [isTshirtSize],
+      color: [isAny],
+      container: [isTshirtSize],
+      "drop-shadow": [isTshirtSize],
+      ease: ["in", "out", "in-out"],
+      font: [isAnyNonArbitrary],
+      "font-weight": ["thin", "extralight", "light", "normal", "medium", "semibold", "bold", "extrabold", "black"],
+      "inset-shadow": [isTshirtSize],
+      leading: ["none", "tight", "snug", "normal", "relaxed", "loose"],
+      perspective: ["dramatic", "near", "normal", "midrange", "distant", "none"],
+      radius: [isTshirtSize],
+      shadow: [isTshirtSize],
+      spacing: ["px", isNumber],
+      text: [isTshirtSize],
+      "text-shadow": [isTshirtSize],
+      tracking: ["tighter", "tight", "normal", "wide", "wider", "widest"]
+    },
+    classGroups: {
+      aspect: [{
+        aspect: ["auto", "square", isFraction, isArbitraryValue, isArbitraryVariable, themeAspect]
+      }],
+      container: ["container"],
+      "container-type": [{
+        "@container": ["", "normal", "size", isArbitraryVariable, isArbitraryValue]
+      }],
+      "container-named": [isNamedContainerQuery],
+      columns: [{
+        columns: [isNumber, "auto", isArbitraryValue, isArbitraryVariable, themeContainer]
+      }],
+      "break-after": [{
+        "break-after": scaleBreak()
+      }],
+      "break-before": [{
+        "break-before": scaleBreak()
+      }],
+      "break-inside": [{
+        "break-inside": ["auto", "avoid", "avoid-page", "avoid-column"]
+      }],
+      "box-decoration": [{
+        "box-decoration": ["slice", "clone"]
+      }],
+      box: [{
+        box: ["border", "content"]
+      }],
+      display: ["block", "inline-block", "inline", "flex", "inline-flex", "table", "inline-table", "table-caption", "table-cell", "table-column", "table-column-group", "table-footer-group", "table-header-group", "table-row-group", "table-row", "flow-root", "grid", "inline-grid", "contents", "list-item", "hidden"],
+      sr: ["sr-only", "not-sr-only"],
+      float: [{
+        float: ["right", "left", "none", "start", "end"]
+      }],
+      clear: [{
+        clear: ["left", "right", "both", "none", "start", "end"]
+      }],
+      isolation: ["isolate", "isolation-auto"],
+      "object-fit": [{
+        object: ["contain", "cover", "fill", "none", "scale-down"]
+      }],
+      "object-position": [{
+        object: scalePositionWithArbitrary()
+      }],
+      overflow: [{
+        overflow: scaleOverflow()
+      }],
+      "overflow-x": [{
+        "overflow-x": scaleOverflow()
+      }],
+      "overflow-y": [{
+        "overflow-y": scaleOverflow()
+      }],
+      overscroll: [{
+        overscroll: scaleOverscroll()
+      }],
+      "overscroll-x": [{
+        "overscroll-x": scaleOverscroll()
+      }],
+      "overscroll-y": [{
+        "overscroll-y": scaleOverscroll()
+      }],
+      position: ["static", "fixed", "absolute", "relative", "sticky"],
+      inset: [{
+        inset: scaleInset()
+      }],
+      "inset-x": [{
+        "inset-x": scaleInset()
+      }],
+      "inset-y": [{
+        "inset-y": scaleInset()
+      }],
+      start: [{
+        "inset-s": scaleInset(),
+        start: scaleInset()
+      }],
+      end: [{
+        "inset-e": scaleInset(),
+        end: scaleInset()
+      }],
+      "inset-bs": [{
+        "inset-bs": scaleInset()
+      }],
+      "inset-be": [{
+        "inset-be": scaleInset()
+      }],
+      top: [{
+        top: scaleInset()
+      }],
+      right: [{
+        right: scaleInset()
+      }],
+      bottom: [{
+        bottom: scaleInset()
+      }],
+      left: [{
+        left: scaleInset()
+      }],
+      visibility: ["visible", "invisible", "collapse"],
+      z: [{
+        z: [isInteger, "auto", isArbitraryVariable, isArbitraryValue]
+      }],
+      basis: [{
+        basis: [isFraction, "full", "auto", themeContainer, ...scaleUnambiguousSpacing()]
+      }],
+      "flex-direction": [{
+        flex: ["row", "row-reverse", "col", "col-reverse"]
+      }],
+      "flex-wrap": [{
+        flex: ["nowrap", "wrap", "wrap-reverse"]
+      }],
+      flex: [{
+        flex: [isNumber, isFraction, "auto", "initial", "none", isArbitraryValue]
+      }],
+      grow: [{
+        grow: ["", isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      shrink: [{
+        shrink: ["", isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      order: [{
+        order: [isInteger, "first", "last", "none", isArbitraryVariable, isArbitraryValue]
+      }],
+      "grid-cols": [{
+        "grid-cols": scaleGridTemplateColsRows()
+      }],
+      "col-start-end": [{
+        col: scaleGridColRowStartAndEnd()
+      }],
+      "col-start": [{
+        "col-start": scaleGridColRowStartOrEnd()
+      }],
+      "col-end": [{
+        "col-end": scaleGridColRowStartOrEnd()
+      }],
+      "grid-rows": [{
+        "grid-rows": scaleGridTemplateColsRows()
+      }],
+      "row-start-end": [{
+        row: scaleGridColRowStartAndEnd()
+      }],
+      "row-start": [{
+        "row-start": scaleGridColRowStartOrEnd()
+      }],
+      "row-end": [{
+        "row-end": scaleGridColRowStartOrEnd()
+      }],
+      "grid-flow": [{
+        "grid-flow": ["row", "col", "dense", "row-dense", "col-dense"]
+      }],
+      "auto-cols": [{
+        "auto-cols": scaleGridAutoColsRows()
+      }],
+      "auto-rows": [{
+        "auto-rows": scaleGridAutoColsRows()
+      }],
+      gap: [{
+        gap: scaleUnambiguousSpacing()
+      }],
+      "gap-x": [{
+        "gap-x": scaleUnambiguousSpacing()
+      }],
+      "gap-y": [{
+        "gap-y": scaleUnambiguousSpacing()
+      }],
+      "justify-content": [{
+        justify: [...scaleAlignPrimaryAxis(), "normal"]
+      }],
+      "justify-items": [{
+        "justify-items": [...scaleAlignSecondaryAxis(), "normal"]
+      }],
+      "justify-self": [{
+        "justify-self": ["auto", ...scaleAlignSecondaryAxis()]
+      }],
+      "align-content": [{
+        content: ["normal", ...scaleAlignPrimaryAxis()]
+      }],
+      "align-items": [{
+        items: [...scaleAlignSecondaryAxis(), {
+          baseline: ["", "last"]
+        }]
+      }],
+      "align-self": [{
+        self: ["auto", ...scaleAlignSecondaryAxis(), {
+          baseline: ["", "last"]
+        }]
+      }],
+      "place-content": [{
+        "place-content": scaleAlignPrimaryAxis()
+      }],
+      "place-items": [{
+        "place-items": [...scaleAlignSecondaryAxis(), "baseline"]
+      }],
+      "place-self": [{
+        "place-self": ["auto", ...scaleAlignSecondaryAxis()]
+      }],
+      p: [{
+        p: scaleUnambiguousSpacing()
+      }],
+      px: [{
+        px: scaleUnambiguousSpacing()
+      }],
+      py: [{
+        py: scaleUnambiguousSpacing()
+      }],
+      ps: [{
+        ps: scaleUnambiguousSpacing()
+      }],
+      pe: [{
+        pe: scaleUnambiguousSpacing()
+      }],
+      pbs: [{
+        pbs: scaleUnambiguousSpacing()
+      }],
+      pbe: [{
+        pbe: scaleUnambiguousSpacing()
+      }],
+      pt: [{
+        pt: scaleUnambiguousSpacing()
+      }],
+      pr: [{
+        pr: scaleUnambiguousSpacing()
+      }],
+      pb: [{
+        pb: scaleUnambiguousSpacing()
+      }],
+      pl: [{
+        pl: scaleUnambiguousSpacing()
+      }],
+      m: [{
+        m: scaleMargin()
+      }],
+      mx: [{
+        mx: scaleMargin()
+      }],
+      my: [{
+        my: scaleMargin()
+      }],
+      ms: [{
+        ms: scaleMargin()
+      }],
+      me: [{
+        me: scaleMargin()
+      }],
+      mbs: [{
+        mbs: scaleMargin()
+      }],
+      mbe: [{
+        mbe: scaleMargin()
+      }],
+      mt: [{
+        mt: scaleMargin()
+      }],
+      mr: [{
+        mr: scaleMargin()
+      }],
+      mb: [{
+        mb: scaleMargin()
+      }],
+      ml: [{
+        ml: scaleMargin()
+      }],
+      "space-x": [{
+        "space-x": scaleUnambiguousSpacing()
+      }],
+      "space-x-reverse": ["space-x-reverse"],
+      "space-y": [{
+        "space-y": scaleUnambiguousSpacing()
+      }],
+      "space-y-reverse": ["space-y-reverse"],
+      size: [{
+        size: scaleSizing()
+      }],
+      "inline-size": [{
+        inline: ["auto", ...scaleSizingInline()]
+      }],
+      "min-inline-size": [{
+        "min-inline": ["auto", ...scaleSizingInline()]
+      }],
+      "max-inline-size": [{
+        "max-inline": ["none", ...scaleSizingInline()]
+      }],
+      "block-size": [{
+        block: ["auto", ...scaleSizingBlock()]
+      }],
+      "min-block-size": [{
+        "min-block": ["auto", ...scaleSizingBlock()]
+      }],
+      "max-block-size": [{
+        "max-block": ["none", ...scaleSizingBlock()]
+      }],
+      w: [{
+        w: [themeContainer, "screen", ...scaleSizing()]
+      }],
+      "min-w": [{
+        "min-w": [
+          themeContainer,
+          "screen",
+          "none",
+          ...scaleSizing()
         ]
-      }, undefined, true, undefined, this),
+      }],
+      "max-w": [{
+        "max-w": [
+          themeContainer,
+          "screen",
+          "none",
+          "prose",
+          {
+            screen: [themeBreakpoint]
+          },
+          ...scaleSizing()
+        ]
+      }],
+      h: [{
+        h: ["screen", "lh", ...scaleSizing()]
+      }],
+      "min-h": [{
+        "min-h": ["screen", "lh", "none", ...scaleSizing()]
+      }],
+      "max-h": [{
+        "max-h": ["screen", "lh", "none", ...scaleSizing()]
+      }],
+      "font-size": [{
+        text: ["base", themeText, isArbitraryVariableLength, isArbitraryLength]
+      }],
+      "font-smoothing": ["antialiased", "subpixel-antialiased"],
+      "font-style": ["italic", "not-italic"],
+      "font-weight": [{
+        font: [themeFontWeight, isArbitraryVariableWeight, isArbitraryWeight]
+      }],
+      "font-stretch": [{
+        "font-stretch": ["ultra-condensed", "extra-condensed", "condensed", "semi-condensed", "normal", "semi-expanded", "expanded", "extra-expanded", "ultra-expanded", isPercent, isArbitraryValue]
+      }],
+      "font-family": [{
+        font: [isArbitraryVariableFamilyName, isArbitraryFamilyName, themeFont]
+      }],
+      "font-features": [{
+        "font-features": [isArbitraryValue]
+      }],
+      "fvn-normal": ["normal-nums"],
+      "fvn-ordinal": ["ordinal"],
+      "fvn-slashed-zero": ["slashed-zero"],
+      "fvn-figure": ["lining-nums", "oldstyle-nums"],
+      "fvn-spacing": ["proportional-nums", "tabular-nums"],
+      "fvn-fraction": ["diagonal-fractions", "stacked-fractions"],
+      tracking: [{
+        tracking: [themeTracking, isArbitraryVariable, isArbitraryValue]
+      }],
+      "line-clamp": [{
+        "line-clamp": [isNumber, "none", isArbitraryVariable, isArbitraryNumber]
+      }],
+      leading: [{
+        leading: [
+          "none",
+          themeLeading,
+          ...scaleUnambiguousSpacing()
+        ]
+      }],
+      "list-image": [{
+        "list-image": ["none", isArbitraryVariable, isArbitraryValue]
+      }],
+      "list-style-position": [{
+        list: ["inside", "outside"]
+      }],
+      "list-style-type": [{
+        list: ["disc", "decimal", "none", isArbitraryVariable, isArbitraryValue]
+      }],
+      "text-alignment": [{
+        text: ["left", "center", "right", "justify", "start", "end"]
+      }],
+      "placeholder-color": [{
+        placeholder: scaleColor()
+      }],
+      "text-color": [{
+        text: scaleColor()
+      }],
+      "text-decoration": ["underline", "overline", "line-through", "no-underline"],
+      "text-decoration-style": [{
+        decoration: [...scaleLineStyle(), "wavy"]
+      }],
+      "text-decoration-thickness": [{
+        decoration: [isNumber, "from-font", "auto", isArbitraryVariable, isArbitraryLength]
+      }],
+      "text-decoration-color": [{
+        decoration: scaleColor()
+      }],
+      "underline-offset": [{
+        "underline-offset": [isNumber, "auto", isArbitraryVariable, isArbitraryValue]
+      }],
+      "text-transform": ["uppercase", "lowercase", "capitalize", "normal-case"],
+      "text-overflow": ["truncate", "text-ellipsis", "text-clip"],
+      "text-wrap": [{
+        text: ["wrap", "nowrap", "balance", "pretty"]
+      }],
+      indent: [{
+        indent: scaleUnambiguousSpacing()
+      }],
+      "tab-size": [{
+        tab: [isInteger, isArbitraryVariable, isArbitraryValue]
+      }],
+      "vertical-align": [{
+        align: ["baseline", "top", "middle", "bottom", "text-top", "text-bottom", "sub", "super", isArbitraryVariable, isArbitraryValue]
+      }],
+      whitespace: [{
+        whitespace: ["normal", "nowrap", "pre", "pre-line", "pre-wrap", "break-spaces"]
+      }],
+      break: [{
+        break: ["normal", "words", "all", "keep"]
+      }],
+      wrap: [{
+        wrap: ["break-word", "anywhere", "normal"]
+      }],
+      hyphens: [{
+        hyphens: ["none", "manual", "auto"]
+      }],
+      content: [{
+        content: ["none", isArbitraryVariable, isArbitraryValue]
+      }],
+      "bg-attachment": [{
+        bg: ["fixed", "local", "scroll"]
+      }],
+      "bg-clip": [{
+        "bg-clip": ["border", "padding", "content", "text"]
+      }],
+      "bg-origin": [{
+        "bg-origin": ["border", "padding", "content"]
+      }],
+      "bg-position": [{
+        bg: scaleBgPosition()
+      }],
+      "bg-repeat": [{
+        bg: scaleBgRepeat()
+      }],
+      "bg-size": [{
+        bg: scaleBgSize()
+      }],
+      "bg-image": [{
+        bg: ["none", {
+          linear: [{
+            to: ["t", "tr", "r", "br", "b", "bl", "l", "tl"]
+          }, isInteger, isArbitraryVariable, isArbitraryValue],
+          radial: ["", isArbitraryVariable, isArbitraryValue],
+          conic: ["", isInteger, isArbitraryVariable, isArbitraryValue]
+        }, isArbitraryVariableImage, isArbitraryImage]
+      }],
+      "bg-color": [{
+        bg: scaleColor()
+      }],
+      "gradient-from-pos": [{
+        from: scaleGradientStopPosition()
+      }],
+      "gradient-via-pos": [{
+        via: scaleGradientStopPosition()
+      }],
+      "gradient-to-pos": [{
+        to: scaleGradientStopPosition()
+      }],
+      "gradient-from": [{
+        from: scaleColor()
+      }],
+      "gradient-via": [{
+        via: scaleColor()
+      }],
+      "gradient-to": [{
+        to: scaleColor()
+      }],
+      rounded: [{
+        rounded: scaleRadius()
+      }],
+      "rounded-s": [{
+        "rounded-s": scaleRadius()
+      }],
+      "rounded-e": [{
+        "rounded-e": scaleRadius()
+      }],
+      "rounded-t": [{
+        "rounded-t": scaleRadius()
+      }],
+      "rounded-r": [{
+        "rounded-r": scaleRadius()
+      }],
+      "rounded-b": [{
+        "rounded-b": scaleRadius()
+      }],
+      "rounded-l": [{
+        "rounded-l": scaleRadius()
+      }],
+      "rounded-ss": [{
+        "rounded-ss": scaleRadius()
+      }],
+      "rounded-se": [{
+        "rounded-se": scaleRadius()
+      }],
+      "rounded-ee": [{
+        "rounded-ee": scaleRadius()
+      }],
+      "rounded-es": [{
+        "rounded-es": scaleRadius()
+      }],
+      "rounded-tl": [{
+        "rounded-tl": scaleRadius()
+      }],
+      "rounded-tr": [{
+        "rounded-tr": scaleRadius()
+      }],
+      "rounded-br": [{
+        "rounded-br": scaleRadius()
+      }],
+      "rounded-bl": [{
+        "rounded-bl": scaleRadius()
+      }],
+      "border-w": [{
+        border: scaleBorderWidth()
+      }],
+      "border-w-x": [{
+        "border-x": scaleBorderWidth()
+      }],
+      "border-w-y": [{
+        "border-y": scaleBorderWidth()
+      }],
+      "border-w-s": [{
+        "border-s": scaleBorderWidth()
+      }],
+      "border-w-e": [{
+        "border-e": scaleBorderWidth()
+      }],
+      "border-w-bs": [{
+        "border-bs": scaleBorderWidth()
+      }],
+      "border-w-be": [{
+        "border-be": scaleBorderWidth()
+      }],
+      "border-w-t": [{
+        "border-t": scaleBorderWidth()
+      }],
+      "border-w-r": [{
+        "border-r": scaleBorderWidth()
+      }],
+      "border-w-b": [{
+        "border-b": scaleBorderWidth()
+      }],
+      "border-w-l": [{
+        "border-l": scaleBorderWidth()
+      }],
+      "divide-x": [{
+        "divide-x": scaleBorderWidth()
+      }],
+      "divide-x-reverse": ["divide-x-reverse"],
+      "divide-y": [{
+        "divide-y": scaleBorderWidth()
+      }],
+      "divide-y-reverse": ["divide-y-reverse"],
+      "border-style": [{
+        border: [...scaleLineStyle(), "hidden", "none"]
+      }],
+      "divide-style": [{
+        divide: [...scaleLineStyle(), "hidden", "none"]
+      }],
+      "border-color": [{
+        border: scaleColor()
+      }],
+      "border-color-x": [{
+        "border-x": scaleColor()
+      }],
+      "border-color-y": [{
+        "border-y": scaleColor()
+      }],
+      "border-color-s": [{
+        "border-s": scaleColor()
+      }],
+      "border-color-e": [{
+        "border-e": scaleColor()
+      }],
+      "border-color-bs": [{
+        "border-bs": scaleColor()
+      }],
+      "border-color-be": [{
+        "border-be": scaleColor()
+      }],
+      "border-color-t": [{
+        "border-t": scaleColor()
+      }],
+      "border-color-r": [{
+        "border-r": scaleColor()
+      }],
+      "border-color-b": [{
+        "border-b": scaleColor()
+      }],
+      "border-color-l": [{
+        "border-l": scaleColor()
+      }],
+      "divide-color": [{
+        divide: scaleColor()
+      }],
+      "outline-style": [{
+        outline: [...scaleLineStyle(), "none", "hidden"]
+      }],
+      "outline-offset": [{
+        "outline-offset": [isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      "outline-w": [{
+        outline: ["", isNumber, isArbitraryVariableLength, isArbitraryLength]
+      }],
+      "outline-color": [{
+        outline: scaleColor()
+      }],
+      shadow: [{
+        shadow: [
+          "",
+          "inner",
+          "none",
+          themeShadow,
+          isArbitraryVariableShadow,
+          isArbitraryShadow
+        ]
+      }],
+      "shadow-color": [{
+        shadow: scaleColor()
+      }],
+      "inset-shadow": [{
+        "inset-shadow": ["none", themeInsetShadow, isArbitraryVariableShadow, isArbitraryShadow]
+      }],
+      "inset-shadow-color": [{
+        "inset-shadow": scaleColor()
+      }],
+      "ring-w": [{
+        ring: scaleBorderWidth()
+      }],
+      "ring-w-inset": ["ring-inset"],
+      "ring-color": [{
+        ring: scaleColor()
+      }],
+      "ring-offset-w": [{
+        "ring-offset": [isNumber, isArbitraryLength]
+      }],
+      "ring-offset-color": [{
+        "ring-offset": scaleColor()
+      }],
+      "inset-ring-w": [{
+        "inset-ring": scaleBorderWidth()
+      }],
+      "inset-ring-color": [{
+        "inset-ring": scaleColor()
+      }],
+      "text-shadow": [{
+        "text-shadow": ["none", themeTextShadow, isArbitraryVariableShadow, isArbitraryShadow]
+      }],
+      "text-shadow-color": [{
+        "text-shadow": scaleColor()
+      }],
+      opacity: [{
+        opacity: [isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      "mix-blend": [{
+        "mix-blend": [...scaleBlendMode(), "plus-darker", "plus-lighter"]
+      }],
+      "bg-blend": [{
+        "bg-blend": scaleBlendMode()
+      }],
+      "mask-clip": [{
+        "mask-clip": ["border", "padding", "content", "fill", "stroke", "view"]
+      }, "mask-no-clip"],
+      "mask-composite": [{
+        mask: ["add", "subtract", "intersect", "exclude"]
+      }],
+      "mask-image-linear-pos": [{
+        "mask-linear": [isNumber]
+      }],
+      "mask-image-linear-from-pos": [{
+        "mask-linear-from": scaleMaskImagePosition()
+      }],
+      "mask-image-linear-to-pos": [{
+        "mask-linear-to": scaleMaskImagePosition()
+      }],
+      "mask-image-linear-from-color": [{
+        "mask-linear-from": scaleColor()
+      }],
+      "mask-image-linear-to-color": [{
+        "mask-linear-to": scaleColor()
+      }],
+      "mask-image-t-from-pos": [{
+        "mask-t-from": scaleMaskImagePosition()
+      }],
+      "mask-image-t-to-pos": [{
+        "mask-t-to": scaleMaskImagePosition()
+      }],
+      "mask-image-t-from-color": [{
+        "mask-t-from": scaleColor()
+      }],
+      "mask-image-t-to-color": [{
+        "mask-t-to": scaleColor()
+      }],
+      "mask-image-r-from-pos": [{
+        "mask-r-from": scaleMaskImagePosition()
+      }],
+      "mask-image-r-to-pos": [{
+        "mask-r-to": scaleMaskImagePosition()
+      }],
+      "mask-image-r-from-color": [{
+        "mask-r-from": scaleColor()
+      }],
+      "mask-image-r-to-color": [{
+        "mask-r-to": scaleColor()
+      }],
+      "mask-image-b-from-pos": [{
+        "mask-b-from": scaleMaskImagePosition()
+      }],
+      "mask-image-b-to-pos": [{
+        "mask-b-to": scaleMaskImagePosition()
+      }],
+      "mask-image-b-from-color": [{
+        "mask-b-from": scaleColor()
+      }],
+      "mask-image-b-to-color": [{
+        "mask-b-to": scaleColor()
+      }],
+      "mask-image-l-from-pos": [{
+        "mask-l-from": scaleMaskImagePosition()
+      }],
+      "mask-image-l-to-pos": [{
+        "mask-l-to": scaleMaskImagePosition()
+      }],
+      "mask-image-l-from-color": [{
+        "mask-l-from": scaleColor()
+      }],
+      "mask-image-l-to-color": [{
+        "mask-l-to": scaleColor()
+      }],
+      "mask-image-x-from-pos": [{
+        "mask-x-from": scaleMaskImagePosition()
+      }],
+      "mask-image-x-to-pos": [{
+        "mask-x-to": scaleMaskImagePosition()
+      }],
+      "mask-image-x-from-color": [{
+        "mask-x-from": scaleColor()
+      }],
+      "mask-image-x-to-color": [{
+        "mask-x-to": scaleColor()
+      }],
+      "mask-image-y-from-pos": [{
+        "mask-y-from": scaleMaskImagePosition()
+      }],
+      "mask-image-y-to-pos": [{
+        "mask-y-to": scaleMaskImagePosition()
+      }],
+      "mask-image-y-from-color": [{
+        "mask-y-from": scaleColor()
+      }],
+      "mask-image-y-to-color": [{
+        "mask-y-to": scaleColor()
+      }],
+      "mask-image-radial": [{
+        "mask-radial": [isArbitraryVariable, isArbitraryValue]
+      }],
+      "mask-image-radial-from-pos": [{
+        "mask-radial-from": scaleMaskImagePosition()
+      }],
+      "mask-image-radial-to-pos": [{
+        "mask-radial-to": scaleMaskImagePosition()
+      }],
+      "mask-image-radial-from-color": [{
+        "mask-radial-from": scaleColor()
+      }],
+      "mask-image-radial-to-color": [{
+        "mask-radial-to": scaleColor()
+      }],
+      "mask-image-radial-shape": [{
+        "mask-radial": ["circle", "ellipse"]
+      }],
+      "mask-image-radial-size": [{
+        "mask-radial": [{
+          closest: ["side", "corner"],
+          farthest: ["side", "corner"]
+        }]
+      }],
+      "mask-image-radial-pos": [{
+        "mask-radial-at": scalePosition()
+      }],
+      "mask-image-conic-pos": [{
+        "mask-conic": [isNumber]
+      }],
+      "mask-image-conic-from-pos": [{
+        "mask-conic-from": scaleMaskImagePosition()
+      }],
+      "mask-image-conic-to-pos": [{
+        "mask-conic-to": scaleMaskImagePosition()
+      }],
+      "mask-image-conic-from-color": [{
+        "mask-conic-from": scaleColor()
+      }],
+      "mask-image-conic-to-color": [{
+        "mask-conic-to": scaleColor()
+      }],
+      "mask-mode": [{
+        mask: ["alpha", "luminance", "match"]
+      }],
+      "mask-origin": [{
+        "mask-origin": ["border", "padding", "content", "fill", "stroke", "view"]
+      }],
+      "mask-position": [{
+        mask: scaleBgPosition()
+      }],
+      "mask-repeat": [{
+        mask: scaleBgRepeat()
+      }],
+      "mask-size": [{
+        mask: scaleBgSize()
+      }],
+      "mask-type": [{
+        "mask-type": ["alpha", "luminance"]
+      }],
+      "mask-image": [{
+        mask: ["none", isArbitraryVariable, isArbitraryValue]
+      }],
+      filter: [{
+        filter: [
+          "",
+          "none",
+          isArbitraryVariable,
+          isArbitraryValue
+        ]
+      }],
+      blur: [{
+        blur: scaleBlur()
+      }],
+      brightness: [{
+        brightness: [isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      contrast: [{
+        contrast: [isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      "drop-shadow": [{
+        "drop-shadow": [
+          "",
+          "none",
+          themeDropShadow,
+          isArbitraryVariableShadow,
+          isArbitraryShadow
+        ]
+      }],
+      "drop-shadow-color": [{
+        "drop-shadow": scaleColor()
+      }],
+      grayscale: [{
+        grayscale: ["", isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      "hue-rotate": [{
+        "hue-rotate": [isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      invert: [{
+        invert: ["", isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      saturate: [{
+        saturate: [isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      sepia: [{
+        sepia: ["", isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      "backdrop-filter": [{
+        "backdrop-filter": [
+          "",
+          "none",
+          isArbitraryVariable,
+          isArbitraryValue
+        ]
+      }],
+      "backdrop-blur": [{
+        "backdrop-blur": scaleBlur()
+      }],
+      "backdrop-brightness": [{
+        "backdrop-brightness": [isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      "backdrop-contrast": [{
+        "backdrop-contrast": [isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      "backdrop-grayscale": [{
+        "backdrop-grayscale": ["", isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      "backdrop-hue-rotate": [{
+        "backdrop-hue-rotate": [isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      "backdrop-invert": [{
+        "backdrop-invert": ["", isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      "backdrop-opacity": [{
+        "backdrop-opacity": [isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      "backdrop-saturate": [{
+        "backdrop-saturate": [isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      "backdrop-sepia": [{
+        "backdrop-sepia": ["", isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      "border-collapse": [{
+        border: ["collapse", "separate"]
+      }],
+      "border-spacing": [{
+        "border-spacing": scaleUnambiguousSpacing()
+      }],
+      "border-spacing-x": [{
+        "border-spacing-x": scaleUnambiguousSpacing()
+      }],
+      "border-spacing-y": [{
+        "border-spacing-y": scaleUnambiguousSpacing()
+      }],
+      "table-layout": [{
+        table: ["auto", "fixed"]
+      }],
+      caption: [{
+        caption: ["top", "bottom"]
+      }],
+      transition: [{
+        transition: ["", "all", "colors", "opacity", "shadow", "transform", "none", isArbitraryVariable, isArbitraryValue]
+      }],
+      "transition-behavior": [{
+        transition: ["normal", "discrete"]
+      }],
+      duration: [{
+        duration: [isNumber, "initial", isArbitraryVariable, isArbitraryValue]
+      }],
+      ease: [{
+        ease: ["linear", "initial", themeEase, isArbitraryVariable, isArbitraryValue]
+      }],
+      delay: [{
+        delay: [isNumber, isArbitraryVariable, isArbitraryValue]
+      }],
+      animate: [{
+        animate: ["none", themeAnimate, isArbitraryVariable, isArbitraryValue]
+      }],
+      backface: [{
+        backface: ["hidden", "visible"]
+      }],
+      perspective: [{
+        perspective: [themePerspective, isArbitraryVariable, isArbitraryValue]
+      }],
+      "perspective-origin": [{
+        "perspective-origin": scalePositionWithArbitrary()
+      }],
+      rotate: [{
+        rotate: scaleRotate()
+      }],
+      "rotate-x": [{
+        "rotate-x": scaleRotate()
+      }],
+      "rotate-y": [{
+        "rotate-y": scaleRotate()
+      }],
+      "rotate-z": [{
+        "rotate-z": scaleRotate()
+      }],
+      scale: [{
+        scale: scaleScale()
+      }],
+      "scale-x": [{
+        "scale-x": scaleScale()
+      }],
+      "scale-y": [{
+        "scale-y": scaleScale()
+      }],
+      "scale-z": [{
+        "scale-z": scaleScale()
+      }],
+      "scale-3d": ["scale-3d"],
+      skew: [{
+        skew: scaleSkew()
+      }],
+      "skew-x": [{
+        "skew-x": scaleSkew()
+      }],
+      "skew-y": [{
+        "skew-y": scaleSkew()
+      }],
+      transform: [{
+        transform: [isArbitraryVariable, isArbitraryValue, "", "none", "gpu", "cpu"]
+      }],
+      "transform-origin": [{
+        origin: scalePositionWithArbitrary()
+      }],
+      "transform-style": [{
+        transform: ["3d", "flat"]
+      }],
+      translate: [{
+        translate: scaleTranslate()
+      }],
+      "translate-x": [{
+        "translate-x": scaleTranslate()
+      }],
+      "translate-y": [{
+        "translate-y": scaleTranslate()
+      }],
+      "translate-z": [{
+        "translate-z": scaleTranslate()
+      }],
+      "translate-none": ["translate-none"],
+      zoom: [{
+        zoom: [isInteger, isArbitraryVariable, isArbitraryValue]
+      }],
+      accent: [{
+        accent: scaleColor()
+      }],
+      appearance: [{
+        appearance: ["none", "auto"]
+      }],
+      "caret-color": [{
+        caret: scaleColor()
+      }],
+      "color-scheme": [{
+        scheme: ["normal", "dark", "light", "light-dark", "only-dark", "only-light"]
+      }],
+      cursor: [{
+        cursor: ["auto", "default", "pointer", "wait", "text", "move", "help", "not-allowed", "none", "context-menu", "progress", "cell", "crosshair", "vertical-text", "alias", "copy", "no-drop", "grab", "grabbing", "all-scroll", "col-resize", "row-resize", "n-resize", "e-resize", "s-resize", "w-resize", "ne-resize", "nw-resize", "se-resize", "sw-resize", "ew-resize", "ns-resize", "nesw-resize", "nwse-resize", "zoom-in", "zoom-out", isArbitraryVariable, isArbitraryValue]
+      }],
+      "field-sizing": [{
+        "field-sizing": ["fixed", "content"]
+      }],
+      "pointer-events": [{
+        "pointer-events": ["auto", "none"]
+      }],
+      resize: [{
+        resize: ["none", "", "y", "x"]
+      }],
+      "scroll-behavior": [{
+        scroll: ["auto", "smooth"]
+      }],
+      "scrollbar-thumb-color": [{
+        "scrollbar-thumb": scaleColor()
+      }],
+      "scrollbar-track-color": [{
+        "scrollbar-track": scaleColor()
+      }],
+      "scrollbar-gutter": [{
+        "scrollbar-gutter": ["auto", "stable", "both"]
+      }],
+      "scrollbar-w": [{
+        scrollbar: ["auto", "thin", "none"]
+      }],
+      "scroll-m": [{
+        "scroll-m": scaleUnambiguousSpacing()
+      }],
+      "scroll-mx": [{
+        "scroll-mx": scaleUnambiguousSpacing()
+      }],
+      "scroll-my": [{
+        "scroll-my": scaleUnambiguousSpacing()
+      }],
+      "scroll-ms": [{
+        "scroll-ms": scaleUnambiguousSpacing()
+      }],
+      "scroll-me": [{
+        "scroll-me": scaleUnambiguousSpacing()
+      }],
+      "scroll-mbs": [{
+        "scroll-mbs": scaleUnambiguousSpacing()
+      }],
+      "scroll-mbe": [{
+        "scroll-mbe": scaleUnambiguousSpacing()
+      }],
+      "scroll-mt": [{
+        "scroll-mt": scaleUnambiguousSpacing()
+      }],
+      "scroll-mr": [{
+        "scroll-mr": scaleUnambiguousSpacing()
+      }],
+      "scroll-mb": [{
+        "scroll-mb": scaleUnambiguousSpacing()
+      }],
+      "scroll-ml": [{
+        "scroll-ml": scaleUnambiguousSpacing()
+      }],
+      "scroll-p": [{
+        "scroll-p": scaleUnambiguousSpacing()
+      }],
+      "scroll-px": [{
+        "scroll-px": scaleUnambiguousSpacing()
+      }],
+      "scroll-py": [{
+        "scroll-py": scaleUnambiguousSpacing()
+      }],
+      "scroll-ps": [{
+        "scroll-ps": scaleUnambiguousSpacing()
+      }],
+      "scroll-pe": [{
+        "scroll-pe": scaleUnambiguousSpacing()
+      }],
+      "scroll-pbs": [{
+        "scroll-pbs": scaleUnambiguousSpacing()
+      }],
+      "scroll-pbe": [{
+        "scroll-pbe": scaleUnambiguousSpacing()
+      }],
+      "scroll-pt": [{
+        "scroll-pt": scaleUnambiguousSpacing()
+      }],
+      "scroll-pr": [{
+        "scroll-pr": scaleUnambiguousSpacing()
+      }],
+      "scroll-pb": [{
+        "scroll-pb": scaleUnambiguousSpacing()
+      }],
+      "scroll-pl": [{
+        "scroll-pl": scaleUnambiguousSpacing()
+      }],
+      "snap-align": [{
+        snap: ["start", "end", "center", "align-none"]
+      }],
+      "snap-stop": [{
+        snap: ["normal", "always"]
+      }],
+      "snap-type": [{
+        snap: ["none", "x", "y", "both"]
+      }],
+      "snap-strictness": [{
+        snap: ["mandatory", "proximity"]
+      }],
+      touch: [{
+        touch: ["auto", "none", "manipulation"]
+      }],
+      "touch-x": [{
+        "touch-pan": ["x", "left", "right"]
+      }],
+      "touch-y": [{
+        "touch-pan": ["y", "up", "down"]
+      }],
+      "touch-pz": ["touch-pinch-zoom"],
+      select: [{
+        select: ["none", "text", "all", "auto"]
+      }],
+      "will-change": [{
+        "will-change": ["auto", "scroll", "contents", "transform", isArbitraryVariable, isArbitraryValue]
+      }],
+      fill: [{
+        fill: ["none", ...scaleColor()]
+      }],
+      "stroke-w": [{
+        stroke: [isNumber, isArbitraryVariableLength, isArbitraryLength, isArbitraryNumber]
+      }],
+      stroke: [{
+        stroke: ["none", ...scaleColor()]
+      }],
+      "forced-color-adjust": [{
+        "forced-color-adjust": ["auto", "none"]
+      }]
+    },
+    conflictingClassGroups: {
+      "container-named": ["container-type"],
+      overflow: ["overflow-x", "overflow-y"],
+      overscroll: ["overscroll-x", "overscroll-y"],
+      inset: ["inset-x", "inset-y", "inset-bs", "inset-be", "start", "end", "top", "right", "bottom", "left"],
+      "inset-x": ["start", "end", "right", "left"],
+      "inset-y": ["inset-bs", "inset-be", "top", "bottom"],
+      flex: ["basis", "grow", "shrink"],
+      gap: ["gap-x", "gap-y"],
+      p: ["px", "py", "ps", "pe", "pbs", "pbe", "pt", "pr", "pb", "pl"],
+      px: ["ps", "pe", "pr", "pl"],
+      py: ["pbs", "pbe", "pt", "pb"],
+      m: ["mx", "my", "ms", "me", "mbs", "mbe", "mt", "mr", "mb", "ml"],
+      mx: ["ms", "me", "mr", "ml"],
+      my: ["mbs", "mbe", "mt", "mb"],
+      size: ["w", "h"],
+      "font-size": ["leading"],
+      "fvn-normal": ["fvn-ordinal", "fvn-slashed-zero", "fvn-figure", "fvn-spacing", "fvn-fraction"],
+      "fvn-ordinal": ["fvn-normal"],
+      "fvn-slashed-zero": ["fvn-normal"],
+      "fvn-figure": ["fvn-normal"],
+      "fvn-spacing": ["fvn-normal"],
+      "fvn-fraction": ["fvn-normal"],
+      "line-clamp": ["display", "overflow"],
+      rounded: ["rounded-s", "rounded-e", "rounded-t", "rounded-r", "rounded-b", "rounded-l", "rounded-ss", "rounded-se", "rounded-ee", "rounded-es", "rounded-tl", "rounded-tr", "rounded-br", "rounded-bl"],
+      "rounded-s": ["rounded-ss", "rounded-es"],
+      "rounded-e": ["rounded-se", "rounded-ee"],
+      "rounded-t": ["rounded-tl", "rounded-tr"],
+      "rounded-r": ["rounded-tr", "rounded-br"],
+      "rounded-b": ["rounded-br", "rounded-bl"],
+      "rounded-l": ["rounded-tl", "rounded-bl"],
+      "border-spacing": ["border-spacing-x", "border-spacing-y"],
+      "border-w": ["border-w-x", "border-w-y", "border-w-s", "border-w-e", "border-w-bs", "border-w-be", "border-w-t", "border-w-r", "border-w-b", "border-w-l"],
+      "border-w-x": ["border-w-s", "border-w-e", "border-w-r", "border-w-l"],
+      "border-w-y": ["border-w-bs", "border-w-be", "border-w-t", "border-w-b"],
+      "border-color": ["border-color-x", "border-color-y", "border-color-s", "border-color-e", "border-color-bs", "border-color-be", "border-color-t", "border-color-r", "border-color-b", "border-color-l"],
+      "border-color-x": ["border-color-s", "border-color-e", "border-color-r", "border-color-l"],
+      "border-color-y": ["border-color-bs", "border-color-be", "border-color-t", "border-color-b"],
+      translate: ["translate-x", "translate-y", "translate-none"],
+      "translate-none": ["translate", "translate-x", "translate-y", "translate-z"],
+      "scroll-m": ["scroll-mx", "scroll-my", "scroll-ms", "scroll-me", "scroll-mbs", "scroll-mbe", "scroll-mt", "scroll-mr", "scroll-mb", "scroll-ml"],
+      "scroll-mx": ["scroll-ms", "scroll-me", "scroll-mr", "scroll-ml"],
+      "scroll-my": ["scroll-mbs", "scroll-mbe", "scroll-mt", "scroll-mb"],
+      "scroll-p": ["scroll-px", "scroll-py", "scroll-ps", "scroll-pe", "scroll-pbs", "scroll-pbe", "scroll-pt", "scroll-pr", "scroll-pb", "scroll-pl"],
+      "scroll-px": ["scroll-ps", "scroll-pe", "scroll-pr", "scroll-pl"],
+      "scroll-py": ["scroll-pbs", "scroll-pbe", "scroll-pt", "scroll-pb"],
+      touch: ["touch-x", "touch-y", "touch-pz"],
+      "touch-x": ["touch"],
+      "touch-y": ["touch"],
+      "touch-pz": ["touch"]
+    },
+    conflictingClassGroupModifiers: {
+      "font-size": ["leading"]
+    },
+    postfixLookupClassGroups: ["container-type"],
+    orderSensitiveModifiers: ["*", "**", "after", "backdrop", "before", "details-content", "file", "first-letter", "first-line", "marker", "placeholder", "selection"]
+  };
+};
+var twMerge = /* @__PURE__ */ createTailwindMerge(getDefaultConfig);
+
+// src/lib/utils.ts
+function cn(...inputs) {
+  return twMerge(clsx(inputs));
+}
+
+// node_modules/react-typed/dist/mjs/index.js
+var import_react = __toESM(require_react(), 1);
+
+// node_modules/typed.js/dist/typed.module.js
+function t() {
+  return t = Object.assign ? Object.assign.bind() : function(t2) {
+    for (var s = 1;s < arguments.length; s++) {
+      var e = arguments[s];
+      for (var n in e)
+        Object.prototype.hasOwnProperty.call(e, n) && (t2[n] = e[n]);
+    }
+    return t2;
+  }, t.apply(this, arguments);
+}
+var s = { strings: ["These are the default values...", "You know what you should do?", "Use your own!", "Have a great day!"], stringsElement: null, typeSpeed: 0, startDelay: 0, backSpeed: 0, smartBackspace: true, shuffle: false, backDelay: 700, fadeOut: false, fadeOutClass: "typed-fade-out", fadeOutDelay: 500, loop: false, loopCount: Infinity, showCursor: true, cursorChar: "|", autoInsertCss: true, attr: null, bindInputFocusEvents: false, contentType: "html", onBegin: function(t2) {}, onComplete: function(t2) {}, preStringTyped: function(t2, s2) {}, onStringTyped: function(t2, s2) {}, onLastStringBackspaced: function(t2) {}, onTypingPaused: function(t2, s2) {}, onTypingResumed: function(t2, s2) {}, onReset: function(t2) {}, onStop: function(t2, s2) {}, onStart: function(t2, s2) {}, onDestroy: function(t2) {} };
+var e = new (/* @__PURE__ */ function() {
+  function e2() {}
+  var n = e2.prototype;
+  return n.load = function(e3, n2, i) {
+    if (e3.el = typeof i == "string" ? document.querySelector(i) : i, e3.options = t({}, s, n2), e3.isInput = e3.el.tagName.toLowerCase() === "input", e3.attr = e3.options.attr, e3.bindInputFocusEvents = e3.options.bindInputFocusEvents, e3.showCursor = !e3.isInput && e3.options.showCursor, e3.cursorChar = e3.options.cursorChar, e3.cursorBlinking = true, e3.elContent = e3.attr ? e3.el.getAttribute(e3.attr) : e3.el.textContent, e3.contentType = e3.options.contentType, e3.typeSpeed = e3.options.typeSpeed, e3.startDelay = e3.options.startDelay, e3.backSpeed = e3.options.backSpeed, e3.smartBackspace = e3.options.smartBackspace, e3.backDelay = e3.options.backDelay, e3.fadeOut = e3.options.fadeOut, e3.fadeOutClass = e3.options.fadeOutClass, e3.fadeOutDelay = e3.options.fadeOutDelay, e3.isPaused = false, e3.strings = e3.options.strings.map(function(t2) {
+      return t2.trim();
+    }), e3.stringsElement = typeof e3.options.stringsElement == "string" ? document.querySelector(e3.options.stringsElement) : e3.options.stringsElement, e3.stringsElement) {
+      e3.strings = [], e3.stringsElement.style.cssText = "clip: rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px;";
+      var r2 = Array.prototype.slice.apply(e3.stringsElement.children), o = r2.length;
+      if (o)
+        for (var a = 0;a < o; a += 1)
+          e3.strings.push(r2[a].innerHTML.trim());
+    }
+    for (var u in e3.strPos = 0, e3.currentElContent = this.getCurrentElContent(e3), e3.currentElContent && e3.currentElContent.length > 0 && (e3.strPos = e3.currentElContent.length - 1, e3.strings.unshift(e3.currentElContent)), e3.sequence = [], e3.strings)
+      e3.sequence[u] = u;
+    e3.arrayPos = 0, e3.stopNum = 0, e3.loop = e3.options.loop, e3.loopCount = e3.options.loopCount, e3.curLoop = 0, e3.shuffle = e3.options.shuffle, e3.pause = { status: false, typewrite: true, curString: "", curStrPos: 0 }, e3.typingComplete = false, e3.autoInsertCss = e3.options.autoInsertCss, e3.autoInsertCss && (this.appendCursorAnimationCss(e3), this.appendFadeOutAnimationCss(e3));
+  }, n.getCurrentElContent = function(t2) {
+    return t2.attr ? t2.el.getAttribute(t2.attr) : t2.isInput ? t2.el.value : t2.contentType === "html" ? t2.el.innerHTML : t2.el.textContent;
+  }, n.appendCursorAnimationCss = function(t2) {
+    var s2 = "data-typed-js-cursor-css";
+    if (t2.showCursor && !document.querySelector("[" + s2 + "]")) {
+      var e3 = document.createElement("style");
+      e3.setAttribute(s2, "true"), e3.innerHTML = `
+        .typed-cursor{
+          opacity: 1;
+        }
+        .typed-cursor.typed-cursor--blink{
+          animation: typedjsBlink 0.7s infinite;
+          -webkit-animation: typedjsBlink 0.7s infinite;
+                  animation: typedjsBlink 0.7s infinite;
+        }
+        @keyframes typedjsBlink{
+          50% { opacity: 0.0; }
+        }
+        @-webkit-keyframes typedjsBlink{
+          0% { opacity: 1; }
+          50% { opacity: 0.0; }
+          100% { opacity: 1; }
+        }
+      `, document.body.appendChild(e3);
+    }
+  }, n.appendFadeOutAnimationCss = function(t2) {
+    var s2 = "data-typed-fadeout-js-css";
+    if (t2.fadeOut && !document.querySelector("[" + s2 + "]")) {
+      var e3 = document.createElement("style");
+      e3.setAttribute(s2, "true"), e3.innerHTML = `
+        .typed-fade-out{
+          opacity: 0;
+          transition: opacity .25s;
+        }
+        .typed-cursor.typed-cursor--blink.typed-fade-out{
+          -webkit-animation: 0;
+          animation: 0;
+        }
+      `, document.body.appendChild(e3);
+    }
+  }, e2;
+}());
+var n = new (/* @__PURE__ */ function() {
+  function t2() {}
+  var s2 = t2.prototype;
+  return s2.typeHtmlChars = function(t3, s3, e2) {
+    if (e2.contentType !== "html")
+      return s3;
+    var n2 = t3.substring(s3).charAt(0);
+    if (n2 === "<" || n2 === "&") {
+      var i;
+      for (i = n2 === "<" ? ">" : ";";t3.substring(s3 + 1).charAt(0) !== i && !(1 + ++s3 > t3.length); )
+        ;
+      s3++;
+    }
+    return s3;
+  }, s2.backSpaceHtmlChars = function(t3, s3, e2) {
+    if (e2.contentType !== "html")
+      return s3;
+    var n2 = t3.substring(s3).charAt(0);
+    if (n2 === ">" || n2 === ";") {
+      var i;
+      for (i = n2 === ">" ? "<" : "&";t3.substring(s3 - 1).charAt(0) !== i && !(--s3 < 0); )
+        ;
+      s3--;
+    }
+    return s3;
+  }, t2;
+}());
+var i = /* @__PURE__ */ function() {
+  function t2(t3, s3) {
+    e.load(this, s3, t3), this.begin();
+  }
+  var s2 = t2.prototype;
+  return s2.toggle = function() {
+    this.pause.status ? this.start() : this.stop();
+  }, s2.stop = function() {
+    this.typingComplete || this.pause.status || (this.toggleBlinking(true), this.pause.status = true, this.options.onStop(this.arrayPos, this));
+  }, s2.start = function() {
+    this.typingComplete || this.pause.status && (this.pause.status = false, this.pause.typewrite ? this.typewrite(this.pause.curString, this.pause.curStrPos) : this.backspace(this.pause.curString, this.pause.curStrPos), this.options.onStart(this.arrayPos, this));
+  }, s2.destroy = function() {
+    this.reset(false), this.options.onDestroy(this);
+  }, s2.reset = function(t3) {
+    t3 === undefined && (t3 = true), clearInterval(this.timeout), this.replaceText(""), this.cursor && this.cursor.parentNode && (this.cursor.parentNode.removeChild(this.cursor), this.cursor = null), this.strPos = 0, this.arrayPos = 0, this.curLoop = 0, t3 && (this.insertCursor(), this.options.onReset(this), this.begin());
+  }, s2.begin = function() {
+    var t3 = this;
+    this.options.onBegin(this), this.typingComplete = false, this.shuffleStringsIfNeeded(this), this.insertCursor(), this.bindInputFocusEvents && this.bindFocusEvents(), this.timeout = setTimeout(function() {
+      t3.strPos === 0 ? t3.typewrite(t3.strings[t3.sequence[t3.arrayPos]], t3.strPos) : t3.backspace(t3.strings[t3.sequence[t3.arrayPos]], t3.strPos);
+    }, this.startDelay);
+  }, s2.typewrite = function(t3, s3) {
+    var e2 = this;
+    this.fadeOut && this.el.classList.contains(this.fadeOutClass) && (this.el.classList.remove(this.fadeOutClass), this.cursor && this.cursor.classList.remove(this.fadeOutClass));
+    var i2 = this.humanizer(this.typeSpeed), r2 = 1;
+    this.pause.status !== true ? this.timeout = setTimeout(function() {
+      s3 = n.typeHtmlChars(t3, s3, e2);
+      var i3 = 0, o = t3.substring(s3);
+      if (o.charAt(0) === "^" && /^\^\d+/.test(o)) {
+        var a = 1;
+        a += (o = /\d+/.exec(o)[0]).length, i3 = parseInt(o), e2.temporaryPause = true, e2.options.onTypingPaused(e2.arrayPos, e2), t3 = t3.substring(0, s3) + t3.substring(s3 + a), e2.toggleBlinking(true);
+      }
+      if (o.charAt(0) === "`") {
+        for (;t3.substring(s3 + r2).charAt(0) !== "`" && (r2++, !(s3 + r2 > t3.length)); )
+          ;
+        var u = t3.substring(0, s3), p = t3.substring(u.length + 1, s3 + r2), c = t3.substring(s3 + r2 + 1);
+        t3 = u + p + c, r2--;
+      }
+      e2.timeout = setTimeout(function() {
+        e2.toggleBlinking(false), s3 >= t3.length ? e2.doneTyping(t3, s3) : e2.keepTyping(t3, s3, r2), e2.temporaryPause && (e2.temporaryPause = false, e2.options.onTypingResumed(e2.arrayPos, e2));
+      }, i3);
+    }, i2) : this.setPauseStatus(t3, s3, true);
+  }, s2.keepTyping = function(t3, s3, e2) {
+    s3 === 0 && (this.toggleBlinking(false), this.options.preStringTyped(this.arrayPos, this));
+    var n2 = t3.substring(0, s3 += e2);
+    this.replaceText(n2), this.typewrite(t3, s3);
+  }, s2.doneTyping = function(t3, s3) {
+    var e2 = this;
+    this.options.onStringTyped(this.arrayPos, this), this.toggleBlinking(true), this.arrayPos === this.strings.length - 1 && (this.complete(), this.loop === false || this.curLoop === this.loopCount) || (this.timeout = setTimeout(function() {
+      e2.backspace(t3, s3);
+    }, this.backDelay));
+  }, s2.backspace = function(t3, s3) {
+    var e2 = this;
+    if (this.pause.status !== true) {
+      if (this.fadeOut)
+        return this.initFadeOut();
+      this.toggleBlinking(false);
+      var i2 = this.humanizer(this.backSpeed);
+      this.timeout = setTimeout(function() {
+        s3 = n.backSpaceHtmlChars(t3, s3, e2);
+        var i3 = t3.substring(0, s3);
+        if (e2.replaceText(i3), e2.smartBackspace) {
+          var r2 = e2.strings[e2.arrayPos + 1];
+          e2.stopNum = r2 && i3 === r2.substring(0, s3) ? s3 : 0;
+        }
+        s3 > e2.stopNum ? (s3--, e2.backspace(t3, s3)) : s3 <= e2.stopNum && (e2.arrayPos++, e2.arrayPos === e2.strings.length ? (e2.arrayPos = 0, e2.options.onLastStringBackspaced(), e2.shuffleStringsIfNeeded(), e2.begin()) : e2.typewrite(e2.strings[e2.sequence[e2.arrayPos]], s3));
+      }, i2);
+    } else
+      this.setPauseStatus(t3, s3, false);
+  }, s2.complete = function() {
+    this.options.onComplete(this), this.loop ? this.curLoop++ : this.typingComplete = true;
+  }, s2.setPauseStatus = function(t3, s3, e2) {
+    this.pause.typewrite = e2, this.pause.curString = t3, this.pause.curStrPos = s3;
+  }, s2.toggleBlinking = function(t3) {
+    this.cursor && (this.pause.status || this.cursorBlinking !== t3 && (this.cursorBlinking = t3, t3 ? this.cursor.classList.add("typed-cursor--blink") : this.cursor.classList.remove("typed-cursor--blink")));
+  }, s2.humanizer = function(t3) {
+    return Math.round(Math.random() * t3 / 2) + t3;
+  }, s2.shuffleStringsIfNeeded = function() {
+    this.shuffle && (this.sequence = this.sequence.sort(function() {
+      return Math.random() - 0.5;
+    }));
+  }, s2.initFadeOut = function() {
+    var t3 = this;
+    return this.el.className += " " + this.fadeOutClass, this.cursor && (this.cursor.className += " " + this.fadeOutClass), setTimeout(function() {
+      t3.arrayPos++, t3.replaceText(""), t3.strings.length > t3.arrayPos ? t3.typewrite(t3.strings[t3.sequence[t3.arrayPos]], 0) : (t3.typewrite(t3.strings[0], 0), t3.arrayPos = 0);
+    }, this.fadeOutDelay);
+  }, s2.replaceText = function(t3) {
+    this.attr ? this.el.setAttribute(this.attr, t3) : this.isInput ? this.el.value = t3 : this.contentType === "html" ? this.el.innerHTML = t3 : this.el.textContent = t3;
+  }, s2.bindFocusEvents = function() {
+    var t3 = this;
+    this.isInput && (this.el.addEventListener("focus", function(s3) {
+      t3.stop();
+    }), this.el.addEventListener("blur", function(s3) {
+      t3.el.value && t3.el.value.length !== 0 || t3.start();
+    }));
+  }, s2.insertCursor = function() {
+    this.showCursor && (this.cursor || (this.cursor = document.createElement("span"), this.cursor.className = "typed-cursor", this.cursor.setAttribute("aria-hidden", true), this.cursor.innerHTML = this.cursorChar, this.el.parentNode && this.el.parentNode.insertBefore(this.cursor, this.el.nextSibling)));
+  }, t2;
+}();
+
+// node_modules/react-typed/dist/mjs/index.js
+var ReactTyped = import_react.memo(({ style, className, typedRef, parseRef: transformRef, stopped, children, startWhenVisible, ...typedOptions }) => {
+  const rootElement = import_react.useRef(null);
+  const shouldUpdateArgs = import_react.useMemo(() => [
+    ...Object.values(typedOptions).filter((v) => typeof v === "boolean" || typeof v === "number" || typeof v === "string"),
+    typedOptions.strings?.join(",")
+  ], [typedOptions]);
+  import_react.useEffect(() => {
+    const element = transformRef && transformRef(rootElement) || rootElement.current;
+    const typed = new i(element, { ...typedOptions });
+    if (stopped || startWhenVisible) {
+      typed?.stop();
+    }
+    if (startWhenVisible) {
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          typed?.start();
+          observer.disconnect();
+        }
+      });
+      observer.observe(element);
+    }
+    if (typedRef && typed) {
+      typedRef(typed);
+    }
+    return () => {
+      typed.destroy();
+    };
+  }, shouldUpdateArgs);
+  const child = !children ? import_react.default.createElement("span", { style, ref: rootElement }) : import_react.default.cloneElement(children, {
+    ref: rootElement
+  });
+  return import_react.default.createElement("span", { style, className, "data-testid": "react-typed" }, child);
+});
+
+// src/components/ui/hero-designali.tsx
+var jsx_dev_runtime = __toESM(require_jsx_dev_runtime(), 1);
+"use client";
+function n2(e2) {
+  this.init(e2 || {});
+}
+n2.prototype = {
+  init: function(e2) {
+    this.phase = e2.phase || 0;
+    this.offset = e2.offset || 0;
+    this.frequency = e2.frequency || 0.001;
+    this.amplitude = e2.amplitude || 1;
+  },
+  update: function() {
+    return this.phase += this.frequency, e2 = this.offset + Math.sin(this.phase) * this.amplitude;
+  },
+  value: function() {
+    return e2;
+  }
+};
+function Line(e2) {
+  this.init(e2 || {});
+}
+Line.prototype = {
+  init: function(e2) {
+    this.spring = e2.spring + 0.1 * Math.random() - 0.05;
+    this.friction = E.friction + 0.01 * Math.random() - 0.005;
+    this.nodes = [];
+    for (var t2, n3 = 0;n3 < E.size; n3++) {
+      t2 = new Node2;
+      t2.x = pos.x;
+      t2.y = pos.y;
+      this.nodes.push(t2);
+    }
+  },
+  update: function() {
+    let e2 = this.spring, t2 = this.nodes[0];
+    t2.vx += (pos.x - t2.x) * e2;
+    t2.vy += (pos.y - t2.y) * e2;
+    for (var n3, i2 = 0, a = this.nodes.length;i2 < a; i2++)
+      t2 = this.nodes[i2], 0 < i2 && (n3 = this.nodes[i2 - 1], t2.vx += (n3.x - t2.x) * e2, t2.vy += (n3.y - t2.y) * e2, t2.vx += n3.vx * E.dampening, t2.vy += n3.vy * E.dampening), t2.vx *= this.friction, t2.vy *= this.friction, t2.x += t2.vx, t2.y += t2.vy, e2 *= E.tension;
+  },
+  draw: function() {
+    let e2, t2, n3 = this.nodes[0].x, i2 = this.nodes[0].y;
+    ctx.beginPath();
+    ctx.moveTo(n3, i2);
+    for (var a = 1, o = this.nodes.length - 2;a < o; a++) {
+      e2 = this.nodes[a];
+      t2 = this.nodes[a + 1];
+      n3 = 0.5 * (e2.x + t2.x);
+      i2 = 0.5 * (e2.y + t2.y);
+      ctx.quadraticCurveTo(e2.x, e2.y, n3, i2);
+    }
+    e2 = this.nodes[a];
+    t2 = this.nodes[a + 1];
+    ctx.quadraticCurveTo(e2.x, e2.y, t2.x, t2.y);
+    ctx.stroke();
+    ctx.closePath();
+  }
+};
+function onMousemove(e2) {
+  function o() {
+    lines = [];
+    for (let e3 = 0;e3 < E.trails; e3++)
+      lines.push(new Line({ spring: 0.45 + e3 / E.trails * 0.025 }));
+  }
+  function c(e3) {
+    e3.touches ? (pos.x = e3.touches[0].pageX, pos.y = e3.touches[0].pageY) : (pos.x = e3.clientX, pos.y = e3.clientY), e3.preventDefault();
+  }
+  function l(e3) {
+    e3.touches.length == 1 && (pos.x = e3.touches[0].pageX, pos.y = e3.touches[0].pageY);
+  }
+  document.removeEventListener("mousemove", onMousemove), document.removeEventListener("touchstart", onMousemove), document.addEventListener("mousemove", c), document.addEventListener("touchmove", c), document.addEventListener("touchstart", l), c(e2), o(), render();
+}
+function render() {
+  if (ctx && ctx.running) {
+    ctx.globalCompositeOperation = "source-over";
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.globalCompositeOperation = "lighter";
+    ctx.strokeStyle = "hsla(" + Math.round(f.update()) + ",100%,50%,0.025)";
+    ctx.lineWidth = 10;
+    for (var e2, t2 = 0;t2 < E.trails; t2++) {
+      (e2 = lines[t2]).update();
+      e2.draw();
+    }
+    ctx.frame++;
+    window.requestAnimationFrame(render);
+  }
+}
+function resizeCanvas() {
+  if (ctx && ctx.canvas) {
+    ctx.canvas.width = window.innerWidth - 20;
+    ctx.canvas.height = window.innerHeight;
+  }
+}
+var ctx;
+var f;
+var e2 = 0;
+var pos = {};
+var lines = [];
+var E = {
+  debug: true,
+  friction: 0.5,
+  trails: 80,
+  size: 50,
+  dampening: 0.025,
+  tension: 0.99
+};
+function Node2() {
+  this.x = 0;
+  this.y = 0;
+  this.vy = 0;
+  this.vx = 0;
+}
+var renderCanvas = function() {
+  const canvasEl = document.getElementById("canvas");
+  if (!canvasEl)
+    return;
+  ctx = canvasEl.getContext("2d");
+  if (!ctx)
+    return;
+  ctx.running = true;
+  ctx.frame = 1;
+  f = new n2({
+    phase: Math.random() * 2 * Math.PI,
+    amplitude: 85,
+    frequency: 0.0015,
+    offset: 285
+  });
+  document.addEventListener("mousemove", onMousemove);
+  document.addEventListener("touchstart", onMousemove);
+  document.body.addEventListener("orientationchange", resizeCanvas);
+  window.addEventListener("resize", resizeCanvas);
+  window.addEventListener("focus", () => {
+    if (!ctx.running) {
+      ctx.running = true;
+      render();
+    }
+  });
+  window.addEventListener("blur", () => {
+    ctx.running = true;
+  });
+  resizeCanvas();
+};
+var TypeWriter = ({ strings }) => {
+  return /* @__PURE__ */ jsx_dev_runtime.jsxDEV(ReactTyped, {
+    loop: true,
+    typeSpeed: 80,
+    backSpeed: 20,
+    strings,
+    smartBackspace: true,
+    backDelay: 1000,
+    loopCount: 0,
+    showCursor: true,
+    cursorChar: "|"
+  }, undefined, false, undefined, this);
+};
+function ShineBorder({
+  borderRadius = 8,
+  borderWidth = 1,
+  duration = 14,
+  color = "#000000",
+  className,
+  children
+}) {
+  return /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
+    style: {
+      "--border-radius": `${borderRadius}px`
+    },
+    className: cn("relative grid h-full w-full place-items-center rounded-3xl bg-white p-3 text-black dark:bg-black dark:text-white", className),
+    children: [
       /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
-        "data-gp-content": true,
-        id: `${uid}-content`,
-        tabIndex: -1,
-        children: children ?? /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
-          children: [
-            /* @__PURE__ */ jsx_dev_runtime.jsxDEV("h2", {
-              "data-gp-default-title": true,
-              children: "A letter becomes a place."
-            }, undefined, false, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime.jsxDEV("p", {
-              "data-gp-default-copy": true,
-              children: "The shape opens onto whatever comes next."
-            }, undefined, false, undefined, this)
-          ]
-        }, undefined, true, undefined, this)
-      }, undefined, false, undefined, this)
+        style: {
+          "--border-width": `${borderWidth}px`,
+          "--border-radius": `${borderRadius}px`,
+          "--shine-pulse-duration": `${duration}s`,
+          "--mask-linear-gradient": `linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)`,
+          "--background-radial-gradient": `radial-gradient(transparent,transparent, ${color instanceof Array ? color.join(",") : color},transparent,transparent)`
+        },
+        className: `before:bg-shine-size before:absolute before:inset-0 before:aspect-square before:size-full before:rounded-3xl before:p-[--border-width] before:will-change-[background-position] before:content-[""] before:![-webkit-mask-composite:xor] before:[background-image:--background-radial-gradient] before:[background-size:300%_300%] before:![mask-composite:exclude] before:[mask:--mask-linear-gradient] motion-safe:before:animate-[shine-pulse_var(--shine-pulse-duration)_infinite_linear]`
+      }, undefined, false, undefined, this),
+      children
     ]
   }, undefined, true, undefined, this);
 }
 
-// src/components/ui/hyperdrive-hero.tsx
-var import_react2 = __toESM(require_react(), 1);
-var jsx_dev_runtime2 = __toESM(require_jsx_dev_runtime(), 1);
-"use client";
-var cn = (...classes) => classes.filter(Boolean).join(" ");
-var StarfieldCanvas = ({
-  starColor = "white",
-  speed: baseSpeed = 2,
-  interactive = true,
-  className,
-  style
-}) => {
-  const canvasRef = import_react2.useRef(null);
-  import_react2.useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas)
-      return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx)
-      return;
-    let animationFrameId;
-    let stars = [];
-    const numStars = 800;
-    let speed = baseSpeed;
-    const resizeCanvas = () => {
-      if (!canvas)
-        return;
-      const parent = canvas.parentElement;
-      const w = parent ? parent.clientWidth : window.innerWidth;
-      const h = parent ? parent.clientHeight : window.innerHeight;
-      canvas.width = Math.max(w || window.innerWidth, 320);
-      canvas.height = Math.max(h || window.innerHeight, 320);
-    };
-
-    class Star {
-      x;
-      y;
-      z;
-      pz;
-      constructor() {
-        this.x = Math.random() * canvas.width - canvas.width / 2;
-        this.y = Math.random() * canvas.height - canvas.height / 2;
-        this.z = Math.random() * canvas.width;
-        this.pz = this.z;
-      }
-      update() {
-        this.z = this.z - speed;
-        if (this.z < 1) {
-          this.z = canvas.width;
-          this.x = Math.random() * canvas.width - canvas.width / 2;
-          this.y = Math.random() * canvas.height - canvas.height / 2;
-          this.pz = this.z;
-        }
-      }
-      draw() {
-        if (!ctx || !canvas)
-          return;
-        const sx = this.x / this.z * canvas.width / 2 + canvas.width / 2;
-        const sy = this.y / this.z * canvas.height / 2 + canvas.height / 2;
-        const r = Math.max(0.1, (1 - this.z / canvas.width) * 2.5);
-        const px = this.x / this.pz * canvas.width / 2 + canvas.width / 2;
-        const py = this.y / this.pz * canvas.height / 2 + canvas.height / 2;
-        this.pz = this.z;
-        ctx.beginPath();
-        ctx.moveTo(px, py);
-        ctx.lineTo(sx, sy);
-        ctx.lineWidth = r * 2;
-        const alpha = Math.max(0, Math.min(1, 1 - this.z / canvas.width));
-        if (starColor === "copper") {
-          const variant = Math.abs(Math.floor(this.x + this.y)) % 4;
-          if (variant === 0) {
-            ctx.strokeStyle = `rgba(255, 248, 238, ${alpha})`;
-          } else if (variant === 1) {
-            ctx.strokeStyle = `rgba(223, 157, 95, ${alpha})`;
-          } else {
-            ctx.strokeStyle = `rgba(200, 132, 67, ${alpha})`;
-          }
-        } else if (starColor === "cyan") {
-          ctx.strokeStyle = `rgba(0, 229, 255, ${alpha})`;
-        } else {
-          ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
-        }
-        ctx.stroke();
-      }
-    }
-    const init = () => {
-      stars = [];
-      for (let i = 0;i < numStars; i++) {
-        stars.push(new Star);
-      }
-    };
-    const animate = () => {
-      ctx.fillStyle = "rgba(12, 11, 10, 0.22)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      stars.forEach((star) => {
-        star.update();
-        star.draw();
-      });
-      animationFrameId = requestAnimationFrame(animate);
-    };
-    const handleMouseMove = (event) => {
-      if (!interactive)
-        return;
-      const centerX = window.innerWidth / 2;
-      const dist = Math.abs(event.clientX - centerX);
-      const maxDist = window.innerWidth / 2;
-      speed = baseSpeed + (1 - dist / maxDist) * 20;
-    };
-    window.addEventListener("resize", resizeCanvas);
-    if (interactive) {
-      window.addEventListener("mousemove", handleMouseMove);
-    }
-    resizeCanvas();
-    init();
-    animate();
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-      window.removeEventListener("resize", resizeCanvas);
-      if (interactive) {
-        window.removeEventListener("mousemove", handleMouseMove);
-      }
-    };
-  }, [starColor, baseSpeed, interactive]);
-  return /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("canvas", {
-    ref: canvasRef,
-    className: cn("absolute inset-0 z-0 w-full h-full", className),
-    style: {
-      position: "absolute",
-      inset: 0,
-      width: "100%",
-      height: "100%",
-      pointerEvents: "none",
-      zIndex: 0,
-      ...style
-    }
-  }, undefined, false, undefined, this);
-};
-
 // src/stakeholders-glyph-entry.tsx
-var jsx_dev_runtime3 = __toESM(require_jsx_dev_runtime(), 1);
-if (typeof window !== "undefined") {
-  if ("scrollRestoration" in history) {
-    history.scrollRestoration = "manual";
-  }
-  if (window.location.hash) {
-    history.replaceState(null, document.title, window.location.pathname + window.location.search);
-  }
-  window.scrollTo(0, 0);
-  window.addEventListener("beforeunload", () => {
-    window.scrollTo(0, 0);
-  });
-}
+var jsx_dev_runtime2 = __toESM(require_jsx_dev_runtime(), 1);
 var StakeholdersHero = () => {
-  const [, setFontReady] = import_react3.useState(false);
-  import_react3.useEffect(() => {
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
-    }
-    window.scrollTo(0, 0);
-    if (document.fonts) {
-      document.fonts.ready.then(() => setFontReady(true));
-    } else {
-      setFontReady(true);
-    }
+  import_react2.useEffect(() => {
+    renderCanvas();
   }, []);
-  const displayFont = '"Bricolage Grotesque", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-  return /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-    className: "stakeholders-glyph-wrapper",
-    role: "region",
-    "aria-label": "Overbrewed Portal Entrance",
+  const capabilities = [
+    "Workflow Automation",
+    "Financial Digital Twins",
+    "Autonomous AI Agents",
+    "Document Intelligence",
+    "Operational Decision Engines"
+  ];
+  return /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("section", {
+    id: "hero",
     style: {
-      width: "100%",
-      fontFamily: displayFont,
       position: "relative",
-      background: "#0C0B0A"
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      overflow: "hidden",
+      padding: "80px 24px 0",
+      boxSizing: "border-box",
+      background: "#0C0B0A",
+      minHeight: "85vh"
     },
     children: [
-      /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("style", {
-        children: `
-        /* Overbrewed Craft Brewery x Futuristic Tech Portal Theme */
-        .stakeholders-glyph-wrapper {
-          background: #0C0B0A !important;
-        }
-        .stakeholders-glyph-wrapper section {
-          background: #0C0B0A !important;
-          color: #111111 !important;
-        }
-        .stakeholders-glyph-wrapper [data-gp-pin] {
-          background: #F5F0E6 !important;
-        }
-        .stakeholders-glyph-wrapper [data-gp-caption] {
-          inset: calc(var(--gp-word-bottom, 50%) + 72px) 24px auto;
-          justify-content: center;
-          display: flex;
-          align-items: center;
-          gap: 16px;
-        }
-        .stakeholders-glyph-wrapper [data-gp-hint] {
-          display: none;
-        }
-        .stakeholders-glyph-wrapper [data-gp-enter] {
-          min-height: 48px;
-          padding: 0 28px;
-          background: linear-gradient(180deg, #DF9D5F 0%, #C88443 62%);
-          border: 0;
-          border-radius: 9999px;
-          color: #FFFFFF;
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 14px;
-          font-weight: 700;
-          letter-spacing: 0.02em;
-          box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.36),
-            inset 0 -2px 0 #9E5F28,
-            0 1px 2px rgba(17, 17, 17, 0.12),
-            0 8px 20px -6px rgba(200, 132, 67, 0.45);
-          transition: background 0.2s cubic-bezier(0.22, 1, 0.36, 1), transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-          text-decoration: none;
-          cursor: pointer;
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-        }
-        .stakeholders-glyph-wrapper [data-gp-enter]:hover {
-          background: linear-gradient(180deg, #E6A76E 0%, #C88443 62%);
-          box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.48),
-            inset 0 -3px 0 #9E5F28,
-            0 2px 4px rgba(17, 17, 17, 0.16),
-            0 16px 28px -8px rgba(200, 132, 67, 0.55);
-          transform: translateY(-1.5px);
-          color: #FFFFFF;
-        }
-        .stakeholders-glyph-wrapper [data-gp-letter]:focus-visible {
-          outline: 2px solid #C88443 !important;
-          outline-offset: 4px;
-        }
-        .stakeholders-glyph-wrapper [data-gp-content] {
-          padding: 0 !important;
-          margin-top: 0 !important;
-          min-height: 100svh !important;
-          display: flex !important;
-          flex-direction: column !important;
-          justify-content: flex-start !important;
-          position: relative !important;
-          overflow: visible !important;
-          background: #0C0B0A !important;
-          z-index: 2 !important;
-        }
-      `
-      }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(GlyphPortal, {
-        word: "OVERBREWED",
-        fontFamily: displayFont,
-        fontWeight: 900,
-        scrollLength: 1.8,
-        interactive: true,
-        annotations: false,
-        enterLabel: "Step Inside",
+      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("canvas", {
+        id: "canvas",
         style: {
-          "--gp-paper": "#F5F0E6",
-          "--gp-ink": "#111111",
-          "--gp-field": "#0D0C0B",
-          "--gp-foreground": "#F5F0E6"
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          pointerEvents: "none",
+          zIndex: 1
+        }
+      }, undefined, false, undefined, this),
+      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+        style: {
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+          background: "radial-gradient(circle at 50% 25%, rgba(200, 132, 67, 0.18) 0%, rgba(14, 13, 12, 0.85) 60%, #0A0A09 100%)",
+          zIndex: 0
+        }
+      }, undefined, false, undefined, this),
+      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+        style: {
+          position: "absolute",
+          inset: 0,
+          opacity: 0.12,
+          backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px)",
+          backgroundSize: "36px 36px",
+          pointerEvents: "none",
+          zIndex: 0
+        }
+      }, undefined, false, undefined, this),
+      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+        style: {
+          position: "relative",
+          zIndex: 10,
+          maxWidth: "1040px",
+          width: "100%",
+          textAlign: "center",
+          margin: "0 auto",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center"
         },
-        background: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-          style: { position: "absolute", inset: 0, overflow: "hidden", background: "#0E0D0C" },
-          children: [
-            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(StarfieldCanvas, {
-              starColor: "copper",
-              speed: 1.2,
-              interactive: false
-            }, undefined, false, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-              style: {
-                position: "absolute",
-                inset: 0,
-                background: "radial-gradient(ellipse at 50% 50%, rgba(200, 132, 67, 0.28) 0%, rgba(14, 13, 12, 0.72) 70%, #0E0D0C 100%)",
-                pointerEvents: "none"
-              }
-            }, undefined, false, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-              style: {
-                position: "absolute",
-                inset: 0,
-                opacity: 0.15,
-                backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.25) 1px, transparent 1px)",
-                backgroundSize: "32px 32px",
-                pointerEvents: "none"
-              }
-            }, undefined, false, undefined, this)
-          ]
-        }, undefined, true, undefined, this),
-        front: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-          style: { pointerEvents: "auto", fontFamily: "'Plus Jakarta Sans', sans-serif" },
-          children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("p", {
+        children: [
+          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
             style: {
-              position: "absolute",
-              inset: "calc(var(--gp-word-bottom, 50%) + 24px) 24px auto",
-              margin: 0,
-              textAlign: "center",
-              fontSize: "15px",
-              fontWeight: 500,
-              lineHeight: 1.5,
-              color: "#78716C"
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "6px 18px",
+              borderRadius: "9999px",
+              background: "rgba(200, 132, 67, 0.12)",
+              border: "1px solid rgba(200, 132, 67, 0.32)",
+              color: "#DF9D5F",
+              fontSize: "12px",
+              fontWeight: 700,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              marginBottom: "28px"
             },
-            children: "Scroll through typography to enter the studio ↓"
-          }, undefined, false, undefined, this)
-        }, undefined, false, undefined, this),
-        children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-          id: "hero",
-          style: {
-            position: "relative",
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            overflow: "hidden",
-            padding: "48px 24px 0",
-            boxSizing: "border-box",
-            background: "#0C0B0A"
-          },
-          children: [
-            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(StarfieldCanvas, {
-              starColor: "copper",
-              speed: 2,
-              interactive: true
-            }, undefined, false, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-              style: {
-                position: "absolute",
-                inset: 0,
-                pointerEvents: "none",
-                background: "radial-gradient(circle at 50% 25%, rgba(200, 132, 67, 0.22) 0%, rgba(14, 13, 12, 0.85) 65%, #0A0A09 100%)",
-                zIndex: 1
-              }
-            }, undefined, false, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-              style: {
-                position: "relative",
-                zIndex: 2,
-                maxWidth: "1140px",
-                width: "100%",
-                margin: "0 auto",
-                textAlign: "center"
-              },
-              children: [
-                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+            children: [
+              /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                style: {
+                  width: "7px",
+                  height: "7px",
+                  borderRadius: "50%",
+                  background: "#10B981",
+                  boxShadow: "0 0 10px #10B981"
+                }
+              }, undefined, false, undefined, this),
+              /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                children: "INDEPENDENT AI ENGINEERING STUDIO"
+              }, undefined, false, undefined, this)
+            ]
+          }, undefined, true, undefined, this),
+          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("h1", {
+            style: {
+              fontFamily: "'Newsreader', Georgia, serif",
+              fontSize: "clamp(2.8rem, 6.5vw, 5.2rem)",
+              fontWeight: 400,
+              lineHeight: 1.08,
+              letterSpacing: "-0.035em",
+              color: "#F5F0E6",
+              margin: "0 0 24px",
+              textAlign: "center"
+            },
+            children: [
+              "Intelligence,",
+              " ",
+              /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("em", {
+                style: {
+                  fontStyle: "italic",
+                  fontFamily: "'Newsreader', Georgia, serif",
+                  color: "#DF9D5F"
+                },
+                children: "brewed"
+              }, undefined, false, undefined, this),
+              " ",
+              "for business."
+            ]
+          }, undefined, true, undefined, this),
+          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("p", {
+            style: {
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontSize: "clamp(1.1rem, 2.2vw, 1.35rem)",
+              color: "#E7E5E4",
+              maxWidth: "820px",
+              margin: "0 auto 16px",
+              lineHeight: 1.6,
+              textAlign: "center"
+            },
+            children: [
+              "We engineer autonomous AI systems and software for",
+              " ",
+              /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                style: { color: "#DF9D5F", fontWeight: 700, whiteSpace: "nowrap" },
+                children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV(TypeWriter, {
+                  strings: capabilities
+                }, undefined, false, undefined, this)
+              }, undefined, false, undefined, this)
+            ]
+          }, undefined, true, undefined, this),
+          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("p", {
+            style: {
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontSize: "16px",
+              color: "#A8A29E",
+              maxWidth: "700px",
+              margin: "0 auto 36px",
+              lineHeight: 1.65,
+              textAlign: "center"
+            },
+            children: "From financial intelligence to document automation, we turn complex operational problems into focused, usable software."
+          }, undefined, false, undefined, this),
+          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+            style: {
+              display: "flex",
+              gap: "16px",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              alignItems: "center",
+              marginBottom: "44px"
+            },
+            children: [
+              /* @__PURE__ */ jsx_dev_runtime2.jsxDEV(ShineBorder, {
+                borderRadius: 9999,
+                borderWidth: 2,
+                duration: 12,
+                color: ["#DF9D5F", "#C88443", "#A5BBA8"],
+                className: "p-0 bg-transparent rounded-full border-0",
+                children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("a", {
+                  href: "#contact",
+                  className: "btn btn-primary btn-lg",
                   style: {
+                    minHeight: "50px",
+                    padding: "0 32px",
+                    borderRadius: "9999px",
+                    textDecoration: "none",
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "8px",
-                    padding: "6px 16px",
-                    background: "rgba(200, 132, 67, 0.15)",
-                    border: "1px solid rgba(200, 132, 67, 0.35)",
-                    borderRadius: "9999px",
-                    color: "#DF9D5F",
-                    fontSize: "12px",
-                    fontWeight: 700,
-                    letterSpacing: "0.08em",
-                    marginBottom: "20px",
-                    textTransform: "uppercase",
                     fontFamily: "'Plus Jakarta Sans', sans-serif",
-                    backdropFilter: "blur(8px)"
+                    fontSize: "15px",
+                    fontWeight: 700,
+                    color: "#FFFFFF",
+                    background: "linear-gradient(180deg, #DF9D5F 0%, #C88443 62%)",
+                    boxShadow: "0 4px 20px rgba(200, 132, 67, 0.4)"
                   },
+                  children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                    children: "Discuss a Project ↗"
+                  }, undefined, false, undefined, this)
+                }, undefined, false, undefined, this)
+              }, undefined, false, undefined, this),
+              /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("a", {
+                href: "#fintwin",
+                className: "btn btn-secondary btn-lg",
+                style: {
+                  minHeight: "50px",
+                  padding: "0 30px",
+                  borderRadius: "9999px",
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontSize: "15px",
+                  fontWeight: 600,
+                  color: "#F5F0E6",
+                  background: "rgba(255, 255, 255, 0.08)",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                  backdropFilter: "blur(8px)"
+                },
+                children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                  children: "Explore FinTwin →"
+                }, undefined, false, undefined, this)
+              }, undefined, false, undefined, this)
+            ]
+          }, undefined, true, undefined, this),
+          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+            style: {
+              display: "flex",
+              justifyContent: "center",
+              flexWrap: "wrap",
+              gap: "24px",
+              color: "#A8A29E",
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: "12px",
+              marginBottom: "52px"
+            },
+            children: [
+              /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                children: [
+                  /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("strong", {
+                    style: { color: "#C88443" },
+                    children: "•"
+                  }, undefined, false, undefined, this),
+                  " AI Engineering"
+                ]
+              }, undefined, true, undefined, this),
+              /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                children: [
+                  /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("strong", {
+                    style: { color: "#C88443" },
+                    children: "•"
+                  }, undefined, false, undefined, this),
+                  " Machine Learning"
+                ]
+              }, undefined, true, undefined, this),
+              /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                children: [
+                  /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("strong", {
+                    style: { color: "#C88443" },
+                    children: "•"
+                  }, undefined, false, undefined, this),
+                  " Workflow Automation"
+                ]
+              }, undefined, true, undefined, this)
+            ]
+          }, undefined, true, undefined, this),
+          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+            className: "prototype-showcase-wrap",
+            style: { maxWidth: "100%", width: "100%", margin: "0 auto 60px" },
+            children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+              className: "dashboard-preview-frame",
+              children: [
+                /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+                  className: "prototype-chrome",
                   children: [
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                      style: {
-                        width: "7px",
-                        height: "7px",
-                        borderRadius: "50%",
-                        background: "#C88443",
-                        boxShadow: "0 0 10px #C88443"
-                      }
-                    }, undefined, false, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                      children: "INDEPENDENT AI ENGINEERING STUDIO"
-                    }, undefined, false, undefined, this)
-                  ]
-                }, undefined, true, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("h1", {
-                  style: {
-                    fontSize: "clamp(2.5rem, 5.2vw, 4.4rem)",
-                    fontWeight: 600,
-                    letterSpacing: "-0.025em",
-                    lineHeight: 1.12,
-                    marginBottom: "20px",
-                    color: "#F5F0E6",
-                    fontFamily: "'Newsreader', Georgia, serif"
-                  },
-                  children: [
-                    "Intelligence, ",
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("em", {
-                      style: { fontStyle: "italic", color: "#DF9D5F" },
-                      children: "brewed"
-                    }, undefined, false, undefined, this),
-                    " for business."
-                  ]
-                }, undefined, true, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("p", {
-                  style: {
-                    fontSize: "clamp(16px, 2vw, 19px)",
-                    color: "#D6CEC3",
-                    lineHeight: 1.6,
-                    maxWidth: "760px",
-                    margin: "0 auto 14px",
-                    fontFamily: "'Plus Jakarta Sans', sans-serif"
-                  },
-                  children: "We build practical AI agents and intelligent software that help businesses automate repetitive workflows, make sense of complex data, and make better-informed decisions."
-                }, undefined, false, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("p", {
-                  style: {
-                    fontSize: "clamp(14px, 1.6vw, 16px)",
-                    color: "#A8A29E",
-                    lineHeight: 1.6,
-                    maxWidth: "720px",
-                    margin: "0 auto 32px",
-                    fontFamily: "'Plus Jakarta Sans', sans-serif"
-                  },
-                  children: "From financial intelligence to document automation, we turn complex operational problems into focused, usable software."
-                }, undefined, false, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                  style: {
-                    display: "flex",
-                    flexWrap: "wrap",
-                    justifyContent: "center",
-                    gap: "16px",
-                    alignItems: "center",
-                    marginBottom: "32px"
-                  },
-                  children: [
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("a", {
-                      href: "#fintwin",
-                      className: "btn btn-secondary btn-lg",
-                      style: {
-                        minHeight: "48px",
-                        padding: "0 28px",
-                        borderRadius: "9999px",
-                        textDecoration: "none",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "8px",
-                        fontFamily: "'Plus Jakarta Sans', sans-serif",
-                        fontSize: "14px",
-                        fontWeight: 600,
-                        color: "#F5F0E6",
-                        background: "rgba(255, 255, 255, 0.08)",
-                        border: "1px solid rgba(255, 255, 255, 0.2)",
-                        backdropFilter: "blur(8px)"
-                      },
-                      children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                        children: "Explore FinTwin →"
-                      }, undefined, false, undefined, this)
-                    }, undefined, false, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("a", {
-                      href: "#contact",
-                      className: "btn btn-primary btn-lg",
-                      style: {
-                        minHeight: "48px",
-                        padding: "0 28px",
-                        borderRadius: "9999px",
-                        textDecoration: "none",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "8px",
-                        fontFamily: "'Plus Jakarta Sans', sans-serif",
-                        fontSize: "14px",
-                        fontWeight: 700,
-                        color: "#FFFFFF",
-                        background: "linear-gradient(180deg, #DF9D5F 0%, #C88443 62%)",
-                        boxShadow: "0 4px 20px rgba(200, 132, 67, 0.4)"
-                      },
-                      children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                        children: "Discuss a Project ↗"
-                      }, undefined, false, undefined, this)
-                    }, undefined, false, undefined, this)
-                  ]
-                }, undefined, true, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                  style: {
-                    display: "flex",
-                    justifyContent: "center",
-                    flexWrap: "wrap",
-                    gap: "24px",
-                    color: "#A8A29E",
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: "12px",
-                    marginBottom: "48px"
-                  },
-                  children: [
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+                      className: "chrome-left",
                       children: [
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("strong", {
-                          style: { color: "#C88443" },
-                          children: "•"
-                        }, undefined, false, undefined, this),
-                        " AI Engineering"
-                      ]
-                    }, undefined, true, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                      children: [
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("strong", {
-                          style: { color: "#C88443" },
-                          children: "•"
-                        }, undefined, false, undefined, this),
-                        " Machine Learning"
-                      ]
-                    }, undefined, true, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                      children: [
-                        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("strong", {
-                          style: { color: "#C88443" },
-                          children: "•"
-                        }, undefined, false, undefined, this),
-                        " Workflow Automation"
-                      ]
-                    }, undefined, true, undefined, this)
-                  ]
-                }, undefined, true, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                  className: "prototype-showcase-wrap",
-                  style: { maxWidth: "100%", margin: "0 auto 60px" },
-                  children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                    className: "dashboard-preview-frame",
-                    children: [
-                      /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                        className: "prototype-chrome",
-                        children: [
-                          /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                            className: "chrome-left",
-                            children: [
-                              /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                                className: "chrome-dots",
-                                children: [
-                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                                    className: "dot dot-red"
-                                  }, undefined, false, undefined, this),
-                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                                    className: "dot dot-yellow"
-                                  }, undefined, false, undefined, this),
-                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                                    className: "dot dot-green"
-                                  }, undefined, false, undefined, this)
-                                ]
-                              }, undefined, true, undefined, this),
-                              /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                                className: "prototype-badge-tag",
-                                children: [
-                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("strong", {
-                                    children: "FinTwin"
-                                  }, undefined, false, undefined, this),
-                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                                    children: "/ Product Dashboard"
-                                  }, undefined, false, undefined, this)
-                                ]
-                              }, undefined, true, undefined, this)
-                            ]
-                          }, undefined, true, undefined, this),
-                          /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                            className: "chrome-right",
-                            children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                              className: "status-indicator",
-                              children: [
-                                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                                  className: "status-dot-sage"
-                                }, undefined, false, undefined, this),
-                                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                                  children: "Interactive Walkthrough & Video Loading Soon"
-                                }, undefined, false, undefined, this)
-                              ]
-                            }, undefined, true, undefined, this)
-                          }, undefined, false, undefined, this)
-                        ]
-                      }, undefined, true, undefined, this),
-                      /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                        className: "dashboard-placeholder-canvas",
-                        children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                          className: "dashboard-placeholder-content",
+                        /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+                          className: "chrome-dots",
                           children: [
-                            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                              className: "dashboard-placeholder-icon",
-                              children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("svg", {
-                                width: "40",
-                                height: "40",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "#C88443",
-                                strokeWidth: "1.8",
-                                strokeLinecap: "round",
-                                strokeLinejoin: "round",
-                                children: [
-                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("rect", {
-                                    x: "2",
-                                    y: "3",
-                                    width: "20",
-                                    height: "14",
-                                    rx: "2",
-                                    ry: "2"
-                                  }, undefined, false, undefined, this),
-                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("line", {
-                                    x1: "8",
-                                    y1: "21",
-                                    x2: "16",
-                                    y2: "21"
-                                  }, undefined, false, undefined, this),
-                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("line", {
-                                    x1: "12",
-                                    y1: "17",
-                                    x2: "12",
-                                    y2: "21"
-                                  }, undefined, false, undefined, this),
-                                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("polygon", {
-                                    points: "10 8 15 11 10 14 10 8",
-                                    fill: "#C88443",
-                                    fillOpacity: "0.25"
-                                  }, undefined, false, undefined, this)
-                                ]
-                              }, undefined, true, undefined, this)
+                            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                              className: "dot dot-red"
                             }, undefined, false, undefined, this),
-                            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("h3", {
-                              className: "dashboard-placeholder-heading",
-                              children: "FinTwin Dashboard & Interactive Walkthrough"
+                            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                              className: "dot dot-yellow"
                             }, undefined, false, undefined, this),
-                            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("p", {
-                              className: "dashboard-placeholder-text",
-                              children: "The live interactive financial intelligence dashboard and product demo video will be visible here."
+                            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                              className: "dot dot-green"
+                            }, undefined, false, undefined, this)
+                          ]
+                        }, undefined, true, undefined, this),
+                        /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+                          className: "prototype-badge-tag",
+                          children: [
+                            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("strong", {
+                              children: "FinTwin"
                             }, undefined, false, undefined, this),
-                            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-                              className: "dashboard-placeholder-badges",
-                              children: [
-                                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                                  className: "dp-badge",
-                                  children: "Product Walkthrough Video"
-                                }, undefined, false, undefined, this),
-                                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                                  className: "dp-badge",
-                                  children: "Live Financial Digital Twin"
-                                }, undefined, false, undefined, this),
-                                /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
-                                  className: "dp-badge",
-                                  children: "Dynamic Scenario Engine"
-                                }, undefined, false, undefined, this)
-                              ]
-                            }, undefined, true, undefined, this)
+                            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                              children: "/ Product Dashboard"
+                            }, undefined, false, undefined, this)
                           ]
                         }, undefined, true, undefined, this)
-                      }, undefined, false, undefined, this)
+                      ]
+                    }, undefined, true, undefined, this),
+                    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+                      className: "chrome-right",
+                      children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                        className: "status-indicator",
+                        children: [
+                          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                            className: "status-dot-sage"
+                          }, undefined, false, undefined, this),
+                          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                            children: "Interactive Walkthrough & Video Loading Soon"
+                          }, undefined, false, undefined, this)
+                        ]
+                      }, undefined, true, undefined, this)
+                    }, undefined, false, undefined, this)
+                  ]
+                }, undefined, true, undefined, this),
+                /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+                  className: "dashboard-placeholder-canvas",
+                  children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+                    className: "dashboard-placeholder-content",
+                    children: [
+                      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+                        className: "dashboard-placeholder-icon",
+                        children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("svg", {
+                          width: "40",
+                          height: "40",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "#C88443",
+                          strokeWidth: "1.8",
+                          strokeLinecap: "round",
+                          strokeLinejoin: "round",
+                          children: [
+                            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("rect", {
+                              x: "2",
+                              y: "3",
+                              width: "20",
+                              height: "14",
+                              rx: "2",
+                              ry: "2"
+                            }, undefined, false, undefined, this),
+                            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("line", {
+                              x1: "8",
+                              y1: "21",
+                              x2: "16",
+                              y2: "21"
+                            }, undefined, false, undefined, this),
+                            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("line", {
+                              x1: "12",
+                              y1: "17",
+                              x2: "12",
+                              y2: "21"
+                            }, undefined, false, undefined, this),
+                            /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("polygon", {
+                              points: "10 8 15 11 10 14 10 8",
+                              fill: "#C88443",
+                              fillOpacity: "0.25"
+                            }, undefined, false, undefined, this)
+                          ]
+                        }, undefined, true, undefined, this)
+                      }, undefined, false, undefined, this),
+                      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("h3", {
+                        className: "dashboard-placeholder-heading",
+                        children: "FinTwin Dashboard & Interactive Walkthrough"
+                      }, undefined, false, undefined, this),
+                      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("p", {
+                        className: "dashboard-placeholder-text",
+                        children: "The live interactive financial intelligence dashboard and product demo video will be visible here."
+                      }, undefined, false, undefined, this),
+                      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+                        className: "dashboard-placeholder-badges",
+                        children: [
+                          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                            className: "dp-badge",
+                            children: "Product Walkthrough Video"
+                          }, undefined, false, undefined, this),
+                          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                            className: "dp-badge",
+                            children: "Live Financial Digital Twin"
+                          }, undefined, false, undefined, this),
+                          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+                            className: "dp-badge",
+                            children: "Dynamic Scenario Engine"
+                          }, undefined, false, undefined, this)
+                        ]
+                      }, undefined, true, undefined, this)
                     ]
                   }, undefined, true, undefined, this)
                 }, undefined, false, undefined, this)
               ]
-            }, undefined, true, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-              className: "starfield-to-cream-blend",
-              style: {
-                position: "relative",
-                width: "100%",
-                height: "100px",
-                background: "linear-gradient(180deg, #0C0B0A 0%, rgba(18, 17, 16, 0.85) 40%, rgba(245, 240, 230, 0.95) 85%, #F5F0E6 100%)",
-                zIndex: 3,
-                pointerEvents: "none"
-              }
-            }, undefined, false, undefined, this)
-          ]
-        }, undefined, true, undefined, this)
+            }, undefined, true, undefined, this)
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this),
+      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+        className: "hero-to-cream-blend",
+        style: {
+          height: "90px",
+          width: "100%",
+          background: "linear-gradient(180deg, #0C0B0A 0%, var(--cream, #F5F0E6) 100%)",
+          pointerEvents: "none",
+          position: "relative",
+          zIndex: 10
+        }
       }, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
 };
 var rootEl = document.getElementById("overbrewed-glyph-root");
 if (rootEl) {
-  import_client.createRoot(rootEl).render(/* @__PURE__ */ jsx_dev_runtime3.jsxDEV(StakeholdersHero, {}, undefined, false, undefined, this));
+  import_client.createRoot(rootEl).render(/* @__PURE__ */ jsx_dev_runtime2.jsxDEV(StakeholdersHero, {}, undefined, false, undefined, this));
 }
+var stakeholders_glyph_entry_default = StakeholdersHero;
+export {
+  stakeholders_glyph_entry_default as default
+};
